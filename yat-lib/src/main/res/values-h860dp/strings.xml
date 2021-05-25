@@ -1,0 +1,3 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <string name="step_1_description">%1$s users can now send and receive\nall their favorite currencies with a\none-of-a-kind emoji-based username.</string>
+</resources>

@@ -1,0 +1,3 @@
+rootProject.name = "yat-lib-android"
+include ":yat-lib"
+include ':yat-lib-example'

@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="?containerBackgroundColor">
+
+    <ImageView
+        android:id="@+id/yat_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/yat_logo_top_margin"
+        android:contentDescription="@null"
+        android:src="?yatLogoDrawable" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/tx_info_container_view"
+        android:layout_alignBottom="@id/tx_info_container_view"
+        android:layout_alignParentEnd="true"
+        android:contentDescription="@null"
+        android:src="@drawable/cardano_logo" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tx_info_container_view"
+        android:layout_alignEnd="@id/tx_info_container_view"
+        android:layout_marginTop="-25dp"
+        android:contentDescription="@null"
+        android:src="@drawable/ethereum_logo" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@id/tx_info_container_view"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="-25dp"
+        android:layout_marginBottom="-40dp"
+        android:contentDescription="@null"
+        android:src="@drawable/bitcoin_logo" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignStart="@id/tx_info_container_view"
+        android:layout_alignTop="@id/tx_info_container_view"
+        android:layout_marginStart="-24dp"
+        android:layout_marginTop="-36dp"
+        android:contentDescription="@null"
+        android:src="@drawable/tron_logo" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/tx_info_container_view"
+        android:layout_alignEnd="@id/tx_info_container_view"
+        android:layout_marginTop="-40dp"
+        android:layout_marginEnd="10dp"
+        android:contentDescription="@null"
+        android:src="@drawable/dash_logo" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@id/tx_info_container_view"
+        android:layout_alignEnd="@id/tx_info_container_view"
+        android:layout_marginTop="-38dp"
+        android:layout_marginEnd="82dp"
+        android:contentDescription="@null"
+        android:src="@drawable/tether_logo" />
+
+    <RelativeLayout
+        android:id="@+id/tx_info_container_view"
+        android:layout_width="292dp"
+        android:layout_height="205dp"
+        android:layout_below="@id/yat_logo"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/page_1_tx_info_container_top_margin"
+        android:background="@drawable/page_1_tx_info_container_bg"
+        android:elevation="?viewElevation">
+
+        <yat.android.ui.component.CustomFontTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="20dp"
+            android:gravity="center_horizontal"
+            android:text="@string/step_1_tx_info_sending_btc"
+            android:textColor="@color/black"
+            android:textSize="14sp"
+            app:customFont="ALLIANCE_BOLD" />
+
+        <yat.android.ui.component.CustomFontTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="46dp"
+            android:text="@string/step_1_tx_info_from"
+            android:textColor="@color/light_gray"
+            android:textSize="12sp"
+            app:customFont="ALLIANCE_BOLD" />
+
+        <yat.android.ui.component.CustomFontTextView
+            android:id="@+id/from_address_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="70dp"
+            android:layout_marginEnd="20dp"
+            android:alpha="0.77"
+            android:background="@drawable/page_1_tx_address_bg"
+            android:ellipsize="none"
+            android:gravity="center"
+            android:paddingStart="8dp"
+            android:paddingEnd="0dp"
+            android:singleLine="true"
+            android:text="@string/step_1_tx_info_from_address"
+            android:textColor="@color/x_dark_gray"
+            android:textSize="15sp"
+            app:customFont="ALLIANCE_SEMI_BOLD" />
+
+        <View
+            android:layout_width="100dp"
+            android:layout_height="0dp"
+            android:layout_alignTop="@id/from_address_text_view"
+            android:layout_alignEnd="@id/from_address_text_view"
+            android:layout_alignBottom="@id/from_address_text_view"
+            android:background="@drawable/page_1_address_fade_gradient" />
+
+        <yat.android.ui.component.CustomFontTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="121dp"
+            android:text="@string/step_1_tx_info_to"
+            android:textColor="@color/light_gray"
+            android:textSize="12sp"
+            app:customFont="ALLIANCE_BOLD" />
+
+        <yat.android.ui.component.CustomFontTextView
+            android:id="@+id/to_address_text_view"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="145dp"
+            android:layout_marginEnd="20dp"
+            android:alpha="0.77"
+            android:background="@drawable/page_1_tx_address_bg"
+            android:ellipsize="none"
+            android:gravity="center"
+            android:paddingStart="8dp"
+            android:paddingEnd="0dp"
+            android:singleLine="true"
+            android:text="@string/step_1_tx_info_to_address"
+            android:textColor="@color/x_dark_gray"
+            android:textSize="15sp"
+            app:customFont="ALLIANCE_SEMI_BOLD" />
+
+        <View
+            android:layout_width="100dp"
+            android:layout_height="0dp"
+            android:layout_alignTop="@id/to_address_text_view"
+            android:layout_alignEnd="@id/to_address_text_view"
+            android:layout_alignBottom="@id/to_address_text_view"
+            android:background="@drawable/page_1_address_fade_gradient" />
+
+    </RelativeLayout>
+
+    <yat.android.ui.component.CustomFontTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/description_text_view"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="@dimen/info_title_bottom_margin"
+        android:gravity="center"
+        android:letterSpacing="0.015"
+        android:lineSpacingExtra="6dp"
+        android:text="@string/step_1_title"
+        android:textColor="?infoTitleColor"
+        android:textSize="@dimen/info_title_font_size"
+        app:customFont="?infoTitleFont" />
+
+    <yat.android.ui.component.CustomFontTextView
+        android:id="@+id/description_text_view"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@id/next_button"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="@dimen/info_description_bottom_margin"
+        android:gravity="center"
+        android:letterSpacing="0.01"
+        android:lineSpacingExtra="6dp"
+        android:text="@string/step_1_description"
+        android:textColor="@color/x_light_gray"
+        android:textSize="@dimen/info_description_font_size"
+        app:customFont="?infoDescriptionFont" />
+
+    <yat.android.ui.component.CustomFontButton
+        android:id="@+id/next_button"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="48dp"
+        android:background="@drawable/primary_button_bg"
+        android:text="@string/common_next"
+        android:textAllCaps="false"
+        android:textColor="@color/white"
+        android:textSize="16sp"
+        app:customFont="?buttonFont" />
+
+</RelativeLayout>
