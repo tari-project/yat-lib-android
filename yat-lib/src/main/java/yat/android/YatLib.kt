@@ -80,6 +80,7 @@ class YatLib {
         internal const val userActivationAPIBaseURL = "https://partner.scratch.emojid.me"
         internal const val yatAPIBaseURL = "https://api-dev.yat.rocks/"
         internal const val yatWebAppBaseURL = "https://dev.yat.rocks"
+        internal const val yatTermsURL = "https://pre-waitlist.y.at/terms"
 
         internal lateinit var config: YatAppConfig
         internal lateinit var userId: String

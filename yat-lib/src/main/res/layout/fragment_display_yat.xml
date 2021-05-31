@@ -122,10 +122,10 @@
         android:id="@+id/upgrade_to_a_custom_yat_button"
         android:layout_width="match_parent"
         android:layout_height="48dp"
-        android:layout_alignParentBottom="true"
+        android:layout_above="@id/terms_text_view"
         android:layout_marginStart="16dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="48dp"
+        android:layout_marginBottom="@dimen/display_yat_custom_yat_button_bottom_margin"
         android:background="@drawable/display_yat_page_upgrade_to_a_custom_yat_button_bg"
         android:text="@string/display_yat_upgrade_to_custom_yat"
         android:textAllCaps="false"
@@ -161,5 +161,22 @@
             android:layout_height="28dp"
             android:visibility="visible" />
     </LinearLayout>
+
+    <yat.android.ui.component.CustomFontTextView
+        android:id="@+id/terms_text_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="@dimen/display_yat_terms_bottom_margin"
+        android:clickable="true"
+        android:focusable="true"
+        android:gravity="center"
+        android:letterSpacing="0.01"
+        android:lineSpacingExtra="6dp"
+        android:text="@string/display_yat_terms"
+        android:textColor="@color/x_light_gray"
+        android:textSize="@dimen/info_description_font_size"
+        app:customFont="?infoDescriptionFont" />
 
 </RelativeLayout>

@@ -69,7 +69,7 @@ internal class MainActivity :
             config = config,
             userId = UUID.randomUUID().toString().substring(0, 15),
             userPassword = UUID.randomUUID().toString().substring(0, 15),
-            colorMode = YatLib.ColorMode.LIGHT,
+            colorMode = YatLib.ColorMode.DARK,
             delegate = this,
             yatRecords = yatRecords
         )

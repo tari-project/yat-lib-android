@@ -175,4 +175,13 @@ internal class YatLibActivity :
         startActivity(browserIntent)
     }
 
+    override fun onViewTerms(fragment: DisplayYatFragment) {
+        val url = YatLib.yatTermsURL
+        val browserIntent = Intent(
+            Intent.ACTION_VIEW,
+            Uri.parse(url)
+        )
+        startActivity(browserIntent)
+    }
+
 }

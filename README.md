@@ -19,6 +19,7 @@ class YatLib {
         internal const val userActivationAPIBaseURL = "https://partner.scratch.emojid.me"
         internal const val yatAPIBaseURL = "https://api-dev.yat.rocks/"
         internal const val yatWebAppBaseURL = "https://dev.yat.rocks"
+        internal const val yatTermsURL = "https://pre-waitlist.y.at/terms"
 
         // ...
 
@@ -50,7 +51,7 @@ class YatLib {
 
     ```gradle
     dependencies {
-        implementation 'com.github.yat-labs:yat-lib-android:0.1.1'
+        implementation 'com.github.yat-labs:yat-lib-android:0.1.2'
     }
 
 ## Usage

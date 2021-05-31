@@ -10,4 +10,6 @@
     <dimen name="display_yat_title_top_margin">61dp</dimen>
     <dimen name="display_yat_description_top_margin">20dp</dimen>
     <dimen name="display_yat_emoji_id_top_margin">40dp</dimen>
+    <dimen name="display_yat_custom_yat_button_bottom_margin">30dp</dimen>
+    <dimen name="display_yat_terms_bottom_margin">36dp</dimen>
 </resources>

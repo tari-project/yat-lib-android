@@ -61,6 +61,7 @@ internal class DisplayYatFragment(
         fun onClose(fragment: DisplayYatFragment)
         fun onComplete(fragment: DisplayYatFragment, yat: String)
         fun onUpgradeToCustomYat(fragment: DisplayYatFragment)
+        fun onViewTerms(fragment: DisplayYatFragment)
 
     }
 
@@ -117,6 +118,15 @@ internal class DisplayYatFragment(
         ui.upgradeToACustomYatButton.setOnClickListener {
             it.temporarilyDisableClick()
             onUpgradeToCustomYat()
+        }
+        ui.termsTextView.text = resources.getString(R.string.display_yat_terms).applyColorStyle(
+            resources.getColor(R.color.x_light_gray, null),
+            listOf(resources.getString(R.string.display_yat_terms_colored)),
+            requireContext().getColorFromAttr(R.attr.primaryButtonColor)
+        )
+        ui.termsTextView.setOnClickListener {
+            it.temporarilyDisableClick()
+            delegateWeakReference.get()?.onViewTerms(this)
         }
     }
 
