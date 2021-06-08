@@ -44,6 +44,7 @@ import yat.android.data.YatCart
 import yat.android.data.request.*
 import yat.android.data.request.UserRegistrationRequest
 import yat.android.data.response.AuthenticationResponse
+import yat.android.data.response.SupportedEmojiSetResponse
 import yat.android.data.response.UserRegistrationResponse
 import yat.android.data.response.YatLookupResponse
 
@@ -113,4 +114,6 @@ internal interface YatAPI {
         @Path("emoji_id") yat: String
     ): Call<YatLookupResponse>
 
+    @GET("emoji")
+    fun getSupportedEmojiSet(): Call<SupportedEmojiSetResponse>
 }

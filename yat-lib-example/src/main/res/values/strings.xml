@@ -8,4 +8,5 @@
     <string name="error">Error</string>
     <string name="error_yat_integration">Yat integration has failed: %1s</string>
     <string name="error_yat_lookup">Yat lookup has failed.</string>
+    <string name="error_yat_supported_emoji_set">Getting a supported emoji set has failed.</string>
 </resources>

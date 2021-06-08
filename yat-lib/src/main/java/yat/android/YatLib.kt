@@ -44,6 +44,7 @@ import yat.android.data.YatRecord
 import yat.android.data.request.AuthenticationRequest
 import yat.android.data.request.YatUpdateRequest
 import yat.android.data.response.AuthenticationResponse
+import yat.android.data.response.SupportedEmojiSetResponse
 import yat.android.data.response.YatLookupResponse
 import yat.android.ui.activity.YatLibActivity
 import java.lang.ref.WeakReference
@@ -169,5 +170,14 @@ class YatLib {
             )
         }
 
+        @JvmStatic
+        fun getSupportedEmojiSet(
+            onSuccess: (response: SupportedEmojiSetResponse) -> Unit,
+            onError: (responseCode: Int?, error: Throwable?) -> Unit
+        ) {
+            YatAPI.instance.getSupportedEmojiSet().enqueue(
+                CallbackHandler(onSuccess, onError)
+            )
+        }
     }
 }

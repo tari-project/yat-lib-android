@@ -10,6 +10,7 @@ import yat.android.YatAppConfig
 import yat.android.YatLib
 import yat.android.data.YatRecord
 import yat.android.data.YatRecordType
+import yat.android.data.response.SupportedEmojiSetResponse
 import yat.android.data.response.YatLookupResponse
 import yat.yat_lib_example.databinding.ActivityMainBinding
 import java.util.*
@@ -57,7 +58,7 @@ internal class MainActivity :
                 "108dEFa0272dC118EF03a7993e4fC7A8AcF3a3d1"
             ),
             YatRecord(
-                YatRecordType.XTR_ADDRESS,
+                YatRecordType.TARI_PUBKEY,
                 "d2e4db6dac593a9af36987a35676838ede4f69684ba433baeed68bce048e111b"
             ),
             YatRecord(
@@ -87,6 +88,7 @@ internal class MainActivity :
         ui.yatContentView.visibility = View.VISIBLE
         ui.yatRecordsTitleTextView.visibility = View.INVISIBLE
         ui.getAYatButton.visibility = View.GONE
+        loadSupportedEmojiSet()
         lookupYat(yat)
     }
 
@@ -96,6 +98,16 @@ internal class MainActivity :
             failureType.toString()
         )
         displayErrorDialog(errorMessage)
+    }
+
+    private fun loadSupportedEmojiSet() {
+        YatLib.getSupportedEmojiSet(
+            onSuccess = { processSupportedEmojiSet(it) },
+            onError = { _, _ ->
+                val errorMessage = resources.getString(R.string.error_yat_supported_emoji_set)
+                displayErrorDialog(errorMessage)
+            }
+        )
     }
 
     private fun lookupYat(yat: String) {
@@ -120,6 +132,10 @@ internal class MainActivity :
         }
         ui.yatRecordsTitleTextView.visibility = View.VISIBLE
         ui.yatRecordsTextView.text = records
+    }
+
+    private fun processSupportedEmojiSet(response: SupportedEmojiSetResponse) {
+        println(response.joinToString(", "))
     }
 
     private fun displayErrorDialog(message: String) {
