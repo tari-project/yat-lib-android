@@ -321,7 +321,7 @@ enum class YatRecordType {
     XRP_ADDRESS,
     @Expose
     @SerializedName("0x0101")
-    XTR_ADDRESS,
+    TARI_PUBKEY,
     @Expose
     @SerializedName("0x1030")
     XTZ_ADDRESS,
