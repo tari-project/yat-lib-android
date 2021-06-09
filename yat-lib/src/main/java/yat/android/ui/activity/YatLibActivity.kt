@@ -76,7 +76,6 @@ internal class YatLibActivity :
         ui = ActivityYatLibBinding.inflate(layoutInflater)
         setContentView(ui.root)
         ui.viewPager.adapter = ViewPagerAdapter(this)
-        ui.viewPager.isUserInputEnabled = false
         ui.viewPager.offscreenPageLimit = 2
         ui.viewPager.registerOnPageChangeCallback(pageChangeListener)
 
@@ -104,7 +103,6 @@ internal class YatLibActivity :
             }
 
         override fun getItemCount(): Int = 3
-
     }
 
     inner class PageChangeListener : ViewPager2.OnPageChangeCallback() {
@@ -155,6 +153,14 @@ internal class YatLibActivity :
         onBackPressed()
     }
 
+    override fun onBackPressed() {
+        if (ui.viewPager.currentItem == 0) {
+            super.onBackPressed()
+        } else {
+            ui.viewPager.currentItem = ui.viewPager.currentItem - 1
+        }
+    }
+
     override fun onClose(fragment: DisplayYatFragment) {
         finish()
     }
@@ -167,7 +173,7 @@ internal class YatLibActivity :
     override fun onUpgradeToCustomYat(fragment: DisplayYatFragment) {
         val url = YatLib.yatWebAppBaseURL +
                 "/partner/${YatLib.config.pathKey}" +
-                "/create?refresh_token=${YatLib.credentials.refreshToken}"
+                "/create?refresh_token=${YatLib.jwtStorage.getRefreshToken()}"
         val browserIntent = Intent(
             Intent.ACTION_VIEW,
             Uri.parse(url)

@@ -23,6 +23,7 @@ internal class MainActivity :
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        YatLib.initialize(this)
         ui = ActivityMainBinding.inflate(layoutInflater)
         setContentView(ui.root)
         initializeYatLib()
@@ -66,7 +67,7 @@ internal class MainActivity :
                 "4AdUndXHHZ6cfufTMvppY6JwXNouMBzSkbLYfpAV5Usx3skxNgYeYTRj5UzqtReoS44qo9mtmXCqY45DJ852K5Jv2684Rge"
             )
         )
-        YatLib.initialize(
+        YatLib.setup(
             config = config,
             userId = UUID.randomUUID().toString().substring(0, 15),
             userPassword = UUID.randomUUID().toString().substring(0, 15),

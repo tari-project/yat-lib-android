@@ -48,6 +48,7 @@ import yat.android.data.request.UserRegistrationRequest
 import yat.android.data.response.AuthenticationResponse
 import yat.android.data.response.SignMessageResponse
 import yat.android.data.response.UserRegistrationResponse
+import yat.android.data.storage.OAuthTokenPair
 
 internal class IntroPage3FragmentViewModel : ViewModel() {
 
@@ -57,7 +58,12 @@ internal class IntroPage3FragmentViewModel : ViewModel() {
     ) {
         authenticateUser(
             onSuccess = { authenticationResponse ->
-                YatLib.credentials = authenticationResponse
+                YatLib.jwtStorage.put(
+                    OAuthTokenPair(
+                        authenticationResponse.accessToken,
+                        authenticationResponse.refreshToken
+                    )
+                )
                 clearCart(
                     onSuccess = {
                         signMessage(
@@ -156,7 +162,7 @@ internal class IntroPage3FragmentViewModel : ViewModel() {
         onError: (responseCode: Int?, error: Throwable?) -> Unit
     ) {
         YatAPI.instance.clearCart(
-            "Bearer " + YatLib.credentials.accessToken
+            "Bearer " + YatLib.jwtStorage.getAccessToken()!!
         ).enqueue(
             CallbackHandler(
                 onSuccess = onSuccess,
@@ -185,7 +191,7 @@ internal class IntroPage3FragmentViewModel : ViewModel() {
         onError: (responseCode: Int?, error: Throwable?) -> Unit
     ) {
         YatAPI.instance.addRandomYatToCart(
-            authorizationHeader = "Bearer " + YatLib.credentials.accessToken,
+            authorizationHeader = "Bearer " + YatLib.jwtStorage.getAccessToken()!!,
             appCode = YatLib.config.code,
             request = AddRandomYatToCartRequest(
                 nonce = signMessageResponse.nonce,

@@ -35,17 +35,18 @@ package yat.android
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
+import com.google.gson.Gson
 import com.orhanobut.logger.AndroidLogAdapter
 import com.orhanobut.logger.Logger
 import yat.android.api.callback.CallbackHandler
 import yat.android.api.YatAPI
 import yat.android.api.callback.VoidCallbackHandler
 import yat.android.data.YatRecord
-import yat.android.data.request.AuthenticationRequest
 import yat.android.data.request.YatUpdateRequest
-import yat.android.data.response.AuthenticationResponse
 import yat.android.data.response.SupportedEmojiSetResponse
 import yat.android.data.response.YatLookupResponse
+import yat.android.data.storage.PreferencesJWTStorage
+import yat.android.data.storage.YatJWTStorage
 import yat.android.ui.activity.YatLibActivity
 import java.lang.ref.WeakReference
 
@@ -90,10 +91,18 @@ class YatLib {
         internal lateinit var delegateWeakReference: WeakReference<Delegate>
         internal lateinit var yatRecords: List<YatRecord>
 
-        internal lateinit var credentials: AuthenticationResponse
+        lateinit var jwtStorage: YatJWTStorage
+            private set
 
         @JvmStatic
-        fun initialize(
+        fun initialize(context: Context) {
+            this.jwtStorage = PreferencesJWTStorage(context, Gson())
+
+            Logger.addLogAdapter(AndroidLogAdapter())
+        }
+
+        @JvmStatic
+        fun setup(
             config: YatAppConfig,
             userId: String,
             userPassword: String,
@@ -107,8 +116,6 @@ class YatLib {
             this.colorMode = colorMode
             this.delegateWeakReference = WeakReference(delegate)
             this.yatRecords = yatRecords
-
-            Logger.addLogAdapter(AndroidLogAdapter())
         }
 
         @JvmStatic
@@ -133,14 +140,14 @@ class YatLib {
                 )
                 return
             }
-            if (!this::config.isInitialized || !this::credentials.isInitialized) {
+            if (!this::config.isInitialized || jwtStorage.getAccessToken() != null) {
                 delegateWeakReference.get()?.onYatIntegrationFailed(
                     FailureType.YAT_LIB_NOT_INITIALIZED
                 )
                 return
             }
             YatAPI.instance.updateYat(
-                "Bearer " + credentials.accessToken,
+                "Bearer " + jwtStorage.getAccessToken(),
                 yat,
                 YatUpdateRequest(insert = yatRecords)
             ).enqueue(
