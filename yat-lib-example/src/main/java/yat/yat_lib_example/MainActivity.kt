@@ -2,6 +2,7 @@ package yat.yat_lib_example
 
 import android.app.AlertDialog
 import android.content.Intent
+import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
@@ -12,6 +13,7 @@ import yat.android.data.YatRecord
 import yat.android.data.YatRecordType
 import yat.android.data.response.SupportedEmojiSetResponse
 import yat.android.data.response.YatLookupResponse
+import yat.android.ui.deeplink.DeeplinkAction
 import yat.yat_lib_example.databinding.ActivityMainBinding
 import java.util.*
 
@@ -23,7 +25,7 @@ internal class MainActivity :
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        YatLib.initialize(this)
+        YatLib.initialize(this, this)
         ui = ActivityMainBinding.inflate(layoutInflater)
         setContentView(ui.root)
         initializeYatLib()
@@ -72,7 +74,6 @@ internal class MainActivity :
             userId = UUID.randomUUID().toString().substring(0, 15),
             userPassword = UUID.randomUUID().toString().substring(0, 15),
             colorMode = YatLib.ColorMode.DARK,
-            delegate = this,
             yatRecords = yatRecords
         )
     }
@@ -80,7 +81,7 @@ internal class MainActivity :
     override fun onNewIntent(intent: Intent) {
         super.onNewIntent(intent)
         intent.data?.let { deepLink ->
-            YatLib.processDeepLink(deepLink)
+            YatLib.processDeepLink(this, deepLink)
         }
     }
 
