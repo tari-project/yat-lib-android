@@ -40,14 +40,14 @@ import com.orhanobut.logger.AndroidLogAdapter
 import com.orhanobut.logger.Logger
 import yat.android.api.callback.CallbackHandler
 import yat.android.api.YatAPI
-import yat.android.api.callback.VoidCallbackHandler
 import yat.android.data.YatRecord
-import yat.android.data.request.YatUpdateRequest
 import yat.android.data.response.SupportedEmojiSetResponse
 import yat.android.data.response.YatLookupResponse
 import yat.android.data.storage.PreferencesJWTStorage
 import yat.android.data.storage.YatJWTStorage
 import yat.android.ui.activity.YatLibActivity
+import yat.android.ui.deeplink.DeeplinkProcessor
+import yat.android.ui.deeplink.DeeplinkProcessorImpl
 import java.lang.ref.WeakReference
 
 /**
@@ -65,10 +65,8 @@ class YatLib {
     }
 
     interface Delegate {
-
         fun onYatIntegrationComplete(yat: String)
         fun onYatIntegrationFailed(failureType: FailureType)
-
     }
 
     enum class ColorMode {
@@ -84,6 +82,8 @@ class YatLib {
         internal const val yatWebAppBaseURL = "https://dev.yat.rocks"
         internal const val yatTermsURL = "https://pre-waitlist.y.at/terms"
 
+        private var deeplinkProcessor: DeeplinkProcessor = DeeplinkProcessorImpl()
+
         internal lateinit var config: YatAppConfig
         internal lateinit var userId: String
         internal lateinit var userPassword: String
@@ -95,8 +95,9 @@ class YatLib {
             private set
 
         @JvmStatic
-        fun initialize(context: Context) {
+        fun initialize(context: Context, delegate: Delegate) {
             this.jwtStorage = PreferencesJWTStorage(context, Gson())
+            this.delegateWeakReference = WeakReference(delegate)
 
             Logger.addLogAdapter(AndroidLogAdapter())
         }
@@ -107,14 +108,12 @@ class YatLib {
             userId: String,
             userPassword: String,
             colorMode: ColorMode,
-            delegate: Delegate,
             yatRecords: List<YatRecord>,
         ) {
             this.config = config
             this.userId = userId
             this.userPassword = userPassword
             this.colorMode = colorMode
-            this.delegateWeakReference = WeakReference(delegate)
             this.yatRecords = yatRecords
         }
 
@@ -131,37 +130,8 @@ class YatLib {
         }
 
         @JvmStatic
-        fun processDeepLink(deepLink: Uri) {
-            val action = deepLink.getQueryParameter("action")
-            val yat = deepLink.getQueryParameter("eid")
-            if (action == null || action != "manage" || yat == null) {
-                delegateWeakReference.get()?.onYatIntegrationFailed(
-                    FailureType.INVALID_DEEP_LINK
-                )
-                return
-            }
-            if (!this::config.isInitialized || jwtStorage.getAccessToken() != null) {
-                delegateWeakReference.get()?.onYatIntegrationFailed(
-                    FailureType.YAT_LIB_NOT_INITIALIZED
-                )
-                return
-            }
-            YatAPI.instance.updateYat(
-                "Bearer " + jwtStorage.getAccessToken(),
-                yat,
-                YatUpdateRequest(insert = yatRecords)
-            ).enqueue(
-                VoidCallbackHandler(
-                    onSuccess = {
-                        delegateWeakReference.get()?.onYatIntegrationComplete(yat)
-                    },
-                    onError = { _, _ ->
-                        delegateWeakReference.get()?.onYatIntegrationFailed(
-                            FailureType.YAT_UPDATE_FAILED
-                        )
-                    }
-                )
-            )
+        fun processDeepLink(context: Context, deepLink: Uri) {
+            deeplinkProcessor.processDeeplink(context, deepLink)
         }
 
         @JvmStatic

@@ -5,7 +5,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-
 import yat.android.YatAppConfig
 import yat.android.YatLib
 import yat.android.data.YatRecord
@@ -23,7 +22,7 @@ internal class MainActivity :
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        YatLib.initialize(this)
+        YatLib.initialize(this, this)
         ui = ActivityMainBinding.inflate(layoutInflater)
         setContentView(ui.root)
         initializeYatLib()
@@ -72,7 +71,6 @@ internal class MainActivity :
             userId = UUID.randomUUID().toString().substring(0, 15),
             userPassword = UUID.randomUUID().toString().substring(0, 15),
             colorMode = YatLib.ColorMode.DARK,
-            delegate = this,
             yatRecords = yatRecords
         )
     }
@@ -80,7 +78,7 @@ internal class MainActivity :
     override fun onNewIntent(intent: Intent) {
         super.onNewIntent(intent)
         intent.data?.let { deepLink ->
-            YatLib.processDeepLink(deepLink)
+            YatLib.processDeepLink(this, deepLink)
         }
     }
 
