@@ -49,7 +49,7 @@ internal class DisplayYatFragmentViewModel : ViewModel() {
         onError: (responseCode: Int?, error: Throwable?) -> Unit
     ) {
         YatAPI.instance.clearCart(
-            "Bearer " + YatLib.credentials.accessToken
+            "Bearer " + YatLib.jwtStorage.getAccessToken()
         ).enqueue(
             CallbackHandler(
                 onSuccess = onSuccess,
@@ -63,7 +63,7 @@ internal class DisplayYatFragmentViewModel : ViewModel() {
         onError: (responseCode: Int?, error: Throwable?) -> Unit
     ) {
         YatAPI.instance.checkoutCart(
-            "Bearer " + YatLib.credentials.accessToken,
+            "Bearer " + YatLib.jwtStorage.getAccessToken(),
             CartCheckoutRequest.free()
         ).enqueue(
             CallbackHandler(
@@ -81,7 +81,7 @@ internal class DisplayYatFragmentViewModel : ViewModel() {
     ) {
         Thread.sleep(1000)
         YatAPI.instance.updateYat(
-            "Bearer " + YatLib.credentials.accessToken,
+            "Bearer " + YatLib.jwtStorage.getAccessToken(),
             yat,
             YatUpdateRequest(insert = yatRecords)
         ).enqueue(
