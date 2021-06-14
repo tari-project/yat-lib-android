@@ -46,7 +46,6 @@ import yat.android.data.response.YatLookupResponse
 import yat.android.data.storage.PreferencesJWTStorage
 import yat.android.data.storage.YatJWTStorage
 import yat.android.ui.activity.YatLibActivity
-import yat.android.ui.deeplink.DeeplinkAction
 import yat.android.ui.deeplink.DeeplinkProcessor
 import yat.android.ui.deeplink.DeeplinkProcessorImpl
 import java.lang.ref.WeakReference

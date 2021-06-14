@@ -2,18 +2,15 @@ package yat.yat_lib_example
 
 import android.app.AlertDialog
 import android.content.Intent
-import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-
 import yat.android.YatAppConfig
 import yat.android.YatLib
 import yat.android.data.YatRecord
 import yat.android.data.YatRecordType
 import yat.android.data.response.SupportedEmojiSetResponse
 import yat.android.data.response.YatLookupResponse
-import yat.android.ui.deeplink.DeeplinkAction
 import yat.yat_lib_example.databinding.ActivityMainBinding
 import java.util.*
 
