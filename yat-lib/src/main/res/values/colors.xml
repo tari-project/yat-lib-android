@@ -14,6 +14,8 @@
 
     <color name="dark_gray">#7F8599</color>
 
+    <color name="border">#1A090719</color>
+
     <color name="disabled_cta">@color/dark_gray</color>
     <color name="tx_status">#FFEC9C00</color>
 
@@ -23,12 +25,10 @@
     <color name="orange_gradient_end">#DF4300</color>
     <color name="orange_gradient_start">#F1A93D</color>
     <color name="purple">#8931FF</color>
+    <color name="violet">#523DF1</color>
     <color name="secondary_button_dark">#1F1F3C</color>
     <color name="secondary_button_light">#1F1F3C32</color>
-    <color name="terms_gray">#7D7C86</color>
-    <color name="x_dark_gray">#090719</color>
-    <color name="x_light_gray">#C4C3CB</color>
-    <color name="xx_light_gray">#08000000</color>
+    <color name="x_light_gray">#66090719</color>
 
 
 </resources>

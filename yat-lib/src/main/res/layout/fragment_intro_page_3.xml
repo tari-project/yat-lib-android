@@ -5,65 +5,38 @@
     android:layout_height="match_parent"
     android:background="?containerBackgroundColor">
 
-    <ImageView
+    <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/yat_logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
+        android:layout_marginStart="25dp"
         android:layout_marginTop="@dimen/yat_logo_top_margin"
-        android:contentDescription="@null"
-        android:src="?yatLogoDrawable" />
+        android:src="@drawable/yat_logo" />
 
-    <ImageView
-        android:id="@+id/background_drawable"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/yat_logo"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="@dimen/page_3_background_top_margin"
-        android:contentDescription="@null"
-        android:src="?infoPage3BackgroundDrawable" />
-
-    <LinearLayout
-        android:layout_width="wrap_content"
+    <androidx.appcompat.widget.AppCompatImageButton
+        android:id="@+id/close_button"
+        android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_alignTop="@id/background_drawable"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="138dp"
-        android:background="@drawable/page_3_emoji_container_bg"
-        android:elevation="?viewElevation"
-        android:orientation="horizontal"
-        android:paddingHorizontal="12dp"
-        android:paddingVertical="6dp">
+        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="25dp"
+        android:background="@color/transparent"
+        android:src="?closeButtonDrawable" />
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:contentDescription="@null"
-            android:src="@drawable/fire" />
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/animationView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/title"
+        android:layout_gravity="center"
+        android:layout_marginHorizontal="60dp"
+        android:src="@drawable/screen3_min" />
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:contentDescription="@null"
-            android:src="@drawable/horn_sign" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:contentDescription="@null"
-            android:src="@drawable/sunglasses" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:contentDescription="@null"
-            android:src="@drawable/fire" />
-    </LinearLayout>
-
-    <yat.android.ui.component.CustomFontTextView
+    <yat.android.ui.components.CustomFontTextView
+        android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@id/description_text_view"
@@ -78,13 +51,12 @@
         android:textSize="@dimen/info_title_font_size"
         app:customFont="?infoTitleFont" />
 
-    <yat.android.ui.component.CustomFontTextView
+    <yat.android.ui.components.CustomFontTextView
         android:id="@+id/description_text_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@id/see_your_yat_button"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_above="@id/get_your_yat_button"
+        android:layout_marginHorizontal="40dp"
         android:layout_marginBottom="@dimen/info_description_bottom_margin"
         android:gravity="center"
         android:letterSpacing="0.01"
@@ -94,16 +66,15 @@
         android:textSize="@dimen/info_description_font_size"
         app:customFont="?infoDescriptionFont" />
 
-    <yat.android.ui.component.CustomFontButton
-        android:id="@+id/see_your_yat_button"
+    <yat.android.ui.components.CustomFontButton
+        android:id="@+id/get_your_yat_button"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
+        android:layout_height="50dp"
         android:layout_above="@id/connect_an_existing_yat_button"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginHorizontal="25dp"
         android:layout_marginBottom="12dp"
         android:background="@drawable/primary_button_bg"
-        android:text="@string/step_3_see_your_yat"
+        android:text="@string/step_3_get_your_yat"
         android:textAllCaps="false"
         android:textColor="@color/white"
         android:textSize="16sp"
@@ -113,10 +84,10 @@
         android:id="@+id/progress_bar_container"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:layout_alignStart="@id/see_your_yat_button"
-        android:layout_alignTop="@id/see_your_yat_button"
-        android:layout_alignEnd="@id/see_your_yat_button"
-        android:layout_alignBottom="@id/see_your_yat_button"
+        android:layout_alignStart="@id/get_your_yat_button"
+        android:layout_alignTop="@id/get_your_yat_button"
+        android:layout_alignEnd="@id/get_your_yat_button"
+        android:layout_alignBottom="@id/get_your_yat_button"
         android:background="@drawable/primary_button_bg"
         android:gravity="center"
         android:visibility="gone">
@@ -128,13 +99,12 @@
             android:visibility="visible" />
     </LinearLayout>
 
-    <yat.android.ui.component.CustomFontButton
+    <yat.android.ui.components.CustomFontButton
         android:id="@+id/connect_an_existing_yat_button"
         android:layout_width="match_parent"
-        android:layout_height="48dp"
+        android:layout_height="50dp"
         android:layout_alignParentBottom="true"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginHorizontal="25dp"
         android:layout_marginBottom="48dp"
         android:background="@drawable/secondary_button_bg"
         android:text="@string/step_3_connect_an_existing_yat"
@@ -142,15 +112,5 @@
         android:textColor="?secondaryButtonTextColor"
         android:textSize="16sp"
         app:customFont="?buttonFont" />
-
-    <ImageView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@id/connect_an_existing_yat_button"
-        android:layout_alignEnd="@id/connect_an_existing_yat_button"
-        android:layout_alignBottom="@id/connect_an_existing_yat_button"
-        android:layout_marginEnd="16dp"
-        android:contentDescription="@null"
-        android:src="?webLinkIconDrawable" />
 
 </RelativeLayout>

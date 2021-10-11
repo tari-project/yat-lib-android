@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="yat_logo_top_margin">20dp</dimen>
+    <dimen name="yat_logo_top_margin">30dp</dimen>
     <dimen name="page_1_tx_info_container_top_margin">90dp</dimen>
     <dimen name="info_title_bottom_margin">10dp</dimen>
-    <dimen name="info_title_font_size">21sp</dimen>
+    <dimen name="info_title_font_size">30sp</dimen>
     <dimen name="info_description_bottom_margin">20sp</dimen>
-    <dimen name="info_description_font_size">14sp</dimen>
+    <dimen name="info_description_font_size">16sp</dimen>
     <dimen name="page_2_background_top_margin">18dp</dimen>
     <dimen name="page_2_sending_btc_label_top_margin">130dp</dimen>
     <dimen name="page_3_background_top_margin">60dp</dimen>

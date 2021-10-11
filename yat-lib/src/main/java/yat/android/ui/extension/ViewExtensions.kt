@@ -51,6 +51,10 @@ internal fun View.gone() {
     this.visibility = View.GONE
 }
 
+internal fun View.setVisible(visible: Boolean, hideState: Int = View.GONE) {
+    visibility = if (visible) View.VISIBLE else hideState
+}
+
 
 internal fun ProgressBar.setColor(color: Int) {
     this.indeterminateDrawable
@@ -58,6 +62,17 @@ internal fun ProgressBar.setColor(color: Int) {
         .colorFilter = BlendModeColorFilterCompat.createBlendModeColorFilterCompat(
         color, BlendModeCompat.SRC_IN
     )
+}
+
+internal fun View.setOnThrottledClickListener(action: (View) -> Unit) {
+    this.setOnClickListener(ThrottleClick(action))
+}
+
+internal class ThrottleClick(private val delegate: (View) -> Unit) : View.OnClickListener {
+    override fun onClick(v: View?) {
+        v?.temporarilyDisableClick()
+        v?.let(delegate)
+    }
 }
 
 internal fun View.temporarilyDisableClick() {

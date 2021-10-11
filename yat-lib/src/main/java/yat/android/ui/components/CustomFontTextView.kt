@@ -30,18 +30,33 @@
  * OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package yat.android.ui.extension
+package yat.android.ui.components
 
 import android.content.Context
-import androidx.annotation.AttrRes
-import androidx.annotation.ColorInt
+import android.util.AttributeSet
+import androidx.appcompat.widget.AppCompatTextView
+import yat.android.R
 
-@ColorInt
-internal fun Context.getColorFromAttr(
-    @AttrRes attrColor: Int
-): Int {
-    val typedArray = theme.obtainStyledAttributes(intArrayOf(attrColor))
-    val textColor = typedArray.getColor(0, 0)
-    typedArray.recycle()
-    return textColor
+internal class CustomFontTextView(context: Context, attrs: AttributeSet) :
+    AppCompatTextView(context, attrs) {
+
+    private val sScheme = "http://schemas.android.com/apk/res-auto"
+    private val sAttribute = "customFont"
+
+    init {
+        if (!isInEditMode) {
+            var fontName = attrs.getAttributeValue(sScheme, sAttribute)
+            requireNotNull(fontName) { "You must provide \"$sAttribute\" for your text view." }
+            if (fontName[0] == '?') {
+                val typedArray = context.obtainStyledAttributes(
+                    attrs,
+                    R.styleable.CustomFontTextView
+                )
+                fontName = typedArray.getString(R.styleable.CustomFontTextView_customFont)
+                typedArray.recycle()
+            }
+            val customTypeface = CustomFont.fromString(fontName).asTypeface(context)
+            typeface = customTypeface
+        }
+    }
 }
