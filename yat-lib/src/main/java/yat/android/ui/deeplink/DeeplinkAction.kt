@@ -2,12 +2,9 @@ package yat.android.ui.deeplink
 
 import android.content.Context
 import android.net.Uri
-import yat.android.YatLib
-import yat.android.api.YatAPI
-import yat.android.api.callback.VoidCallbackHandler
-import yat.android.data.request.YatUpdateRequest
+import yat.android.lib.YatLib
 
-sealed class DeeplinkAction(val emojiId: String) {
+internal sealed class DeeplinkAction(val emojiId: String) {
     // default
     class None(emojiId: String) : DeeplinkAction(emojiId)
 
@@ -19,9 +16,7 @@ sealed class DeeplinkAction(val emojiId: String) {
             if (emojiId.isEmpty() || emojiId == "undefined") {
                 delegate?.onYatIntegrationFailed(YatLib.FailureType.INVALID_DEEP_LINK)
             } else {
-                updateEmojiId {
-                    delegate?.onYatIntegrationComplete(emojiId)
-                }
+                delegate?.onYatIntegrationComplete(emojiId)
             }
         }
     }
@@ -33,26 +28,9 @@ sealed class DeeplinkAction(val emojiId: String) {
     class Connect(emojiId: String) : DeeplinkAction(emojiId)
 
     open fun execute(context: Context) {
-        updateEmojiId {
-            YatLib.delegateWeakReference.get()?.onYatIntegrationComplete(emojiId)
-        }
+        YatLib.delegateWeakReference.get()?.onYatIntegrationComplete(emojiId)
     }
 
-    protected fun updateEmojiId(onSuccess: () -> Unit) {
-        YatAPI.instance.updateYat(
-            "Bearer " + YatLib.jwtStorage.getAccessToken(),
-            emojiId,
-            YatUpdateRequest(insert = YatLib.yatRecords)
-        ).enqueue(
-            VoidCallbackHandler(
-                onSuccess = onSuccess,
-                onError = { _, _ ->
-                    YatLib.delegateWeakReference.get()
-                        ?.onYatIntegrationFailed(YatLib.FailureType.YAT_UPDATE_FAILED)
-                }
-            )
-        )
-    }
 
     companion object {
         const val ACTION_PROPERTY = "action"

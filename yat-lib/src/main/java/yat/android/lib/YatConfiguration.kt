@@ -30,18 +30,15 @@
  * OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package yat.android.ui.extension
+package yat.android.lib
 
-import android.content.Context
-import androidx.annotation.AttrRes
-import androidx.annotation.ColorInt
-
-@ColorInt
-internal fun Context.getColorFromAttr(
-    @AttrRes attrColor: Int
-): Int {
-    val typedArray = theme.obtainStyledAttributes(intArrayOf(attrColor))
-    val textColor = typedArray.getColor(0, 0)
-    typedArray.recycle()
-    return textColor
-}
+/**
+ * Partner application configuration.
+ *
+ * @author Yat Labs
+ */
+data class YatConfiguration(
+    val appReturnLink: String,
+    val organizationName: String,
+    val organizationKey: String
+)

@@ -14,44 +14,45 @@
         <item name="android:buttonStyle">@style/Widget.AppCompat.Button.Borderless</item>
     </style>
 
+    <style name="BottomSlideDialog" parent="Theme.AppCompat.Dialog">
+        <item name="android:windowAnimationStyle">@style/BottomSlideDialogAnimation</item>
+    </style>
+
+    <style name="BottomSlideDialogAnimation">
+        <item name="android:windowEnterAnimation">@anim/dialog_slide_from_bottom</item>
+        <item name="android:windowExitAnimation">@anim/dialog_slide_to_bottom</item>
+    </style>
+
     <style name="AppTheme.Dark" parent="AppTheme">
         <item name="backgroundColor">@color/black</item>
         <item name="containerBackgroundColor">@color/dark_blue_background</item>
-        <item name="viewElevation">0dp</item>
-        <item name="yatLogoDrawable">@drawable/yat_logo_white</item>
+
         <item name="infoTitleColor">@color/white</item>
-        <item name="infoTitleFont">CIRCULAR_SPOTIFY_BOOK</item>
-        <item name="infoDescriptionFont">CIRCULAR_SPOTIFY_BOOK</item>
+        <item name="infoTitleFont">@string/font_bold</item>
+        <item name="infoDescriptionFont">@string/font_regular</item>
+
         <item name="primaryButtonColor">@color/blue</item>
-        <item name="secondaryButtonColor">@color/secondary_button_dark</item>
+        <item name="secondaryButtonColor">@color/white</item>
         <item name="secondaryButtonTextColor">@color/x_light_gray</item>
-        <item name="buttonFont">CIRCULAR_SPOTIFY_BOOK</item>
-        <item name="infoPage2BackgroundDrawable">@drawable/intro_page_2_bg_graphic_dark</item>
-        <item name="webLinkIconDrawable">@drawable/web_link_icon_dark</item>
-        <item name="infoPage3BackgroundDrawable">@drawable/intro_page_3_bg_graphic_dark</item>
-        <item name="termsFont">CIRCULAR_SPOTIFY_BOOK</item>
-        <item name="backButtonDrawable">@drawable/back_button_dark</item>
-        <item name="closeButtonDrawable">@drawable/close_button_dark</item>
+        <item name="buttonFont">@string/font_bold</item>
+
+        <item name="closeButtonDrawable">@drawable/close_button</item>
     </style>
 
     <style name="AppTheme.Light" parent="AppTheme">
         <item name="backgroundColor">@color/white</item>
         <item name="containerBackgroundColor">@color/white</item>
-        <item name="viewElevation">5dp</item>
-        <item name="yatLogoDrawable">@drawable/yat_logo_black</item>
+
         <item name="infoTitleColor">@color/black</item>
-        <item name="infoTitleFont">AVENIR_LT_STD_BLACK</item>
-        <item name="infoDescriptionFont">AVENIR_LT_STD_MEDIUM</item>
-        <item name="primaryButtonColor">@color/purple</item>
-        <item name="secondaryButtonColor">@color/secondary_button_light</item>
+        <item name="infoTitleFont">@string/font_bold</item>
+        <item name="infoDescriptionFont">@string/font_regular</item>
+
+        <item name="primaryButtonColor">@color/violet</item>
+        <item name="secondaryButtonColor">@color/white</item>
         <item name="secondaryButtonTextColor">@color/black</item>
-        <item name="buttonFont">AVENIR_LT_STD_HEAVY</item>
-        <item name="infoPage2BackgroundDrawable">@drawable/intro_page_2_bg_graphic_light</item>
-        <item name="webLinkIconDrawable">@drawable/web_link_icon_light</item>
-        <item name="infoPage3BackgroundDrawable">@drawable/intro_page_3_bg_graphic_light</item>
-        <item name="termsFont">AVENIR_LT_STD_MEDIUM</item>
-        <item name="backButtonDrawable">@drawable/back_button_light</item>
-        <item name="closeButtonDrawable">@drawable/close_button_light</item>
+        <item name="buttonFont">@string/font_bold</item>
+
+        <item name="closeButtonDrawable">@drawable/close_button</item>
     </style>
 
 </resources>

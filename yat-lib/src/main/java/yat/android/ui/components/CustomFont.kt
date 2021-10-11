@@ -30,18 +30,29 @@
  * OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package yat.android.ui.extension
+package yat.android.ui.components
 
 import android.content.Context
-import androidx.annotation.AttrRes
-import androidx.annotation.ColorInt
+import android.graphics.Typeface
+import java.util.*
 
-@ColorInt
-internal fun Context.getColorFromAttr(
-    @AttrRes attrColor: Int
-): Int {
-    val typedArray = theme.obtainStyledAttributes(intArrayOf(attrColor))
-    val textColor = typedArray.getColor(0, 0)
-    typedArray.recycle()
-    return textColor
+internal enum class CustomFont(private val fileName: String) {
+
+    ALLIANCENO1_BOLD("fonts/AllianceNo1_Bold.ttf"),
+    ALLIANCENO1_BLACK("fonts/AllianceNo1_Black.ttf"),
+    ALLIANCENO1_LIGHT("fonts/AllianceNo1_Light.ttf"),
+    ALLIANCENO1_MEDIUM("fonts/AllianceNo1_Medium.ttf"),
+    ALLIANCENO1_REGULAR("fonts/AllianceNo1_Regular.ttf"),
+    ALLIANCENO1_SEMI_BOLD("fonts/AllianceNo1_SemiBold.ttf");
+
+    companion object {
+        fun fromString(fontName: String): CustomFont {
+            return valueOf(fontName.uppercase(Locale.US))
+        }
+    }
+
+    fun asTypeface(context: Context): Typeface {
+        return Typeface.createFromAsset(context.assets, fileName)
+    }
+
 }

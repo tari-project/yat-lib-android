@@ -5,4 +5,6 @@ import android.net.Uri
 
 internal interface DeeplinkProcessor {
     fun processDeeplink(context: Context, deepLink: Uri)
+
+    fun isValidDeepLink(context: Context, deepLink: Uri) : Boolean
 }

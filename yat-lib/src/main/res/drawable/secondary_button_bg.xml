@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <shape xmlns:android="http://schemas.android.com/apk/res/android">
     <solid android:color="?secondaryButtonColor" />
-    <corners android:radius="2dp" />
+    <stroke android:color="@color/border"  android:width="1dp"/>
+    <corners android:radius="40dp" />
 </shape>
