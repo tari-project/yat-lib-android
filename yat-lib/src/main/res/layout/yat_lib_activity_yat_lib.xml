@@ -22,21 +22,21 @@
             android:id="@+id/page_1_indicator"
             android:layout_width="8dp"
             android:layout_height="8dp"
-            android:background="@drawable/page_indicator_active_bg" />
+            android:background="@drawable/yat_lib_page_indicator_active_bg" />
 
         <View
             android:id="@+id/page_2_indicator"
             android:layout_width="8dp"
             android:layout_height="8dp"
             android:layout_marginStart="10dp"
-            android:background="@drawable/page_indicator_passive_bg" />
+            android:background="@drawable/yat_lib_page_indicator_passive_bg" />
 
         <View
             android:id="@+id/page_3_indicator"
             android:layout_width="8dp"
             android:layout_height="8dp"
             android:layout_marginStart="10dp"
-            android:background="@drawable/page_indicator_passive_bg" />
+            android:background="@drawable/yat_lib_page_indicator_passive_bg" />
     </LinearLayout>
 
     <FrameLayout

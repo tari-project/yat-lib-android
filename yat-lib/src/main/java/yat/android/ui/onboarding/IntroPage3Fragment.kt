@@ -41,7 +41,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import yat.android.R
-import yat.android.databinding.FragmentIntroPage3Binding
+import yat.android.databinding.YatLibFragmentIntroPage3Binding
 import yat.android.lib.YatIntegration
 import yat.android.ui.extension.setColor
 import yat.android.ui.extension.setOnThrottledClickListener
@@ -49,12 +49,12 @@ import yat.android.ui.onboarding.mainActivity.YatLibViewModel
 
 internal class IntroPage3Fragment() : Fragment() {
 
-    private lateinit var ui: FragmentIntroPage3Binding
+    private lateinit var ui: YatLibFragmentIntroPage3Binding
 
     private val viewModel: YatLibViewModel by activityViewModels()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        ui = FragmentIntroPage3Binding.inflate(inflater, container, false)
+        ui = YatLibFragmentIntroPage3Binding.inflate(inflater, container, false)
         return ui.root
     }
 
@@ -64,8 +64,8 @@ internal class IntroPage3Fragment() : Fragment() {
     }
 
     private fun setupUI() = with(ui) {
-        descriptionTextView.text = String.format(getString(R.string.step_3_description, YatIntegration.config.organizationName))
-        progressBar.setColor(resources.getColor(R.color.white, null))
+        descriptionTextView.text = String.format(getString(R.string.yat_lib_step_3_description, YatIntegration.config.organizationName))
+        progressBar.setColor(resources.getColor(R.color.yat_lib_white, null))
         getYourYatButton.setOnThrottledClickListener { openLink(viewModel.manageYatUri()) }
         connectAnExistingYatButton.setOnThrottledClickListener { openLink(viewModel.connectYatUri()) }
         closeButton.setOnThrottledClickListener { viewModel.onClose() }

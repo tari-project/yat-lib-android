@@ -1,58 +1,58 @@
 <resources>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+    <style name="YatLibAppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <!--item name="android:windowDrawsSystemBarBackgrounds">true</item-->
         <!--item name="android:windowTranslucentStatus">true</item-->
         <item name="android:statusBarColor">@android:color/black</item>
         <item name="android:navigationBarColor">@android:color/black</item>
 
-        <item name="colorPrimary">@color/primary</item>
-        <item name="colorPrimaryDark">@color/primary_dark</item>
-        <item name="colorAccent">@color/accent</item>
+        <item name="colorPrimary">@color/yat_lib_primary</item>
+        <item name="colorPrimaryDark">@color/yat_lib_primary_dark</item>
+        <item name="colorAccent">@color/yat_lib_accent</item>
 
         <item name="android:buttonStyle">@style/Widget.AppCompat.Button.Borderless</item>
     </style>
 
-    <style name="BottomSlideDialog" parent="Theme.AppCompat.Dialog">
-        <item name="android:windowAnimationStyle">@style/BottomSlideDialogAnimation</item>
+    <style name="YatLibBottomSlideDialog" parent="Theme.AppCompat.Dialog">
+        <item name="android:windowAnimationStyle">@style/YatLibBottomSlideDialogAnimation</item>
     </style>
 
-    <style name="BottomSlideDialogAnimation">
-        <item name="android:windowEnterAnimation">@anim/dialog_slide_from_bottom</item>
-        <item name="android:windowExitAnimation">@anim/dialog_slide_to_bottom</item>
+    <style name="YatLibBottomSlideDialogAnimation">
+        <item name="android:windowEnterAnimation">@anim/yat_lib_dialog_slide_from_bottom</item>
+        <item name="android:windowExitAnimation">@anim/yat_lib_dialog_slide_to_bottom</item>
     </style>
 
-    <style name="AppTheme.Dark" parent="AppTheme">
-        <item name="backgroundColor">@color/black</item>
-        <item name="containerBackgroundColor">@color/dark_blue_background</item>
+    <style name="YatLibAppTheme.Dark" parent="YatLibAppTheme">
+        <item name="backgroundColor">@color/yat_lib_black</item>
+        <item name="yatLibContainerBackgroundColor">@color/yat_lib_dark_blue_background</item>
 
-        <item name="infoTitleColor">@color/white</item>
-        <item name="infoTitleFont">@string/font_bold</item>
-        <item name="infoDescriptionFont">@string/font_regular</item>
+        <item name="yatLibInfoTitleColor">@color/yat_lib_white</item>
+        <item name="yatLibInfoTitleFont">@string/yat_lib_font_bold</item>
+        <item name="yatLibInfoDescriptionFont">@string/yat_lib_font_regular</item>
 
-        <item name="primaryButtonColor">@color/blue</item>
-        <item name="secondaryButtonColor">@color/white</item>
-        <item name="secondaryButtonTextColor">@color/x_light_gray</item>
-        <item name="buttonFont">@string/font_bold</item>
+        <item name="yatLibPrimaryButtonColor">@color/yat_lib_blue</item>
+        <item name="yatLibSecondaryButtonColor">@color/yat_lib_white</item>
+        <item name="yatLibSecondaryButtonTextColor">@color/yat_lib_x_light_gray</item>
+        <item name="yatLibButtonFont">@string/yat_lib_font_bold</item>
 
-        <item name="closeButtonDrawable">@drawable/close_button</item>
+        <item name="yatLibCloseButtonDrawable">@drawable/yat_lib_close_button</item>
     </style>
 
-    <style name="AppTheme.Light" parent="AppTheme">
-        <item name="backgroundColor">@color/white</item>
-        <item name="containerBackgroundColor">@color/white</item>
+    <style name="YatLibAppTheme.Light" parent="YatLibAppTheme">
+        <item name="backgroundColor">@color/yat_lib_white</item>
+        <item name="yatLibContainerBackgroundColor">@color/yat_lib_white</item>
 
-        <item name="infoTitleColor">@color/black</item>
-        <item name="infoTitleFont">@string/font_bold</item>
-        <item name="infoDescriptionFont">@string/font_regular</item>
+        <item name="yatLibInfoTitleColor">@color/yat_lib_black</item>
+        <item name="yatLibInfoTitleFont">@string/yat_lib_font_bold</item>
+        <item name="yatLibInfoDescriptionFont">@string/yat_lib_font_regular</item>
 
-        <item name="primaryButtonColor">@color/violet</item>
-        <item name="secondaryButtonColor">@color/white</item>
-        <item name="secondaryButtonTextColor">@color/black</item>
-        <item name="buttonFont">@string/font_bold</item>
+        <item name="yatLibPrimaryButtonColor">@color/yat_lib_violet</item>
+        <item name="yatLibSecondaryButtonColor">@color/yat_lib_white</item>
+        <item name="yatLibSecondaryButtonTextColor">@color/yat_lib_black</item>
+        <item name="yatLibButtonFont">@string/yat_lib_font_bold</item>
 
-        <item name="closeButtonDrawable">@drawable/close_button</item>
+        <item name="yatLibCloseButtonDrawable">@drawable/yat_lib_close_button</item>
     </style>
 
 </resources>
