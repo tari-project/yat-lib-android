@@ -42,7 +42,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import yat.android.R
 import yat.android.databinding.FragmentIntroPage3Binding
-import yat.android.lib.YatLib
+import yat.android.lib.YatIntegration
 import yat.android.ui.extension.setColor
 import yat.android.ui.extension.setOnThrottledClickListener
 import yat.android.ui.onboarding.mainActivity.YatLibViewModel
@@ -64,7 +64,7 @@ internal class IntroPage3Fragment() : Fragment() {
     }
 
     private fun setupUI() = with(ui) {
-        descriptionTextView.text = String.format(getString(R.string.step_3_description, YatLib.config.organizationName))
+        descriptionTextView.text = String.format(getString(R.string.step_3_description, YatIntegration.config.organizationName))
         progressBar.setColor(resources.getColor(R.color.white, null))
         getYourYatButton.setOnThrottledClickListener { openLink(viewModel.manageYatUri()) }
         connectAnExistingYatButton.setOnThrottledClickListener { openLink(viewModel.connectYatUri()) }

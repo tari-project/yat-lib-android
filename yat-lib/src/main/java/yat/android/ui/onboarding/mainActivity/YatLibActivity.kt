@@ -37,7 +37,7 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import yat.android.R
 import yat.android.databinding.ActivityYatLibBinding
-import yat.android.lib.YatLib
+import yat.android.lib.YatIntegration
 
 internal class YatLibActivity : AppCompatActivity(){
 
@@ -48,9 +48,9 @@ internal class YatLibActivity : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         theme.applyStyle(
-            when (YatLib.colorMode) {
-                YatLib.ColorMode.DARK -> R.style.AppTheme_Dark
-                YatLib.ColorMode.LIGHT -> R.style.AppTheme_Light
+            when (YatIntegration.colorMode) {
+                YatIntegration.ColorMode.DARK -> R.style.AppTheme_Dark
+                YatIntegration.ColorMode.LIGHT -> R.style.AppTheme_Light
             },
             true
         )

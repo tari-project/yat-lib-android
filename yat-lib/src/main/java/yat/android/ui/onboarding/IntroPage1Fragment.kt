@@ -40,7 +40,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import yat.android.R
 import yat.android.databinding.FragmentIntroPage1Binding
-import yat.android.lib.YatLib
+import yat.android.lib.YatIntegration
 import yat.android.ui.extension.setOnThrottledClickListener
 import yat.android.ui.onboarding.mainActivity.YatLibViewModel
 
@@ -56,7 +56,7 @@ internal class IntroPage1Fragment() : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        ui.descriptionTextView.text = String.format(resources.getString(R.string.step_1_description, YatLib.config.organizationName))
+        ui.descriptionTextView.text = String.format(resources.getString(R.string.step_1_description, YatIntegration.config.organizationName))
         ui.nextButton.setOnThrottledClickListener { yatLibViewModel.onNext() }
         ui.closeButton.setOnThrottledClickListener { yatLibViewModel.onClose() }
     }

@@ -51,7 +51,7 @@ import java.lang.ref.WeakReference
  * @author Yat Labs
  */
 @Suppress("unused")
-class YatLib {
+class YatIntegration {
 
     enum class FailureType {
         INVALID_DEEP_LINK,
@@ -71,8 +71,8 @@ class YatLib {
 
     companion object {
 
-        internal const val yatAPIBaseURL = "https://yat.fyi"
-        internal const val yatWebAppBaseURL = "https://yat.fyi"
+        internal const val yatAPIBaseURL = "https://a.yat.fyi/"
+        internal const val yatWebAppBaseURL = "https://a.yat.fyi/"
 
         private var deeplinkProcessor: DeeplinkProcessor = DeeplinkProcessorImpl()
 

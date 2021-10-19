@@ -3,7 +3,7 @@ package yat.android.ui.onboarding.mainActivity
 import android.net.Uri
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import yat.android.lib.YatLib
+import yat.android.lib.YatIntegration
 
 internal class YatLibViewModel() : ViewModel() {
 
@@ -14,13 +14,13 @@ internal class YatLibViewModel() : ViewModel() {
 
     fun onClose() = onClose.postValue(Unit)
 
-    fun manageYatUri() = generateUri("partner/${YatLib.config.organizationKey}")
+    fun manageYatUri() = generateUri("partner/${YatIntegration.config.organizationKey}")
 
-    fun connectYatUri() = generateUri("partner/${YatLib.config.organizationKey}/link-email")
+    fun connectYatUri() = generateUri("partner/${YatIntegration.config.organizationKey}/link-email")
 
     private fun generateUri(path: String) : Uri {
-        val baseUri = Uri.parse(YatLib.yatWebAppBaseURL)
-        val records = YatLib.yatRecords.joinToString("|") { "${it.type.name}=${it.data}" }
+        val baseUri = Uri.parse(YatIntegration.yatWebAppBaseURL)
+        val records = YatIntegration.yatRecords.joinToString("|") { "${it.type.name}=${it.data}" }
         val encodedUri = Uri.Builder().scheme(baseUri.scheme)
             .authority(baseUri.authority)
             .appendPath(path)

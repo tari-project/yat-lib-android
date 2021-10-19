@@ -8,11 +8,11 @@ import androidx.appcompat.app.AppCompatActivity
 import yat.android.data.YatRecord
 import yat.android.data.YatRecordType
 import yat.android.lib.YatConfiguration
-import yat.android.lib.YatLib
+import yat.android.lib.YatIntegration
 import yat.yat_lib_example.databinding.ActivityMainBinding
 import java.util.*
 
-internal class MainActivity : AppCompatActivity(), YatLib.Delegate {
+internal class MainActivity : AppCompatActivity(), YatIntegration.Delegate {
 
     private lateinit var ui: ActivityMainBinding
     private val yatRecords = listOf(
@@ -47,26 +47,26 @@ internal class MainActivity : AppCompatActivity(), YatLib.Delegate {
         ui = ActivityMainBinding.inflate(layoutInflater)
         setContentView(ui.root)
         initializeYatLib()
-        ui.getAYatButton.setOnClickListener { YatLib.showOnboarding(this@MainActivity, yatRecords) }
+        ui.getAYatButton.setOnClickListener { YatIntegration.showOnboarding(this@MainActivity, yatRecords) }
     }
 
     private fun initializeYatLib() {
         val config = YatConfiguration(
-            organizationName = "MobileTestOrg",
-            organizationKey = "MobileTestKey",
-            appReturnLink = "mobtari://y.at?action"
+            organizationName = "",
+            organizationKey = "",
+            appReturnLink = ""
         )
 
-        YatLib.setup(
+        YatIntegration.setup(
             config = config,
-            colorMode = YatLib.ColorMode.LIGHT,
+            colorMode = YatIntegration.ColorMode.LIGHT,
             this
         )
     }
 
     override fun onNewIntent(intent: Intent) {
         super.onNewIntent(intent)
-        intent.data?.let { deepLink -> YatLib.processDeepLink(this, deepLink) }
+        intent.data?.let { deepLink -> YatIntegration.processDeepLink(this, deepLink) }
     }
 
     override fun onYatIntegrationComplete(yat: String) {
@@ -76,7 +76,7 @@ internal class MainActivity : AppCompatActivity(), YatLib.Delegate {
         ui.getAYatButton.visibility = View.GONE
     }
 
-    override fun onYatIntegrationFailed(failureType: YatLib.FailureType) {
+    override fun onYatIntegrationFailed(failureType: YatIntegration.FailureType) {
         val errorMessage = String.format(
             resources.getString(R.string.error_yat_integration),
             failureType.toString()

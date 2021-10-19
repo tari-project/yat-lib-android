@@ -2,7 +2,7 @@ package yat.android.ui.deeplink
 
 import android.content.Context
 import android.net.Uri
-import yat.android.lib.YatLib
+import yat.android.lib.YatIntegration
 
 internal sealed class DeeplinkAction(val emojiId: String) {
     // default
@@ -11,10 +11,10 @@ internal sealed class DeeplinkAction(val emojiId: String) {
     // after the user has created and bought a new Yat through the partner flow
     class Create(emojiId: String) : DeeplinkAction(emojiId) {
         override fun execute(context: Context) {
-            val delegate = YatLib.delegateWeakReference.get()
+            val delegate = YatIntegration.delegateWeakReference.get()
             // when a person aborts creating flow, it back "undefined"
             if (emojiId.isEmpty() || emojiId == "undefined") {
-                delegate?.onYatIntegrationFailed(YatLib.FailureType.INVALID_DEEP_LINK)
+                delegate?.onYatIntegrationFailed(YatIntegration.FailureType.INVALID_DEEP_LINK)
             } else {
                 delegate?.onYatIntegrationComplete(emojiId)
             }
@@ -28,7 +28,7 @@ internal sealed class DeeplinkAction(val emojiId: String) {
     class Connect(emojiId: String) : DeeplinkAction(emojiId)
 
     open fun execute(context: Context) {
-        YatLib.delegateWeakReference.get()?.onYatIntegrationComplete(emojiId)
+        YatIntegration.delegateWeakReference.get()?.onYatIntegrationComplete(emojiId)
     }
 
 
