@@ -38,17 +38,17 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
-import yat.android.databinding.FragmentIntroPage2Binding
+import yat.android.databinding.YatLibFragmentIntroPage2Binding
 import yat.android.ui.extension.setOnThrottledClickListener
 import yat.android.ui.onboarding.mainActivity.YatLibViewModel
 
 internal class IntroPage2Fragment() : Fragment() {
 
-    private lateinit var ui: FragmentIntroPage2Binding
+    private lateinit var ui: YatLibFragmentIntroPage2Binding
     private val yatLibViewModel: YatLibViewModel by activityViewModels()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        ui = FragmentIntroPage2Binding.inflate(inflater, container, false)
+        ui = YatLibFragmentIntroPage2Binding.inflate(inflater, container, false)
         return ui.root
     }
 

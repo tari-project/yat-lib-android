@@ -72,7 +72,7 @@ class YatIntegration {
     companion object {
 
         internal const val yatAPIBaseURL = "https://a.yat.fyi/"
-        internal const val yatWebAppBaseURL = "https://a.yat.fyi/"
+        internal const val yatWebAppBaseURL = "https://yat.fyi/"
 
         private var deeplinkProcessor: DeeplinkProcessor = DeeplinkProcessorImpl()
 

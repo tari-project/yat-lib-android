@@ -10,7 +10,7 @@
             android:name=".ui.onboarding.mainActivity.YatLibActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.Dark"
+            android:theme="@style/YatLibAppTheme.Dark"
             android:windowSoftInputMode="stateAlwaysHidden" />
     </application>
 

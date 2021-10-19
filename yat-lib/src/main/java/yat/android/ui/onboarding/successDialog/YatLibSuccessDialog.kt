@@ -16,9 +16,9 @@ open class YatLibSuccessDialog(
     canceledOnTouchOutside: Boolean = true,
 ) {
 
-    val dialog: Dialog = Dialog(context, R.style.BottomSlideDialog).apply {
+    val dialog: Dialog = Dialog(context, R.style.YatLibBottomSlideDialog).apply {
         window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-        setContentView(R.layout.dialog_success)
+        setContentView(R.layout.yat_lib_dialog_success)
         setCancelable(cancelable)
         setCanceledOnTouchOutside(canceledOnTouchOutside)
         window?.setLayout(

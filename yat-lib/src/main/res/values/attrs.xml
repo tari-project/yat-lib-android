@@ -13,17 +13,17 @@
         <attr name="customFont" />
     </declare-styleable>
 
-    <attr name="containerBackgroundColor" format="color"/>
+    <attr name="yatLibContainerBackgroundColor" format="color"/>
 
-    <attr name="infoTitleColor" format="color"/>
-    <attr name="infoTitleFont" format="string"/>
-    <attr name="infoDescriptionFont" format="string"/>
+    <attr name="yatLibInfoTitleColor" format="color"/>
+    <attr name="yatLibInfoTitleFont" format="string"/>
+    <attr name="yatLibInfoDescriptionFont" format="string"/>
 
-    <attr name="primaryButtonColor" format="color"/>
-    <attr name="secondaryButtonColor" format="color"/>
-    <attr name="secondaryButtonTextColor" format="color"/>
-    <attr name="buttonFont" format="string"/>
+    <attr name="yatLibPrimaryButtonColor" format="color"/>
+    <attr name="yatLibSecondaryButtonColor" format="color"/>
+    <attr name="yatLibSecondaryButtonTextColor" format="color"/>
+    <attr name="yatLibButtonFont" format="string"/>
 
-    <attr name="closeButtonDrawable" format="reference"/>
+    <attr name="yatLibCloseButtonDrawable" format="reference"/>
 
 </resources>
