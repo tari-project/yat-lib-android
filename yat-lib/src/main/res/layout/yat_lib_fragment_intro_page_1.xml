@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?containerBackgroundColor">
+    android:background="?attr/yatLibContainerBackgroundColor">
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/yat_logo"
@@ -12,8 +12,8 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_marginStart="25dp"
-        android:layout_marginTop="@dimen/yat_logo_top_margin"
-        android:src="@drawable/yat_logo" />
+        android:layout_marginTop="@dimen/yat_lib_yat_logo_top_margin"
+        android:src="@drawable/yat_lib_yat_logo" />
 
     <androidx.appcompat.widget.AppCompatImageButton
         android:id="@+id/close_button"
@@ -23,8 +23,8 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="25dp"
         android:layout_marginEnd="25dp"
-        android:background="@color/transparent"
-        android:src="?closeButtonDrawable" />
+        android:background="@color/yat_lib_transparent"
+        android:src="?attr/yatLibCloseButtonDrawable" />
 
     <androidx.appcompat.widget.AppCompatImageView
         android:id="@+id/animationView"
@@ -32,24 +32,23 @@
         android:layout_height="match_parent"
         android:layout_above="@+id/title"
         android:layout_gravity="center"
-        android:layout_marginHorizontal="60dp"
-        android:src="@drawable/screen2_min" />
+        android:src="@drawable/yat_lib_screen1_min"/>
 
     <yat.android.ui.components.CustomFontTextView
         android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_above="@id/description_text_view"
-        android:layout_marginStart="16dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginBottom="@dimen/info_title_bottom_margin"
+        android:layout_marginStart="32dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="@dimen/yat_lib_info_title_bottom_margin"
         android:gravity="center"
         android:letterSpacing="0.015"
         android:lineSpacingExtra="6dp"
-        android:text="@string/step_2_title"
-        android:textColor="?infoTitleColor"
-        android:textSize="@dimen/info_title_font_size"
-        app:customFont="?infoTitleFont" />
+        android:text="@string/yat_lib_step_1_title"
+        android:textColor="?attr/yatLibInfoTitleColor"
+        android:textSize="@dimen/yat_lib_info_title_font_size"
+        app:customFont="?attr/yatLibInfoTitleFont" />
 
     <yat.android.ui.components.CustomFontTextView
         android:id="@+id/description_text_view"
@@ -57,14 +56,14 @@
         android:layout_height="wrap_content"
         android:layout_above="@id/next_button"
         android:layout_marginHorizontal="40dp"
-        android:layout_marginBottom="@dimen/info_description_bottom_margin"
+        android:layout_marginBottom="@dimen/yat_lib_info_description_bottom_margin"
         android:gravity="center"
         android:letterSpacing="0.01"
         android:lineSpacingExtra="6dp"
-        android:text="@string/step_2_description"
-        android:textColor="@color/x_light_gray"
-        android:textSize="@dimen/info_description_font_size"
-        app:customFont="?infoDescriptionFont" />
+        android:text="@string/yat_lib_step_1_description"
+        android:textColor="@color/yat_lib_x_light_gray"
+        android:textSize="@dimen/yat_lib_info_description_font_size"
+        app:customFont="?attr/yatLibInfoDescriptionFont" />
 
     <yat.android.ui.components.CustomFontButton
         android:id="@+id/next_button"
@@ -73,11 +72,11 @@
         android:layout_alignParentBottom="true"
         android:layout_marginHorizontal="25dp"
         android:layout_marginBottom="48dp"
-        android:background="@drawable/primary_button_bg"
-        android:text="@string/common_next"
+        android:background="@drawable/yat_lib_primary_button_bg"
+        android:text="@string/yat_lib_common_next"
         android:textAllCaps="false"
-        android:textColor="@color/white"
+        android:textColor="@color/yat_lib_white"
         android:textSize="16sp"
-        app:customFont="?buttonFont" />
+        app:customFont="?attr/yatLibButtonFont" />
 
 </RelativeLayout>

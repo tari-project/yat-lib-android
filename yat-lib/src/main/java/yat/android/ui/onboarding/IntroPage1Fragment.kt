@@ -39,24 +39,24 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import yat.android.R
-import yat.android.databinding.FragmentIntroPage1Binding
+import yat.android.databinding.YatLibFragmentIntroPage1Binding
 import yat.android.lib.YatIntegration
 import yat.android.ui.extension.setOnThrottledClickListener
 import yat.android.ui.onboarding.mainActivity.YatLibViewModel
 
 internal class IntroPage1Fragment() : Fragment() {
 
-    private lateinit var ui: FragmentIntroPage1Binding
+    private lateinit var ui: YatLibFragmentIntroPage1Binding
     private val yatLibViewModel: YatLibViewModel by activityViewModels()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
-        ui = FragmentIntroPage1Binding.inflate(inflater, container, false)
+        ui = YatLibFragmentIntroPage1Binding.inflate(inflater, container, false)
         return ui.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        ui.descriptionTextView.text = String.format(resources.getString(R.string.step_1_description, YatIntegration.config.organizationName))
+        ui.descriptionTextView.text = String.format(resources.getString(R.string.yat_lib_step_1_description, YatIntegration.config.organizationName))
         ui.nextButton.setOnThrottledClickListener { yatLibViewModel.onNext() }
         ui.closeButton.setOnThrottledClickListener { yatLibViewModel.onClose() }
     }

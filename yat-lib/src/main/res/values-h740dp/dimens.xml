@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="page_1_tx_info_container_top_margin">110dp</dimen>
-    <dimen name="info_title_bottom_margin">15dp</dimen>
-    <dimen name="info_description_bottom_margin">30sp</dimen>
-    <dimen name="page_2_background_top_margin">70dp</dimen>
-    <dimen name="page_2_sending_btc_label_top_margin">120dp</dimen>
-    <dimen name="page_3_background_top_margin">110dp</dimen>
-    <dimen name="display_yat_title_top_margin">61dp</dimen>
-    <dimen name="display_yat_description_top_margin">20dp</dimen>
-    <dimen name="display_yat_emoji_id_top_margin">50dp</dimen>
-    <dimen name="display_yat_custom_yat_button_bottom_margin">24dp</dimen>
-    <dimen name="display_yat_terms_bottom_margin">30dp</dimen>
+    <dimen name="yat_lib_page_1_tx_info_container_top_margin">110dp</dimen>
+    <dimen name="yat_lib_info_title_bottom_margin">15dp</dimen>
+    <dimen name="yat_lib_info_description_bottom_margin">30sp</dimen>
+    <dimen name="yat_lib_page_2_background_top_margin">70dp</dimen>
+    <dimen name="yat_lib_page_2_sending_btc_label_top_margin">120dp</dimen>
+    <dimen name="yat_lib_page_3_background_top_margin">110dp</dimen>
+    <dimen name="yat_lib_display_yat_title_top_margin">61dp</dimen>
+    <dimen name="yat_lib_display_yat_description_top_margin">20dp</dimen>
+    <dimen name="yat_lib_display_yat_emoji_id_top_margin">50dp</dimen>
+    <dimen name="yat_lib_display_yat_custom_yat_button_bottom_margin">24dp</dimen>
+    <dimen name="yat_lib_display_yat_terms_bottom_margin">30dp</dimen>
 </resources>

@@ -1,43 +1,41 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
 
-    <string name="test">Test Test Hey Test</string>
+    <string name="yat_lib_common_error_title">Error</string>
+    <string name="yat_lib_common_error_message_random_yat">Error while getting your free Yat.</string>
+    <string name="yat_lib_common_error_message_checkout">Error while processing orders.</string>
+    <string name="yat_lib_common_error_message_clear_cart">Error while processing orders.</string>
+    <string name="yat_lib_common_error_message_update_yat">Error while trying to update Yat records.</string>
+    <string name="yat_lib_common_close">Close</string>
+    <string name="yat_lib_common_next">Next</string>
+    <string name="yat_lib_common_ok" tools:ignore="ButtonCase,Typos">Ok</string>
+    <string name="yat_lib_common_under_construction_icon">🚧</string>
+    <string name="yat_lib_common_under_construction">Under construction.</string>
 
-    <string name="common_error_title">Error</string>
-    <string name="common_error_message_random_yat">Error while getting your free Yat.</string>
-    <string name="common_error_message_checkout">Error while processing orders.</string>
-    <string name="common_error_message_clear_cart">Error while processing orders.</string>
-    <string name="common_error_message_update_yat">Error while trying to update Yat records.</string>
-    <string name="common_close">Close</string>
-    <string name="common_next">Next</string>
-    <string name="common_ok" tools:ignore="ButtonCase,Typos">Ok</string>
-    <string name="common_under_construction_icon">🚧</string>
-    <string name="common_under_construction">Under construction.</string>
+    <string name="yat_lib_font_bold">AllianceNo1_Bold</string>
+    <string name="yat_lib_font_black">AllianceNo1_Black</string>
+    <string name="yat_lib_font_light">AllianceNo1_Light</string>
+    <string name="yat_lib_font_regular">AllianceNo1_Regular</string>
+    <string name="yat_lib_font_semibold">AllianceNo1_SemiBold</string>
+    <string name="yat_lib_font_medium">AllianceNo1_Medium</string>
 
-    <string name="font_bold">AllianceNo1_Bold</string>
-    <string name="font_black">AllianceNo1_Black</string>
-    <string name="font_light">AllianceNo1_Light</string>
-    <string name="font_regular">AllianceNo1_Regular</string>
-    <string name="font_semibold">AllianceNo1_SemiBold</string>
-    <string name="font_medium">AllianceNo1_Medium</string>
+    <string name="yat_lib_step_1_tx_info_sending_btc">Sending BTC</string>
+    <string name="yat_lib_step_1_tx_info_from">From</string>
+    <string name="yat_lib_step_1_tx_info_from_address">9JkTqwX86GhJHD53dgfa545</string>
+    <string name="yat_lib_step_1_tx_info_to">To</string>
+    <string name="yat_lib_step_1_tx_info_to_address">1BvBMSEYstWetqdgFngDg4h</string>
+    <string name="yat_lib_step_1_title">Send and receive\ncrypto more easily with Yat</string>
+    <string name="yat_lib_step_1_description">%1$s users can now send and receive all their favorite currencies with a one-of-a-kind emoji-based username.</string>
 
-    <string name="step_1_tx_info_sending_btc">Sending BTC</string>
-    <string name="step_1_tx_info_from">From</string>
-    <string name="step_1_tx_info_from_address">9JkTqwX86GhJHD53dgfa545</string>
-    <string name="step_1_tx_info_to">To</string>
-    <string name="step_1_tx_info_to_address">1BvBMSEYstWetqdgFngDg4h</string>
-    <string name="step_1_title">Send and receive\ncrypto more easily with Yat</string>
-    <string name="step_1_description">%1$s users can now send and receive all their favorite currencies with a one-of-a-kind emoji-based username.</string>
-
-    <string name="step_2_title">One emoji address\nto rule them all</string>
-    <string name="step_2_description">Your Yat is a single unique emoji address that replaces all of your long hexadecimal addresses for all of your currencies.</string>
-    <string name="step_2_sending_btc_to" tools:ignore="TypographyEllipsis">Sending BTC to...</string>
+    <string name="yat_lib_step_2_title">One emoji address\nto rule them all</string>
+    <string name="yat_lib_step_2_description">Your Yat is a single unique emoji address that replaces all of your long hexadecimal addresses for all of your currencies.</string>
+    <string name="yat_lib_step_2_sending_btc_to" tools:ignore="TypographyEllipsis">Sending BTC to...</string>
     
-    <string name="step_3_title">Yat plays nicely\nwith others</string>
-    <string name="step_3_description">Yats live outside of %s, too. Any wallet address on earth can be replaced with a Yat!</string>
-    <string name="step_3_get_your_yat">Get your Yat</string>
-    <string name="step_3_connect_an_existing_yat">Connect an Existing Yat</string>
+    <string name="yat_lib_step_3_title">Yat plays nicely\nwith others</string>
+    <string name="yat_lib_step_3_description">Yats live outside of %s, too. Any wallet address on earth can be replaced with a Yat!</string>
+    <string name="yat_lib_step_3_get_your_yat">Get your Yat</string>
+    <string name="yat_lib_step_3_connect_an_existing_yat">Connect an Existing Yat</string>
 
-    <string name="success_dialog_title">That’s one nice Yat!</string>
-    <string name="success_dialog_description">You can manage your Yat or purchase additional Yats in your account settings.</string>
-    <string name="success_dialog_button_title">Got it</string>
+    <string name="yat_lib_success_dialog_title">That’s one nice Yat!</string>
+    <string name="yat_lib_success_dialog_description">You can manage your Yat or purchase additional Yats in your account settings.</string>
+    <string name="yat_lib_success_dialog_button_title">Got it</string>
 </resources>

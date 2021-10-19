@@ -5,16 +5,16 @@ import android.graphics.drawable.Drawable
 import androidx.core.content.res.ResourcesCompat
 import androidx.viewpager2.widget.ViewPager2
 import yat.android.R
-import yat.android.databinding.ActivityYatLibBinding
+import yat.android.databinding.YatLibActivityYatLibBinding
 
-internal class PageChangeListener(context: Context, val ui: ActivityYatLibBinding) : ViewPager2.OnPageChangeCallback() {
+internal class PageChangeListener(context: Context, val ui: YatLibActivityYatLibBinding) : ViewPager2.OnPageChangeCallback() {
 
     private lateinit var pageIndicatorActiveBg: Drawable
     private lateinit var pageIndicatorPassiveBg: Drawable
 
     init {
-        pageIndicatorActiveBg = ResourcesCompat.getDrawable(context.resources, R.drawable.page_indicator_active_bg, context.theme)!!
-        pageIndicatorPassiveBg = ResourcesCompat.getDrawable(context.resources, R.drawable.page_indicator_passive_bg, context.theme)!!
+        pageIndicatorActiveBg = ResourcesCompat.getDrawable(context.resources, R.drawable.yat_lib_page_indicator_active_bg, context.theme)!!
+        pageIndicatorPassiveBg = ResourcesCompat.getDrawable(context.resources, R.drawable.yat_lib_page_indicator_passive_bg, context.theme)!!
     }
 
     override fun onPageSelected(position: Int) {

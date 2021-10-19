@@ -36,12 +36,12 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import yat.android.R
-import yat.android.databinding.ActivityYatLibBinding
+import yat.android.databinding.YatLibActivityYatLibBinding
 import yat.android.lib.YatIntegration
 
 internal class YatLibActivity : AppCompatActivity(){
 
-    private lateinit var ui: ActivityYatLibBinding
+    private lateinit var ui: YatLibActivityYatLibBinding
     private val viewModel : YatLibViewModel by viewModels()
 
 
@@ -49,12 +49,12 @@ internal class YatLibActivity : AppCompatActivity(){
         super.onCreate(savedInstanceState)
         theme.applyStyle(
             when (YatIntegration.colorMode) {
-                YatIntegration.ColorMode.DARK -> R.style.AppTheme_Dark
-                YatIntegration.ColorMode.LIGHT -> R.style.AppTheme_Light
+                YatIntegration.ColorMode.DARK -> R.style.YatLibAppTheme_Dark
+                YatIntegration.ColorMode.LIGHT -> R.style.YatLibAppTheme_Light
             },
             true
         )
-        ui = ActivityYatLibBinding.inflate(layoutInflater)
+        ui = YatLibActivityYatLibBinding.inflate(layoutInflater)
         setContentView(ui.root)
         setupUI()
         observeUI()

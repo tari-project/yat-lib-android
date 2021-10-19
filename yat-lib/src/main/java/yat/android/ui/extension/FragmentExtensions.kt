@@ -44,7 +44,7 @@ internal fun Fragment.displayErrorDialog(
         .setTitle(resources.getString(titleStringResourceId))
         .setMessage(resources.getString(messageStringResourceId))
         .setPositiveButton(
-            resources.getString(R.string.common_ok),
+            resources.getString(R.string.yat_lib_common_ok),
             null
         )
         .setCancelable(true)

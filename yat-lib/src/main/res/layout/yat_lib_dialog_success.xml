@@ -5,7 +5,7 @@
     android:id="@+id/dialog_root_view"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@drawable/bottom_dialog_bg"
+    android:background="@drawable/yat_lib_bottom_dialog_bg"
     android:orientation="vertical">
 
     <FrameLayout
@@ -20,14 +20,14 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginHorizontal="32dp"
-            android:text="@string/success_dialog_title"
+            android:text="@string/yat_lib_success_dialog_title"
             android:layout_marginTop="30dp"
             android:layout_marginBottom="16dp"
             android:gravity="center"
             android:lineSpacingExtra="8dp"
-            android:textColor="@color/black"
+            android:textColor="@color/yat_lib_black"
             android:textSize="18sp"
-            app:customFont="@string/font_bold"
+            app:customFont="@string/yat_lib_font_bold"
             tools:text="Title" />
 
 
@@ -40,45 +40,45 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginHorizontal="32dp"
-        android:text="@string/success_dialog_title"
+        android:text="@string/yat_lib_success_dialog_title"
         android:layout_marginTop="30dp"
         android:layout_marginBottom="16dp"
         android:gravity="center"
         android:lineSpacingExtra="8dp"
-        android:textColor="@color/black"
+        android:textColor="@color/yat_lib_black"
         android:textSize="18sp"
-        app:customFont="@string/font_bold"
+        app:customFont="@string/yat_lib_font_bold"
         tools:text="Title" />
 
     <yat.android.ui.components.CustomFontTextView
         android:id="@+id/description"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/success_dialog_description"
+        android:text="@string/yat_lib_success_dialog_description"
         android:layout_marginHorizontal="32dp"
         android:layout_marginTop="20dp"
         android:gravity="center"
         android:letterSpacing="0.01"
         android:lineSpacingExtra="10dp"
-        android:textColor="@color/dark_gray"
+        android:textColor="@color/yat_lib_dark_gray"
         android:textSize="14sp"
-        app:customFont="@string/font_regular"
+        app:customFont="@string/yat_lib_font_regular"
         tools:text="Description" />
 
     <yat.android.ui.components.CustomFontButton
         android:id="@+id/confirm_button"
         android:layout_width="match_parent"
-        android:text="@string/success_dialog_button_title"
+        android:text="@string/yat_lib_success_dialog_button_title"
         android:layout_height="48dp"
         android:layout_marginBottom="50dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="40dp"
-        android:background="@drawable/primary_button_bg"
+        android:background="@drawable/yat_lib_primary_button_bg"
         android:layout_marginHorizontal="28dp"
         android:textAllCaps="false"
-        android:textColor="@color/white"
+        android:textColor="@color/yat_lib_white"
         android:textSize="16sp"
-        app:customFont="@string/font_bold"
+        app:customFont="@string/yat_lib_font_bold"
         tools:text="Confirm" />
 
 </LinearLayout>
