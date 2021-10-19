@@ -30,18 +30,34 @@
  * OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package yat.android.ui.extension
+package yat.android.ui.onboarding
 
-import android.content.Context
-import androidx.annotation.AttrRes
-import androidx.annotation.ColorInt
+import android.os.Bundle
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.fragment.app.activityViewModels
+import yat.android.R
+import yat.android.databinding.FragmentIntroPage1Binding
+import yat.android.lib.YatLib
+import yat.android.ui.extension.setOnThrottledClickListener
+import yat.android.ui.onboarding.mainActivity.YatLibViewModel
 
-@ColorInt
-internal fun Context.getColorFromAttr(
-    @AttrRes attrColor: Int
-): Int {
-    val typedArray = theme.obtainStyledAttributes(intArrayOf(attrColor))
-    val textColor = typedArray.getColor(0, 0)
-    typedArray.recycle()
-    return textColor
+internal class IntroPage1Fragment() : Fragment() {
+
+    private lateinit var ui: FragmentIntroPage1Binding
+    private val yatLibViewModel: YatLibViewModel by activityViewModels()
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+        ui = FragmentIntroPage1Binding.inflate(inflater, container, false)
+        return ui.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        ui.descriptionTextView.text = String.format(resources.getString(R.string.step_1_description, YatLib.config.organizationName))
+        ui.nextButton.setOnThrottledClickListener { yatLibViewModel.onNext() }
+        ui.closeButton.setOnThrottledClickListener { yatLibViewModel.onClose() }
+    }
 }

@@ -30,18 +30,39 @@
  * OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
  * SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  */
-package yat.android.ui.extension
+package yat.android.ui.components
 
-import android.content.Context
-import androidx.annotation.AttrRes
-import androidx.annotation.ColorInt
+import android.graphics.Paint
+import android.graphics.Typeface
+import android.text.TextPaint
+import android.text.style.TypefaceSpan
 
-@ColorInt
-internal fun Context.getColorFromAttr(
-    @AttrRes attrColor: Int
-): Int {
-    val typedArray = theme.obtainStyledAttributes(intArrayOf(attrColor))
-    val textColor = typedArray.getColor(0, 0)
-    typedArray.recycle()
-    return textColor
+internal class CustomTypefaceSpan(family: String, private val newType: Typeface) : TypefaceSpan(family) {
+
+    override fun updateDrawState(ds: TextPaint) {
+        applyCustomTypeFace(ds, newType)
+    }
+
+    override fun updateMeasureState(paint: TextPaint) {
+        applyCustomTypeFace(paint, newType)
+    }
+
+    companion object {
+
+        private fun applyCustomTypeFace(paint: Paint, typeface: Typeface) {
+            val oldStyle: Int
+            val old = paint.typeface
+            oldStyle = old?.style ?: 0
+            val fake = oldStyle and typeface.style.inv()
+            if (fake and Typeface.BOLD != 0) {
+                paint.isFakeBoldText = true
+            }
+            if (fake and Typeface.ITALIC != 0) {
+                paint.textSkewX = -0.25f
+            }
+            paint.typeface = typeface
+        }
+        
+    }
+
 }

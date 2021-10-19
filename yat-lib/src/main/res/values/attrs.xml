@@ -13,26 +13,17 @@
         <attr name="customFont" />
     </declare-styleable>
 
-    <attr name="viewElevation" format="dimension"/>
-    <attr name="yatLogoDrawable" format="reference"/>
     <attr name="containerBackgroundColor" format="color"/>
+
     <attr name="infoTitleColor" format="color"/>
     <attr name="infoTitleFont" format="string"/>
     <attr name="infoDescriptionFont" format="string"/>
+
     <attr name="primaryButtonColor" format="color"/>
     <attr name="secondaryButtonColor" format="color"/>
     <attr name="secondaryButtonTextColor" format="color"/>
     <attr name="buttonFont" format="string"/>
-    <attr name="infoPage2BackgroundDrawable" format="reference"/>
-    <attr name="webLinkIconDrawable" format="reference"/>
-    <attr name="infoPage3BackgroundDrawable" format="reference"/>
-    <attr name="termsFont" format="string"/>
-    <attr name="backButtonDrawable" format="reference"/>
+
     <attr name="closeButtonDrawable" format="reference"/>
-    <attr name="fireDrawable" format="reference"/>
-    <attr name="hornSignDrawable" format="reference"/>
-    <attr name="sunglassesDrawable" format="reference"/>
-    <attr name="fullMoonDrawable" format="reference"/>
-    <attr name="rocketDrawable" format="reference"/>
 
 </resources>
