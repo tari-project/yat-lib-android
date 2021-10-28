@@ -82,6 +82,7 @@ class YatIntegration {
         internal lateinit var colorMode: ColorMode
         internal lateinit var delegateWeakReference: WeakReference<Delegate>
         internal lateinit var yatRecords: List<YatRecord>
+        var yatApi: YatLibApi = YatLibApi()
 
         @JvmStatic
         fun setup(config: YatConfiguration, colorMode: ColorMode, delegate: Delegate) {

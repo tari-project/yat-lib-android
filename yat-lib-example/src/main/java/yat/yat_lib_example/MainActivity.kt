@@ -4,7 +4,11 @@ import android.app.AlertDialog
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.SearchView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.lifecycleScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 import yat.android.data.YatRecord
 import yat.android.data.YatRecordType
 import yat.android.lib.YatConfiguration
@@ -47,6 +51,7 @@ internal class MainActivity : AppCompatActivity(), YatIntegration.Delegate {
         ui = ActivityMainBinding.inflate(layoutInflater)
         setContentView(ui.root)
         initializeYatLib()
+        initSearchView()
         ui.getAYatButton.setOnClickListener { YatIntegration.showOnboarding(this@MainActivity, yatRecords) }
     }
 
@@ -62,6 +67,28 @@ internal class MainActivity : AppCompatActivity(), YatIntegration.Delegate {
             colorMode = YatIntegration.ColorMode.LIGHT,
             this
         )
+    }
+
+    private fun initSearchView() {
+        ui.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener, androidx.appcompat.widget.SearchView.OnQueryTextListener {
+            override fun onQueryTextChange(p0: String?): Boolean {
+                if (p0.isNullOrEmpty()) return false
+
+                lifecycleScope.launch(Dispatchers.IO) {
+                    val answer = YatIntegration.yatApi.lookupEmojiIdWithSymbol(p0.orEmpty(), "XTR")
+                    launch(Dispatchers.Main) {
+                        if (answer.status) {
+                            ui.searchResult.text = answer.result.toString()
+                        } else {
+                            ui.searchResult.text = answer.error.reason
+                        }
+                    }
+                }
+                return false
+            }
+
+            override fun onQueryTextSubmit(p0: String?): Boolean = false
+        })
     }
 
     override fun onNewIntent(intent: Intent) {
