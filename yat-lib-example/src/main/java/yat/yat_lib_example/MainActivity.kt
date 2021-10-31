@@ -13,6 +13,8 @@ import yat.android.data.YatRecord
 import yat.android.data.YatRecordType
 import yat.android.lib.YatConfiguration
 import yat.android.lib.YatIntegration
+import yat.android.ui.transactions.outcoming.YatLibOutcomingTransactionActivity
+import yat.android.ui.transactions.outcoming.YatLibOutcomingTransactionData
 import yat.yat_lib_example.databinding.ActivityMainBinding
 import java.util.*
 
@@ -89,6 +91,9 @@ internal class MainActivity : AppCompatActivity(), YatIntegration.Delegate {
 
             override fun onQueryTextSubmit(p0: String?): Boolean = false
         })
+        val data = YatLibOutcomingTransactionData(10.2, "ETH", "\uD83D\uDC09\uD83D\uDC09\uD83D\uDC09")
+        ui.testOutcomingButton.setOnClickListener { YatLibOutcomingTransactionActivity.start(this, data) }
+        ui.testIncomingButton.setOnClickListener { YatLibOutcomingTransactionActivity.start(this, data) }
     }
 
     override fun onNewIntent(intent: Intent) {
