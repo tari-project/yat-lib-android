@@ -1,5 +1,5 @@
-/*
- * Copyright 2021 Yat Labs
+/**
+ * Copyright 2020 The Tari Project
  *
  * Redistribution and use in source and binary forms, with or
  * without modification, are permitted provided that the
@@ -37,7 +37,7 @@ import android.graphics.Typeface
 import android.text.TextPaint
 import android.text.style.TypefaceSpan
 
-internal class CustomTypefaceSpan(family: String, private val newType: Typeface) : TypefaceSpan(family) {
+class CustomTypefaceSpan(family: String, private val newType: Typeface) : TypefaceSpan(family) {
 
     override fun updateDrawState(ds: TextPaint) {
         applyCustomTypeFace(ds, newType)

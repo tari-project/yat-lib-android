@@ -1,5 +1,5 @@
-/*
- * Copyright 2021 Yat Labs
+/**
+ * Copyright 2020 The Tari Project
  *
  * Redistribution and use in source and binary forms, with or
  * without modification, are permitted provided that the
@@ -35,28 +35,13 @@ package yat.android.ui.components
 import android.content.Context
 import android.util.AttributeSet
 import androidx.appcompat.widget.AppCompatEditText
-import yat.android.R
 
-internal class CustomFontEditText(context: Context, attrs: AttributeSet) :
+class CustomFontEditText(context: Context, attrs: AttributeSet) :
     AppCompatEditText(context, attrs) {
-
-    private val sScheme = "http://schemas.android.com/apk/res-auto"
-    private val sAttribute = "customFont"
 
     init {
         if (!isInEditMode) {
-            var fontName = attrs.getAttributeValue(sScheme, sAttribute)
-            requireNotNull(fontName) { "You must provide \"$sAttribute\" for your text view." }
-            if (fontName[0] == '?') {
-                val typedArray = context.obtainStyledAttributes(
-                    attrs,
-                    R.styleable.CustomFontEditText
-                )
-                fontName = typedArray.getString(R.styleable.CustomFontEditText_customFont)
-                typedArray.recycle()
-            }
-            val customTypeface = CustomFont.fromString(fontName).asTypeface(context)
-            typeface = customTypeface
+            typeface = CustomFont.getFromAttributeSet(context, attrs)
         }
     }
 }
