@@ -34,6 +34,8 @@ package yat.android.ui.components
 
 import android.content.Context
 import android.graphics.Typeface
+import android.util.AttributeSet
+import android.util.TypedValue
 import java.util.*
 
 internal enum class CustomFont(private val fileName: String) {
@@ -45,14 +47,33 @@ internal enum class CustomFont(private val fileName: String) {
     ALLIANCENO1_REGULAR("fonts/AllianceNo1_Regular.ttf"),
     ALLIANCENO1_SEMI_BOLD("fonts/AllianceNo1_SemiBold.ttf");
 
-    companion object {
-        fun fromString(fontName: String): CustomFont {
-            return valueOf(fontName.uppercase(Locale.US))
-        }
-    }
-
     fun asTypeface(context: Context): Typeface {
         return Typeface.createFromAsset(context.assets, fileName)
     }
 
+    companion object {
+        private const val sScheme = "http://schemas.android.com/apk/res-auto"
+        private const val sAttribute = "customFont"
+
+        fun fromString(fontName: String): CustomFont? {
+            return values().firstOrNull { it.name == fontName.toUpperCase(Locale.getDefault()) }
+        }
+
+        fun getFromAttributeSet(context: Context, attr: AttributeSet): Typeface {
+            try {
+                var fontName = attr.getAttributeValue(sScheme, sAttribute)
+                val typedValue = TypedValue()
+                val isResolved = context.theme.resolveAttribute(fontName.replace("?","").toInt(), typedValue, true)
+                if (isResolved) {
+                    fontName = typedValue.string.toString()
+                }
+                val fontNameRes = attr.getAttributeResourceValue(sScheme, sAttribute, 0)
+                requireNotNull(fontName) { "You must provide \"$sAttribute\"" }
+                val customFont = fromString(fontName) ?: fromString(context.getString(fontNameRes)) ?: throw Throwable("Font wasn't found")
+                return customFont.asTypeface(context)
+            } catch (e: Throwable) {
+                return ALLIANCENO1_REGULAR.asTypeface(context)
+            }
+        }
+    }
 }

@@ -29,5 +29,9 @@
     <color name="yat_lib_secondary_button_dark">#1F1F3C</color>
     <color name="yat_lib_secondary_button_light">#1F1F3C32</color>
     <color name="yat_lib_x_light_gray">#66090719</color>
+    
+    <color name="yat_lib_transaction_text_color">#6B6B6B</color>
+    <color name="yat_lib_transaction_highlighted_text">#FFFFFF</color>
+    <color name="yat_lib_progress_tint">#FFFFFF</color>
 
 </resources>

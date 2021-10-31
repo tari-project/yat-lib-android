@@ -28,9 +28,33 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"
-            android:background="@color/yat_lib_dark_gray"/>
+            android:background="@color/yat_lib_dark_gray" />
 
     </LinearLayout>
+
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/test_incoming_button"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:layout_marginHorizontal="6dp"
+            android:layout_weight="1"
+            android:text="Test incoming" />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/test_outcoming_button"
+            android:layout_width="0dp"
+            android:layout_height="56dp"
+            android:layout_marginHorizontal="6dp"
+            android:layout_weight="1"
+            android:text="Test outcoming" />
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
     <LinearLayout
         android:id="@+id/yat_content_view"
