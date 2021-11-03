@@ -1,5 +1,5 @@
-/*
- * Copyright 2021 Yat Labs
+/**
+ * Copyright 2020 The Tari Project
  *
  * Redistribution and use in source and binary forms, with or
  * without modification, are permitted provided that the
@@ -15,7 +15,7 @@
  * 3. Neither the name of the copyright holder nor the names of
  * its contributors may be used to endorse or promote products
  * derived from this software without specific prior written permission.
- *
+ * 
  * THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND
  * CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES,
  * INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
@@ -35,28 +35,13 @@ package yat.android.ui.components
 import android.content.Context
 import android.util.AttributeSet
 import androidx.appcompat.widget.AppCompatButton
-import yat.android.R
 
-internal class CustomFontButton(context: Context, attrs: AttributeSet) :
+class CustomFontButton(context: Context, attrs: AttributeSet) :
     AppCompatButton(context, attrs) {
-
-    private val sScheme = "http://schemas.android.com/apk/res-auto"
-    private val sAttribute = "customFont"
 
     init {
         if (!isInEditMode) {
-            var fontName = attrs.getAttributeValue(sScheme, sAttribute)
-            requireNotNull(fontName) { "You must provide \"$sAttribute\" for your button." }
-            if (fontName[0] == '?') {
-                val typedArray = context.obtainStyledAttributes(
-                    attrs,
-                    R.styleable.CustomFontButton
-                )
-                fontName = typedArray.getString(R.styleable.CustomFontButton_customFont)
-                typedArray.recycle()
-            }
-            val customTypeface = CustomFont.fromString(fontName).asTypeface(context)
-            typeface = customTypeface
+            typeface = CustomFont.getFromAttributeSet(context, attrs)
         }
     }
 }
