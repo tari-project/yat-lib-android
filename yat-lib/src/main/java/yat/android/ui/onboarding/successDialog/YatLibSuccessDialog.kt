@@ -7,7 +7,7 @@ import android.graphics.drawable.ColorDrawable
 import android.view.Gravity
 import android.widget.LinearLayout
 import yat.android.R
-import yat.android.ui.components.CustomFontTextView
+import yat.android.databinding.YatLibDialogSuccessBinding
 
 open class YatLibSuccessDialog(
     context: Context,
@@ -25,7 +25,10 @@ open class YatLibSuccessDialog(
             LinearLayout.LayoutParams.MATCH_PARENT,
             LinearLayout.LayoutParams.WRAP_CONTENT
         )
-        findViewById<CustomFontTextView>(R.id.yat).text = emojiId
+        val ui = YatLibDialogSuccessBinding.bind(findViewById<LinearLayout>(R.id.dialog_root_view))
+        ui.yat.text = emojiId
+        ui.confirmButton.setOnClickListener { dismiss() }
+        ui.closeButton.setOnClickListener { dismiss() }
         window?.setGravity(Gravity.BOTTOM)
     }
 
