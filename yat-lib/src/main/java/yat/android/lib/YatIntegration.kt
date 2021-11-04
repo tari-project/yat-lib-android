@@ -36,6 +36,8 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
+import android.view.ContextThemeWrapper
+import yat.android.R
 import yat.android.data.YatRecord
 import yat.android.ui.deeplink.DeeplinkAction
 import yat.android.ui.deeplink.DeeplinkProcessor
@@ -117,7 +119,14 @@ class YatIntegration {
             }
         }
 
-        private fun showSuccessDialog(context: Activity, deepLink: Uri) = YatLibSuccessDialog(context, DeeplinkAction.parse(deepLink).emojiId).show()
+        fun showSuccessDialog(context: Activity, deepLink: Uri) {
+            val theme = when (colorMode) {
+                ColorMode.DARK -> R.style.YatLibAppTheme_Dark
+                ColorMode.LIGHT -> R.style.YatLibAppTheme_Light
+            }
+            val themeWrapper = ContextThemeWrapper(context, theme)
+            YatLibSuccessDialog(themeWrapper, DeeplinkAction.parse(deepLink).emojiId).show()
+        }
 
         private fun openLink(context: Activity, uri: Uri) = context.startActivity(Intent(Intent.ACTION_VIEW, uri))
     }

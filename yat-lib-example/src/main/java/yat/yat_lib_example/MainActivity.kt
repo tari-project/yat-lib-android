@@ -2,6 +2,7 @@ package yat.yat_lib_example
 
 import android.app.AlertDialog
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import android.widget.SearchView
@@ -100,11 +101,7 @@ internal class MainActivity : AppCompatActivity(), YatIntegration.Delegate {
             )
         }
         ui.testIncomingButton.setOnClickListener {
-            YatLibOutcomingTransactionActivity.start(
-                this,
-                data,
-                OutcomingTransactionExampleActivity::class.java
-            )
+            YatIntegration.showSuccessDialog(this, Uri.parse("uri"))
         }
     }
 
