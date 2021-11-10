@@ -21,7 +21,7 @@ internal interface YatLibApiGateway {
     companion object {
         fun create(): YatLibApiGateway {
             val retrofit = Retrofit.Builder()
-                .baseUrl(YatIntegration.yatAPIBaseURL)
+                .baseUrl(YatIntegration.environment.yatAPIBaseURL)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build()
 

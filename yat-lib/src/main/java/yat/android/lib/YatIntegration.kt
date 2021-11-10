@@ -71,10 +71,13 @@ class YatIntegration {
         DARK,
     }
 
-    companion object {
+    sealed class Environment(val yatAPIBaseURL: String, val yatWebAppBaseURL: String) {
+        object SandBox : Environment("https://a.yat.fyi/", "https://yat.fyi/")
 
-        internal const val yatAPIBaseURL = "https://a.y.at/"
-        internal const val yatWebAppBaseURL = "https://y.at/"
+        object Production : Environment("https://a.y.at/", "https://y.at/")
+    }
+
+    companion object {
 
         private var deeplinkProcessor: DeeplinkProcessor = DeeplinkProcessorImpl()
 
@@ -82,14 +85,16 @@ class YatIntegration {
         internal lateinit var userId: String
         internal lateinit var userPassword: String
         internal lateinit var colorMode: ColorMode
+        internal lateinit var environment: Environment
         internal lateinit var delegateWeakReference: WeakReference<Delegate>
         internal lateinit var yatRecords: List<YatRecord>
-        var yatApi: YatLibApi = YatLibApi()
+        val yatApi: YatLibApi by lazy { YatLibApi() }
 
         @JvmStatic
-        fun setup(config: YatConfiguration, colorMode: ColorMode, delegate: Delegate) {
+        fun setup(config: YatConfiguration, colorMode: ColorMode, delegate: Delegate, environment: Environment = Environment.Production) {
             Companion.config = config
             Companion.colorMode = colorMode
+            Companion.environment = environment
             delegateWeakReference = WeakReference(delegate)
         }
 

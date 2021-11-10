@@ -19,7 +19,7 @@ internal class YatLibViewModel() : ViewModel() {
     fun connectYatUri() = generateUri("partner/${YatIntegration.config.organizationKey}/link-email")
 
     private fun generateUri(path: String) : Uri {
-        val baseUri = Uri.parse(YatIntegration.yatWebAppBaseURL)
+        val baseUri = Uri.parse(YatIntegration.environment.yatWebAppBaseURL)
         val records = YatIntegration.yatRecords.joinToString("|") { "${it.type.name}=${it.data}" }
         val encodedUri = Uri.Builder().scheme(baseUri.scheme)
             .authority(baseUri.authority)
