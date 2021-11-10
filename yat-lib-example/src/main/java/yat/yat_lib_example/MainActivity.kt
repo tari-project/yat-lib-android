@@ -83,7 +83,7 @@ internal class MainActivity : AppCompatActivity(), YatIntegration.Delegate {
                         if (answer.status) {
                             ui.searchResult.text = answer.result.toString()
                         } else {
-                            ui.searchResult.text = answer.error.reason
+                            ui.searchResult.text = answer.error!!.reason
                         }
                     }
                 }
