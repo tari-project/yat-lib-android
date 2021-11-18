@@ -1,6 +1,7 @@
 package yat.android.ui.transactions.outcoming
 
 import android.animation.Animator
+import android.app.ActionBar
 import android.app.Activity
 import android.app.ActivityOptions
 import android.content.Intent
@@ -12,6 +13,7 @@ import android.view.View
 import android.view.WindowManager
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.constraintlayout.widget.ConstraintSet
 import androidx.transition.AutoTransition
 import androidx.transition.TransitionManager
@@ -43,14 +45,14 @@ open class YatLibOutcomingTransactionActivity : AppCompatActivity() {
     fun setTransactionState(transactionState: TransactionState) = viewModel.state.postValue(transactionState)
 
     private fun setupData(data: YatLibOutcomingTransactionData) {
-        viewModel.startVideoDownload(this.cacheDir, data)
+        viewModel.startVideoDownload(this.filesDir, data)
         val formattedAmount = data.amount.toString()
         val formattedWithCurrency = formattedAmount + " " + data.currency
         ui.yatLibMainInfo.text = HtmlHelper.getSpannedText(getString(R.string.yat_lib_transaction_outcoming_text, formattedWithCurrency, data.yat))
     }
 
     private fun processTransactionState(state: TransactionState) {
-        when(state) {
+        when (state) {
             TransactionState.Init -> showCircularRevealFromCenter(ui.yatLibRootReveal, true)
             TransactionState.Pending -> Unit
             TransactionState.Complete -> showSent()
@@ -68,7 +70,13 @@ open class YatLibOutcomingTransactionActivity : AppCompatActivity() {
             val viewDiagonal = sqrt((viewWidth * viewWidth + viewHeight * viewHeight).toDouble()).toInt()
             val startRadius = if (isStraight) 0f else (viewDiagonal / 2).toFloat()
             val endRadius = if (isStraight) (viewDiagonal / 2).toFloat() else 0f
-            CircularRevealCompat.createCircularReveal(circularRevealWidget, (viewWidth / 2).toFloat(), (viewHeight / 2).toFloat(), startRadius, endRadius)
+            CircularRevealCompat.createCircularReveal(
+                circularRevealWidget,
+                (viewWidth / 2).toFloat(),
+                (viewHeight / 2).toFloat(),
+                startRadius,
+                endRadius
+            )
                 .apply {
                     duration = startUpAnimationDuration
                     addListener(object : DefaultListener() {
@@ -86,10 +94,10 @@ open class YatLibOutcomingTransactionActivity : AppCompatActivity() {
             finish()
         } else {
             yatLibProgressBar.visibility = View.VISIBLE
-            viewModel.videoUrl.observe(this@YatLibOutcomingTransactionActivity) {
-                if (!it.isNullOrEmpty()) {
-                    showVideoByUrl(it)
-                    showVideoAnimated()
+            viewModel.visualizedVideo.observe(this@YatLibOutcomingTransactionActivity) {
+                if (it !is YatVideo.None) {
+                    showVideoByUrl(it.localFile)
+                    showVideoAnimated(it)
                 } else {
                     yatLibProgressBar.postDelayed({ showSent() }, artificialDelayBeforeSuccess)
                 }
@@ -115,7 +123,7 @@ open class YatLibOutcomingTransactionActivity : AppCompatActivity() {
     }
 
 
-    private fun showVideoAnimated() {
+    private fun showVideoAnimated(video: YatVideo) {
         ConstraintSet().apply {
             val bottomMargin = ResourceHelper.dpToPx(
                 this@YatLibOutcomingTransactionActivity,
@@ -128,10 +136,30 @@ open class YatLibOutcomingTransactionActivity : AppCompatActivity() {
             val transition = AutoTransition().apply {
                 duration = showVideoAnimationDuration
             }
+
+            val isSquare = video !is YatVideo.Vertical
+            val videoLayoutParams = ui.yatLibVideo.layoutParams as ConstraintLayout.LayoutParams
+
+            if (isSquare) {
+                videoLayoutParams.height = 0
+                videoLayoutParams.bottomMargin = 0
+                clear(R.id.yat_lib_video, ConstraintSet.BOTTOM)
+                connect(R.id.yat_lib_video, ConstraintSet.BOTTOM, R.id.yat_lib_main_info_container, ConstraintSet.TOP)
+                setDimensionRatio(R.id.yat_lib_video, "1:1")
+            } else {
+                videoLayoutParams.height = ActionBar.LayoutParams.WRAP_CONTENT
+                videoLayoutParams.bottomMargin = ResourceHelper.dpToPx(this@YatLibOutcomingTransactionActivity, 50F).toInt()
+                clear(R.id.yat_lib_video, ConstraintSet.BOTTOM)
+                connect(R.id.yat_lib_video, ConstraintSet.BOTTOM, R.id.yat_lib_main_info_container, ConstraintSet.BOTTOM)
+                setDimensionRatio(R.id.yat_lib_video, "")
+            }
+            ui.yatLibVideo.layoutParams = videoLayoutParams
+
             TransitionManager.beginDelayedTransition(ui.yatLibRootContainer, transition)
             applyTo(ui.yatLibRootContainer)
         }
     }
+
 
     private fun showFailed() {
         ui.yatLibSuccessfulTextView.setText(R.string.yat_lib_transaction_outcoming_failed)
@@ -159,7 +187,11 @@ open class YatLibOutcomingTransactionActivity : AppCompatActivity() {
         private const val successAppearingAnimationDuration = 1000L
         private const val artificialDelayDuringSuccess = 1000L
 
-        fun <T:YatLibOutcomingTransactionActivity> start(context: Activity, outcomingTransactionData: YatLibOutcomingTransactionData, type: Class<T>) {
+        fun <T : YatLibOutcomingTransactionActivity> start(
+            context: Activity,
+            outcomingTransactionData: YatLibOutcomingTransactionData,
+            type: Class<T>
+        ) {
             val intent = Intent(context, type)
             intent.putExtra(dataKey, outcomingTransactionData)
             intent.flags = Intent.FLAG_ACTIVITY_NO_ANIMATION

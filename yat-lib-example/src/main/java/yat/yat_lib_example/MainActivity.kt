@@ -92,7 +92,7 @@ internal class MainActivity : AppCompatActivity(), YatIntegration.Delegate {
 
             override fun onQueryTextSubmit(p0: String?): Boolean = false
         })
-        val data = YatLibOutcomingTransactionData(10.2, "ETH", "\uD83D\uDC09\uD83D\uDC09\uD83D\uDC09")
+        val data = YatLibOutcomingTransactionData(10.2, "ETH", "\uD83C\uDF83\uD83C\uDF83\uD83C\uDF83\uD83C\uDF83")
         ui.testOutcomingButton.setOnClickListener {
             YatLibOutcomingTransactionActivity.start(
                 this,
