@@ -40,6 +40,7 @@
     <string name="yat_lib_success_dialog_button_title">Got it</string>
 
     <string name="yat_lib_transaction_outcoming_text"><![CDATA[You are <font color=#FFFFFF>sending<br>%s</font> to %s]]></string>
+    <string name="yat_lib_transaction_outcoming_text_long_pattern"><![CDATA[You are <font color=#FFFFFF>sending<br>%s</font> to<br>%s]]></string>
     <string name="yat_lib_transaction_outcoming_successful">Sent</string>
     <string name="yat_lib_transaction_outcoming_failed">Failed</string>
     <string name="yat_lib_transaction_incoming_text">You have received\n%s from %s</string>

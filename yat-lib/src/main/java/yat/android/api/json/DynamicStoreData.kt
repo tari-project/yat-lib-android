@@ -11,5 +11,9 @@ data class DynamicStoreData(
     @SerializedName("video")
     val video: String?,
     @SerializedName("webm")
-    val webm: String?
+    val webm: String?,
+    @SerializedName("v_video")
+    val verticalVideo: String?,
+    @SerializedName("v_webm")
+    val verticalWebm: String?,
 ) : Serializable

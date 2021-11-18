@@ -18,37 +18,45 @@
         android:animateLayoutChanges="true"
         android:background="#000000">
 
-        <androidx.appcompat.widget.LinearLayoutCompat
-            android:id="@+id/yat_lib_main_info_container"
+        <FrameLayout
+            android:id="@+id/yat_lib_video"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_height="0dp"
+            android:alpha="0"
+            app:layout_constraintBottom_toTopOf="@+id/yat_lib_main_info_container"
+            app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <yat.android.ui.components.CustomFontTextView
-                android:id="@+id/yat_lib_main_info"
+            <TextureView
+                android:id="@+id/yat_lib_video_texture_view"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginHorizontal="52dp"
-                android:gravity="center_horizontal"
-                android:letterSpacing="-0.05"
-                android:text="@string/yat_lib_transaction_incoming_text"
-                android:textAllCaps="true"
-                android:textColor="@color/yat_lib_transaction_text_color"
-                android:textSize="30sp"
-                app:customFont="@string/yat_lib_font_bold" />
+                android:layout_height="wrap_content" />
 
-            <ProgressBar
-                android:id="@+id/yat_lib_progress_bar"
-                android:layout_width="26dp"
-                android:layout_height="26dp"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginTop="19dp"
-                android:indeterminateTint="@color/yat_lib_progress_tint"
-                android:visibility="invisible" />
+        </FrameLayout>
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/yat_lib_outcoming_transaction_fader"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="-100dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/yat_lib_main_info_container">
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="@drawable/yat_lib_outcoming_transaction_fade_bg" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:background="@color/yat_lib_black" />
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
@@ -78,23 +86,39 @@
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
-        <FrameLayout
-            android:id="@+id/yat_lib_video"
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/yat_lib_main_info_container"
             android:layout_width="match_parent"
-            android:layout_height="0dp"
-            android:alpha="0"
-            app:layout_constraintBottom_toTopOf="@+id/yat_lib_main_info_container"
-            app:layout_constraintDimensionRatio="1:1"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <TextureView
-                android:id="@+id/yat_lib_video_texture_view"
+            <yat.android.ui.components.CustomFontTextView
+                android:id="@+id/yat_lib_main_info"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="16dp"
+                android:gravity="center_horizontal"
+                android:letterSpacing="-0.05"
+                android:text="@string/yat_lib_transaction_incoming_text"
+                android:textAllCaps="true"
+                android:textColor="@color/yat_lib_transaction_text_color"
+                android:textSize="30sp"
+                app:customFont="@string/yat_lib_font_bold" />
 
-        </FrameLayout>
+            <ProgressBar
+                android:id="@+id/yat_lib_progress_bar"
+                android:layout_width="26dp"
+                android:layout_height="26dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="19dp"
+                android:indeterminateTint="@color/yat_lib_progress_tint"
+                android:visibility="invisible" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
