@@ -100,7 +100,7 @@
                 android:id="@+id/yat_lib_main_info"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginHorizontal="52dp"
+                android:layout_marginHorizontal="16dp"
                 android:gravity="center_horizontal"
                 android:letterSpacing="-0.05"
                 android:text="@string/yat_lib_transaction_incoming_text"

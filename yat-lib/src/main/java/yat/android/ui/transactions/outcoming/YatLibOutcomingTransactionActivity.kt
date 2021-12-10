@@ -48,7 +48,16 @@ open class YatLibOutcomingTransactionActivity : AppCompatActivity() {
         viewModel.startVideoDownload(this.filesDir, data)
         val formattedAmount = data.amount.toString()
         val formattedWithCurrency = formattedAmount + " " + data.currency
-        ui.yatLibMainInfo.text = HtmlHelper.getSpannedText(getString(R.string.yat_lib_transaction_outcoming_text, formattedWithCurrency, data.yat))
+        var spannedText = HtmlHelper.getSpannedText(getString(R.string.yat_lib_transaction_outcoming_text, formattedWithCurrency, data.yat))
+
+        ui.yatLibMainInfo.post {
+            val width = ui.yatLibMainInfo.paint.measureText(spannedText, 0, spannedText.length)
+            val viewWidth = ui.yatLibMainInfo.width
+            if (width > viewWidth + 350) {
+                spannedText = HtmlHelper.getSpannedText(getString(R.string.yat_lib_transaction_outcoming_text_long_pattern, formattedWithCurrency, data.yat))
+            }
+            ui.yatLibMainInfo.text = spannedText
+        }
     }
 
     private fun processTransactionState(state: TransactionState) {
