@@ -37,6 +37,7 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.view.ContextThemeWrapper
+import com.yatlabs.yat.infrastructure.ApiClient
 import yat.android.R
 import yat.android.data.YatRecord
 import yat.android.ui.deeplink.DeeplinkAction
@@ -91,10 +92,12 @@ class YatIntegration {
         val yatApi: YatLibApi by lazy { YatLibApi() }
 
         @JvmStatic
-        fun setup(config: YatConfiguration, colorMode: ColorMode, delegate: Delegate, environment: Environment = Environment.Production) {
+        fun setup(context: Context, config: YatConfiguration, colorMode: ColorMode, delegate: Delegate, environment: Environment = Environment.Production) {
             Companion.config = config
             Companion.colorMode = colorMode
             Companion.environment = environment
+            ApiClient.baseUrl = environment.yatAPIBaseURL
+            ApiClient.tokenStorage = SharedPrefsTokenStorage(context.getSharedPreferences("yat_lib", Context.MODE_PRIVATE))
             delegateWeakReference = WeakReference(delegate)
         }
 

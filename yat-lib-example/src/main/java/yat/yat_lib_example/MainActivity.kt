@@ -66,6 +66,7 @@ internal class MainActivity : AppCompatActivity(), YatIntegration.Delegate {
         )
 
         YatIntegration.setup(
+            this,
             config = config,
             colorMode = YatIntegration.ColorMode.LIGHT,
             this
