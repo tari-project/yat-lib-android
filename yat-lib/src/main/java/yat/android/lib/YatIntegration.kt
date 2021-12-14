@@ -37,7 +37,7 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.view.ContextThemeWrapper
-import com.yatlabs.yat.infrastructure.ApiClient
+import yat.android.sdk.infrastructure.ApiClient
 import yat.android.R
 import yat.android.data.YatRecord
 import yat.android.ui.deeplink.DeeplinkAction

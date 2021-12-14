@@ -1,6 +1,6 @@
 package yat.android.lib
 
-import com.yatlabs.yat.apis.*
+import yat.android.sdk.apis.*
 import retrofit2.Response
 import yat.android.api.ResponseError
 import yat.android.api.YatLibApiGateway

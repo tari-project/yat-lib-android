@@ -1,7 +1,7 @@
 package yat.android.lib
 
 import android.content.SharedPreferences
-import com.yatlabs.yat.infrastructure.TokenStorage
+import yat.android.sdk.infrastructure.TokenStorage
 
 class SharedPrefsTokenStorage(private val prefs: SharedPreferences): TokenStorage {
 
