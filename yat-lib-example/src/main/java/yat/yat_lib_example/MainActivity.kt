@@ -79,7 +79,7 @@ internal class MainActivity : AppCompatActivity(), YatIntegration.Delegate {
                 if (p0.isNullOrEmpty()) return false
 
                 lifecycleScope.launch(Dispatchers.IO) {
-                    val answer = YatIntegration.yatApi.lookupEmojiIdWithSymbol(p0.orEmpty(), "XTR")
+                    val answer = YatIntegration.yatApi.lookupEmojiIdWithSymbol(p0.orEmpty())
                     launch(Dispatchers.Main) {
                         if (answer.status) {
                             ui.searchResult.text = answer.result.toString()

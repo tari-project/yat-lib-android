@@ -1,21 +1,21 @@
 package yat.android.lib
 
-import yat.android.sdk.apis.*
 import retrofit2.Response
 import yat.android.api.ResponseError
 import yat.android.api.YatLibApiGateway
 import yat.android.api.json.EmojiStoreKey
 import yat.android.api.json.LoadValueFromKeyValueStoreResponse
 import yat.android.api.lookup.LookupEmojiIdWithSymbolResponse
+import yat.android.sdk.apis.*
 
 class YatLibApi() {
     private val yatLibGateway = YatLibApiGateway.create()
 
-    suspend fun lookupEmojiIdWithSymbol(emojiId: String, symbol: String): LookupEmojiIdWithSymbolResponse {
+    suspend fun lookupEmojiIdWithSymbol(emojiId: String): LookupEmojiIdWithSymbolResponse {
         return try {
-            yatLibGateway.lookupEmojiIdWithSymbol(emojiId, symbol)
+            yatLibGateway.lookupEmojiIdWithSymbol(emojiId)
         } catch (e: Throwable) {
-            LookupEmojiIdWithSymbolResponse(false, listOf(), ResponseError(-1, e.toString()))
+            LookupEmojiIdWithSymbolResponse(false, null, ResponseError(-1, e.toString()))
         }
     }
 

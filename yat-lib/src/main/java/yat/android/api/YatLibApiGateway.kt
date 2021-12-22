@@ -12,8 +12,8 @@ import yat.android.lib.YatIntegration
 
 internal interface YatLibApiGateway {
 
-    @GET("emoji_id/{emojiId}/{symbol}")
-    suspend fun lookupEmojiIdWithSymbol(@Path("emojiId") emojiId: String, @Path("symbol") symbol: String): LookupEmojiIdWithSymbolResponse
+    @GET("emoji_id/{emojiId}/payment")
+    suspend fun lookupEmojiIdWithSymbol(@Path("emojiId") emojiId: String): LookupEmojiIdWithSymbolResponse
 
     @GET("emoji_id/{emojiId}/json/{key}")
     suspend fun loadValueFromKeyValueStore(@Path("emojiId") emojiId: String, @Path("key") key: EmojiStoreKey): Response<LoadValueFromKeyValueStoreResponse>
