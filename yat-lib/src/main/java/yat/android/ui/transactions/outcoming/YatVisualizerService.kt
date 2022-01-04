@@ -3,8 +3,7 @@ package yat.android.ui.transactions.outcoming
 import okhttp3.OkHttpClient
 import okhttp3.Request
 import okhttp3.ResponseBody
-import yat.android.api.json.EmojiStoreKey
-import yat.android.lib.YatIntegration
+import yat.android.lib.YatLibApi
 import java.io.File
 import java.net.HttpURLConnection
 import java.util.concurrent.TimeUnit
@@ -14,8 +13,8 @@ class YatVisualizerService() {
     private val httpTimeout = 20L
 
     suspend fun getVisualizedVideoForYat(filesDirectory: File, yat: String): YatVideo {
-        val response = YatIntegration.yatApi.loadValueFromKeyValueStore(yat, EmojiStoreKey.VisualizerFileLocations)
-        val body = response.body()?.data
+        val response = kotlin.runCatching { YatLibApi.emojiIDApi.loadJson(yat, "VisualizerFileLocations") }
+        val body = response.getOrNull()?.data
 
         val yatVideo = when {
             !body?.verticalVideo.isNullOrEmpty() -> YatVideo.Vertical(body?.verticalVideo.orEmpty())

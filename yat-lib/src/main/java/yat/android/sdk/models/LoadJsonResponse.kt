@@ -30,7 +30,7 @@ data class LoadJsonResponse (
     val createdAt: java.time.OffsetDateTime,
     /* Data value stored by key and EmojiID  If there is no value for the key an empty object `{}` is returned */
     @Json(name = "data")
-    val data: kotlin.Any,
+    val data: DynamicStoreData?,
     /* Data is locked */
     @Json(name = "is_locked")
     val isLocked: kotlin.Boolean,
