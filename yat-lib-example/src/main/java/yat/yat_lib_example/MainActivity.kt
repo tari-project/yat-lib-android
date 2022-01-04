@@ -14,6 +14,7 @@ import yat.android.data.YatRecord
 import yat.android.data.YatRecordType
 import yat.android.lib.YatConfiguration
 import yat.android.lib.YatIntegration
+import yat.android.lib.YatLibApi
 import yat.android.ui.transactions.outcoming.YatLibOutcomingTransactionActivity
 import yat.android.ui.transactions.outcoming.YatLibOutcomingTransactionData
 import yat.yat_lib_example.databinding.ActivityMainBinding
@@ -79,12 +80,13 @@ internal class MainActivity : AppCompatActivity(), YatIntegration.Delegate {
                 if (p0.isNullOrEmpty()) return false
 
                 lifecycleScope.launch(Dispatchers.IO) {
-                    val answer = YatIntegration.yatApi.lookupEmojiIdWithSymbol(p0.orEmpty())
-                    launch(Dispatchers.Main) {
-                        if (answer.status) {
-                            ui.searchResult.text = answer.result.toString()
-                        } else {
-                            ui.searchResult.text = answer.error!!.reason
+                    runCatching { YatLibApi.emojiIDApi.lookupEmojiIDPayment(p0.orEmpty(), "0x0101") }.getOrNull()?.let { response->
+                        launch(Dispatchers.Main) {
+                            if (response.status) {
+                                ui.searchResult.text = response.result?.map { it.key + " " + it.value.address }?.joinToString("")
+                            } else {
+                                ui.searchResult.text = response.error!!.reason
+                            }
                         }
                     }
                 }
@@ -93,7 +95,7 @@ internal class MainActivity : AppCompatActivity(), YatIntegration.Delegate {
 
             override fun onQueryTextSubmit(p0: String?): Boolean = false
         })
-        val data = YatLibOutcomingTransactionData(10.2, "ETH", "\uD83C\uDF83\uD83C\uDF83\uD83C\uDF83\uD83C\uDF83")
+        val data = YatLibOutcomingTransactionData(10.2, "ETH", "\uD83D\uDE02\uD83D\uDE07\uD83D\uDE43\uD83D\uDE0D\uD83E\uDD16")
         ui.testOutcomingButton.setOnClickListener {
             YatLibOutcomingTransactionActivity.start(
                 this,

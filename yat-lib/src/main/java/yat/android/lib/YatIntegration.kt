@@ -89,7 +89,6 @@ class YatIntegration {
         internal lateinit var environment: Environment
         internal lateinit var delegateWeakReference: WeakReference<Delegate>
         internal lateinit var yatRecords: List<YatRecord>
-        val yatApi: YatLibApi by lazy { YatLibApi() }
 
         @JvmStatic
         fun setup(context: Context, config: YatConfiguration, colorMode: ColorMode, delegate: Delegate, environment: Environment = Environment.Production) {
