@@ -63,7 +63,7 @@ internal class MainActivity : AppCompatActivity(), YatIntegration.Delegate {
         val config = YatConfiguration(
             organizationName = "",
             organizationKey = "",
-            appReturnLink = ""
+            appReturnLink = "tari://y.at?action"
         )
 
         YatIntegration.setup(
@@ -104,7 +104,7 @@ internal class MainActivity : AppCompatActivity(), YatIntegration.Delegate {
             )
         }
         ui.testIncomingButton.setOnClickListener {
-            YatIntegration.showSuccessDialog(this, Uri.parse("uri"))
+            YatIntegration.processDeepLink(this, Uri.parse("tari://y.at?action?eid=%F0%9F%98%82%F0%9F%98%87%F0%9F%99%83%F0%9F%98%8D%F0%9F%A4%96&refresh_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkMzlmYThhZS0xNTlkLTRkOGYtOTRhYi0zY2Q5OTRjODkyOGQiLCJpc3MiOiJ5YXQiLCJleHAiOjE2NDQxNDYxMjEsInNjb3BlcyI6WyJ0b2tlbjpyZWZyZXNoIl0sImlzc3VlZCI6MTY0MTQ2NzcyMSwiYWN0aXZlMmZhIjowfQ.6v-7IzmpIvMmyPjNZhwR9UDm_Dq-8OsioFA2xkQF4sI"))
         }
     }
 

@@ -2,6 +2,7 @@ package yat.android.ui.deeplink
 
 import android.content.Context
 import android.net.Uri
+import androidx.core.net.toUri
 import yat.android.lib.YatIntegration
 
 internal sealed class DeeplinkAction(val emojiId: String) {
@@ -38,9 +39,16 @@ internal sealed class DeeplinkAction(val emojiId: String) {
         const val REFRESH_TOKEN_PROPERTY = "refresh_token"
 
         fun parse(deepLink: Uri): DeeplinkAction {
-            val action = deepLink.getQueryParameter(ACTION_PROPERTY)
-            val emojiId = deepLink.getQueryParameter(EMOJI_ID_PROPERTY).orEmpty()
-            val refreshToken = deepLink.getQueryParameter(REFRESH_TOKEN_PROPERTY).orEmpty()
+            var action = deepLink.getQueryParameter(ACTION_PROPERTY)
+            var emojiId = deepLink.getQueryParameter(EMOJI_ID_PROPERTY).orEmpty()
+            var refreshToken = deepLink.getQueryParameter(REFRESH_TOKEN_PROPERTY).orEmpty()
+
+            if(emojiId.isEmpty() && action.isNullOrEmpty()) {
+                val fixedUrl = deepLink.toString().replace("action?", "action=&").toUri()
+                action = fixedUrl.getQueryParameter(ACTION_PROPERTY)
+                emojiId = fixedUrl.getQueryParameter(EMOJI_ID_PROPERTY).orEmpty()
+                refreshToken = fixedUrl.getQueryParameter(REFRESH_TOKEN_PROPERTY).orEmpty()
+            }
 
             return when (action) {
                 "create" -> Create(emojiId)
