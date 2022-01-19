@@ -37,9 +37,9 @@ import android.content.Context
 import android.content.Intent
 import android.net.Uri
 import android.view.ContextThemeWrapper
-import yat.android.sdk.infrastructure.ApiClient
 import yat.android.R
 import yat.android.data.YatRecord
+import yat.android.sdk.infrastructure.ApiClient
 import yat.android.ui.deeplink.DeeplinkAction
 import yat.android.ui.deeplink.DeeplinkProcessor
 import yat.android.ui.deeplink.DeeplinkProcessorImpl
@@ -132,7 +132,9 @@ class YatIntegration {
                 ColorMode.LIGHT -> R.style.YatLibAppTheme_Light
             }
             val themeWrapper = ContextThemeWrapper(context, theme)
-            YatLibSuccessDialog(themeWrapper, DeeplinkAction.parse(deepLink).emojiId).show()
+            val action = DeeplinkAction.parse(deepLink)
+            action.execute(context)
+            YatLibSuccessDialog(themeWrapper, action.emojiId).show()
         }
 
         private fun openLink(context: Activity, uri: Uri) = context.startActivity(Intent(Intent.ACTION_VIEW, uri))
