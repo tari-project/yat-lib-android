@@ -22,7 +22,7 @@ import java.io.Serializable
 
 data class AcceptTransfer (
     /* Confirmation OTP of either the sender or receiver of the transfer */
-    @field:Json(name = "code")
+    @Json(name = "code")
     val code: kotlin.String
 ) : Serializable {
     companion object {

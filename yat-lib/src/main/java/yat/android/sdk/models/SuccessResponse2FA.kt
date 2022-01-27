@@ -22,9 +22,9 @@ import java.io.Serializable
  */
 
 data class SuccessResponse2FA (
-    @field:Json(name = "message")
+    @Json(name = "message")
     val message: kotlin.String,
-    @field:Json(name = "phone_last_digits")
+    @Json(name = "phone_last_digits")
     val phoneLastDigits: kotlin.String? = null
 ) : Serializable {
     companion object {

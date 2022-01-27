@@ -26,19 +26,19 @@ import java.io.Serializable
 
 data class LoadJsonResponse (
     /* Created at time for the record */
-    @field:Json(name = "created_at")
+    @Json(name = "created_at")
     val createdAt: java.time.OffsetDateTime,
     /* Data value stored by key and EmojiID  If there is no value for the key an empty object `{}` is returned */
-    @field:Json(name = "data")
+    @Json(name = "data")
     val data: DynamicStoreData?,
     /* Data is locked */
-    @field:Json(name = "is_locked")
+    @Json(name = "is_locked")
     val isLocked: kotlin.Boolean,
     /* Updated at time for the record */
-    @field:Json(name = "updated_at")
+    @Json(name = "updated_at")
     val updatedAt: java.time.OffsetDateTime,
     /* Time the record was locked from future writes */
-    @field:Json(name = "locked_future_writes_at")
+    @Json(name = "locked_future_writes_at")
     val lockedFutureWritesAt: java.time.OffsetDateTime? = null
 ) : Serializable {
     companion object {

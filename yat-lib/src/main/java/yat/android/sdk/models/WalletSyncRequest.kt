@@ -22,9 +22,9 @@ import java.io.Serializable
  */
 
 data class WalletSyncRequest (
-    @field:Json(name = "signature")
+    @Json(name = "signature")
     val signature: kotlin.String,
-    @field:Json(name = "source")
+    @Json(name = "source")
     val source: WalletSyncRequest.Source
 ) : Serializable {
     companion object {
@@ -37,8 +37,8 @@ data class WalletSyncRequest (
     */
     
     enum class Source(val value: kotlin.String){
-        @field:Json(name = "Mint") mint("Mint"),
-        @field:Json(name = "Dashboard") dashboard("Dashboard");
+        @Json(name = "Mint") mint("Mint"),
+        @Json(name = "Dashboard") dashboard("Dashboard");
     }
 }
 

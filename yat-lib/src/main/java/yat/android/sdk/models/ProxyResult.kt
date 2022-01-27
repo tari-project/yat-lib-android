@@ -23,10 +23,10 @@ import java.io.Serializable
 
 data class ProxyResult (
     /* The response from the proxied service as a Json object */
-    @field:Json(name = "json")
+    @Json(name = "json")
     val json: kotlin.Any,
     /* The response from the proxied service as a String */
-    @field:Json(name = "value")
+    @Json(name = "value")
     val value: kotlin.String
 ) : Serializable {
     companion object {

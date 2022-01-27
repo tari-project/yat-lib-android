@@ -24,13 +24,13 @@ import java.io.Serializable
 
 data class Enable2FABody (
     /* Make this method default */
-    @field:Json(name = "default")
+    @Json(name = "default")
     val default: kotlin.Boolean,
     /* Two factor authentication backend */
-    @field:Json(name = "provider")
+    @Json(name = "provider")
     val provider: Enable2FABody.Provider,
     /* Phone number required for `SMS` provider */
-    @field:Json(name = "phone")
+    @Json(name = "phone")
     val phone: kotlin.String? = null
 ) : Serializable {
     companion object {
@@ -43,8 +43,8 @@ data class Enable2FABody (
     */
     
     enum class Provider(val value: kotlin.String){
-        @field:Json(name = "GoogleAuthenticator") googleAuthenticator("GoogleAuthenticator"),
-        @field:Json(name = "SMS") sMS("SMS");
+        @Json(name = "GoogleAuthenticator") googleAuthenticator("GoogleAuthenticator"),
+        @Json(name = "SMS") sMS("SMS");
     }
 }
 

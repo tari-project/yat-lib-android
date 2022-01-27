@@ -24,13 +24,13 @@ import java.io.Serializable
 
 data class EidResponseResult (
     /* Category data in text or hex encoded formats */
-    @field:Json(name = "data")
+    @Json(name = "data")
     val data: kotlin.String,
     /* Hash identifies record, can be used to delete records */
-    @field:Json(name = "hash")
+    @Json(name = "hash")
     val hash: kotlin.String,
     /* Category as a hex string number */
-    @field:Json(name = "tag")
+    @Json(name = "tag")
     val tag: kotlin.String
 ) : Serializable {
     companion object {

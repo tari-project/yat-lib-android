@@ -24,19 +24,19 @@ import java.io.Serializable
  */
 
 data class PublicLootBoxType (
-    @field:Json(name = "config")
+    @Json(name = "config")
     val config: ListOfPublicLootBoxLootboxTypeConfig,
     /* The timestamp for when this loot box type was created */
-    @field:Json(name = "created_at")
+    @Json(name = "created_at")
     val createdAt: java.time.OffsetDateTime,
     /* A more detailed description of the loot box type */
-    @field:Json(name = "description")
+    @Json(name = "description")
     val description: kotlin.String,
     /* The loot box type id */
-    @field:Json(name = "id")
+    @Json(name = "id")
     val id: java.util.UUID,
     /* The name of this loot box type */
-    @field:Json(name = "name")
+    @Json(name = "name")
     val name: kotlin.String
 ) : Serializable {
     companion object {

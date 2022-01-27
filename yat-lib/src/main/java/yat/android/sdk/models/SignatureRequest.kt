@@ -22,9 +22,9 @@ import java.io.Serializable
  */
 
 data class SignatureRequest (
-    @field:Json(name = "account")
+    @Json(name = "account")
     val account: kotlin.String,
-    @field:Json(name = "expiry")
+    @Json(name = "expiry")
     val expiry: kotlin.Long? = null
 ) : Serializable {
     companion object {

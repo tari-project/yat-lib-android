@@ -22,7 +22,7 @@ import java.io.Serializable
 
 data class Confirm2FaUpdate (
     /* Auth code of new 2FA provider */
-    @field:Json(name = "code")
+    @Json(name = "code")
     val code: kotlin.String
 ) : Serializable {
     companion object {

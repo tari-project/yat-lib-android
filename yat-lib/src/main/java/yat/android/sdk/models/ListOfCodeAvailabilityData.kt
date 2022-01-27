@@ -38,41 +38,41 @@ import java.io.Serializable
  */
 
 data class ListOfCodeAvailabilityData (
-    @field:Json(name = "total_uses")
+    @Json(name = "total_uses")
     val totalUses: kotlin.Long,
-    @field:Json(name = "activator")
+    @Json(name = "activator")
     val activator: ListOfCodeAvailabilityData.Activator? = null,
-    @field:Json(name = "available")
+    @Json(name = "available")
     val available: kotlin.Long? = null,
-    @field:Json(name = "code_type")
+    @Json(name = "code_type")
     val codeType: ListOfCodeAvailabilityData.CodeType? = null,
-    @field:Json(name = "created_at")
+    @Json(name = "created_at")
     val createdAt: java.time.OffsetDateTime? = null,
-    @field:Json(name = "deleted_at")
+    @Json(name = "deleted_at")
     val deletedAt: java.time.OffsetDateTime? = null,
-    @field:Json(name = "discount_as_percentage")
+    @Json(name = "discount_as_percentage")
     val discountAsPercentage: kotlin.Int? = null,
-    @field:Json(name = "discount_in_cents")
+    @Json(name = "discount_in_cents")
     val discountInCents: kotlin.Int? = null,
-    @field:Json(name = "end_date")
+    @Json(name = "end_date")
     val endDate: java.time.OffsetDateTime? = null,
-    @field:Json(name = "id")
+    @Json(name = "id")
     val id: java.util.UUID? = null,
-    @field:Json(name = "max_emojis_per_user")
+    @Json(name = "max_emojis_per_user")
     val maxEmojisPerUser: kotlin.Int? = null,
-    @field:Json(name = "max_uses")
+    @Json(name = "max_uses")
     val maxUses: kotlin.Int? = null,
-    @field:Json(name = "name")
+    @Json(name = "name")
     val name: kotlin.String? = null,
-    @field:Json(name = "organization_id")
+    @Json(name = "organization_id")
     val organizationId: java.util.UUID? = null,
-    @field:Json(name = "pattern")
+    @Json(name = "pattern")
     val pattern: kotlin.Any? = null,
-    @field:Json(name = "redemption_code")
+    @Json(name = "redemption_code")
     val redemptionCode: kotlin.String? = null,
-    @field:Json(name = "start_date")
+    @Json(name = "start_date")
     val startDate: java.time.OffsetDateTime? = null,
-    @field:Json(name = "updated_at")
+    @Json(name = "updated_at")
     val updatedAt: java.time.OffsetDateTime? = null
 ) : Serializable {
     companion object {
@@ -85,8 +85,8 @@ data class ListOfCodeAvailabilityData (
     */
     
     enum class Activator(val value: kotlin.String){
-        @field:Json(name = "RedemptionCode") redemptionCode("RedemptionCode"),
-        @field:Json(name = "SecretKey") secretKey("SecretKey");
+        @Json(name = "RedemptionCode") redemptionCode("RedemptionCode"),
+        @Json(name = "SecretKey") secretKey("SecretKey");
     }
     /**
     * 
@@ -94,8 +94,8 @@ data class ListOfCodeAvailabilityData (
     */
     
     enum class CodeType(val value: kotlin.String){
-        @field:Json(name = "Discount") discount("Discount"),
-        @field:Json(name = "RandomYat") randomYat("RandomYat");
+        @Json(name = "Discount") discount("Discount"),
+        @Json(name = "RandomYat") randomYat("RandomYat");
     }
 }
 

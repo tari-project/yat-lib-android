@@ -29,29 +29,29 @@ import java.io.Serializable
 
 data class PaymentAddressResponseResult (
     /* The payment address */
-    @field:Json(name = "address")
-    val address: kotlin.String,
+    @Json(name = "address")
+    var address: kotlin.String,
     /* The category of this address */
-    @field:Json(name = "category")
-    val category: kotlin.String,
+    @Json(name = "category")
+    var category: kotlin.String,
     /* Optional: Is this address the default address for the category */
-    @field:Json(name = "default")
-    val default: kotlin.Boolean,
+    @Json(name = "default")
+    var default: kotlin.Boolean,
     /* Optional: Description of the address */
-    @field:Json(name = "description")
-    val description: kotlin.String? = null,
+    @Json(name = "description")
+    var description: kotlin.String? = null,
     /* Optional: CryptoToken long name is a defined name for the ERC20 token */
-    @field:Json(name = "long_name")
-    val longName: kotlin.String? = null,
+    @Json(name = "long_name")
+    var longName: kotlin.String? = null,
     /* Optional: CryptoToken settlement network for the ERC20 token */
-    @field:Json(name = "settlement_network")
-    val settlementNetwork: kotlin.String? = null,
+    @Json(name = "settlement_network")
+    var settlementNetwork: kotlin.String? = null,
     /* Optional: CryptoToken short name to identify an ERC20 token */
-    @field:Json(name = "short_name")
-    val shortName: kotlin.String? = null,
+    @Json(name = "short_name")
+    var shortName: kotlin.String? = null,
     /* Optional: Proof of ownership signature for the address */
-    @field:Json(name = "signature")
-    val signature: kotlin.String? = null
+    @Json(name = "signature")
+    var signature: kotlin.String? = null
 ) : Serializable {
     companion object {
         private const val serialVersionUID: Long = 123

@@ -25,15 +25,15 @@ import java.io.Serializable
  */
 
 data class ListOfUserInterestData (
-    @field:Json(name = "created_at")
+    @Json(name = "created_at")
     val createdAt: java.time.OffsetDateTime,
-    @field:Json(name = "emoji_id")
+    @Json(name = "emoji_id")
     val emojiId: kotlin.String,
-    @field:Json(name = "id")
+    @Json(name = "id")
     val id: java.util.UUID,
-    @field:Json(name = "updated_at")
+    @Json(name = "updated_at")
     val updatedAt: java.time.OffsetDateTime,
-    @field:Json(name = "user_id")
+    @Json(name = "user_id")
     val userId: java.util.UUID
 ) : Serializable {
     companion object {

@@ -25,17 +25,17 @@ import java.io.Serializable
  */
 
 data class Metadata (
-    @field:Json(name = "animation_url")
+    @Json(name = "animation_url")
     val animationUrl: kotlin.String,
-    @field:Json(name = "attributes")
+    @Json(name = "attributes")
     val attributes: kotlin.collections.List<MetadataAttributes>,
-    @field:Json(name = "description")
+    @Json(name = "description")
     val description: kotlin.String,
-    @field:Json(name = "external_link")
+    @Json(name = "external_link")
     val externalLink: kotlin.String,
-    @field:Json(name = "image")
+    @Json(name = "image")
     val image: kotlin.String,
-    @field:Json(name = "name")
+    @Json(name = "name")
     val name: kotlin.String
 ) : Serializable {
     companion object {

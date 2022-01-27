@@ -22,9 +22,9 @@ import java.io.Serializable
 
 data class SearchResult (
     /* Alternative Emoji IDs */
-    @field:Json(name = "alternates")
+    @Json(name = "alternates")
     val alternates: kotlin.collections.List<RandomResultResult>,
-    @field:Json(name = "result")
+    @Json(name = "result")
     val result: SearchResultResult
 ) : Serializable {
     companion object {

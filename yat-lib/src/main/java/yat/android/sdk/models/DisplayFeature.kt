@@ -22,9 +22,9 @@ import java.io.Serializable
  */
 
 data class DisplayFeature (
-    @field:Json(name = "code")
+    @Json(name = "code")
     val code: kotlin.String,
-    @field:Json(name = "id")
+    @Json(name = "id")
     val id: java.util.UUID
 ) : Serializable {
     companion object {

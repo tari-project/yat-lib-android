@@ -27,19 +27,19 @@ import java.io.Serializable
  */
 
 data class PaymentMethod (
-    @field:Json(name = "id")
+    @Json(name = "id")
     val id: kotlin.String,
-    @field:Json(name = "payment_type")
+    @Json(name = "payment_type")
     val paymentType: kotlin.String,
-    @field:Json(name = "brand")
+    @Json(name = "brand")
     val brand: kotlin.String? = null,
-    @field:Json(name = "country")
+    @Json(name = "country")
     val country: kotlin.String? = null,
-    @field:Json(name = "exp_month")
+    @Json(name = "exp_month")
     val expMonth: kotlin.Int? = null,
-    @field:Json(name = "exp_year")
+    @Json(name = "exp_year")
     val expYear: kotlin.Int? = null,
-    @field:Json(name = "last4")
+    @Json(name = "last4")
     val last4: kotlin.String? = null
 ) : Serializable {
     companion object {

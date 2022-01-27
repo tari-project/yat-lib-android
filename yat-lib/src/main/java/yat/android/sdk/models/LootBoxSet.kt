@@ -22,10 +22,10 @@ import java.io.Serializable
 
 data class LootBoxSet (
     /* The set of loot boxes generated. The length of this array may be less than `num_requested` */
-    @field:Json(name = "loot_boxes")
+    @Json(name = "loot_boxes")
     val lootBoxes: kotlin.collections.List<ListOfPublicLootBoxData>,
     /* The number of loot boxes requested */
-    @field:Json(name = "num_requested")
+    @Json(name = "num_requested")
     val numRequested: kotlin.Long
 ) : Serializable {
     companion object {

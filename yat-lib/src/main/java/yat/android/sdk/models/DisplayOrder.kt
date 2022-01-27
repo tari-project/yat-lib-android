@@ -39,59 +39,59 @@ import java.io.Serializable
 
 data class DisplayOrder (
     /* Amount overpaid in cents */
-    @field:Json(name = "amount_overpaid_in_cents")
+    @Json(name = "amount_overpaid_in_cents")
     val amountOverpaidInCents: kotlin.Long,
     /* A UTC timestamp for when this order was initially created. */
-    @field:Json(name = "created_at")
+    @Json(name = "created_at")
     val createdAt: java.time.OffsetDateTime,
     /* Whether an order is eligible for a refund via an admin. */
-    @field:Json(name = "eligible_for_refund")
+    @Json(name = "eligible_for_refund")
     val eligibleForRefund: kotlin.Boolean,
     /* The unique identifier for this order */
-    @field:Json(name = "id")
+    @Json(name = "id")
     val id: java.util.UUID,
     /* The total of miscellaneous refund amounts retirned to the order. */
-    @field:Json(name = "misc_refunded_total_in_cents")
+    @Json(name = "misc_refunded_total_in_cents")
     val miscRefundedTotalInCents: kotlin.Long,
     /* The list of individual line items making up this order. */
-    @field:Json(name = "order_items")
+    @Json(name = "order_items")
     val orderItems: kotlin.collections.List<DisplayOrderOrderItems>,
     /* The order number is the last 8 characters of the order's ID for user display purposes. */
-    @field:Json(name = "order_number")
+    @Json(name = "order_number")
     val orderNumber: kotlin.String,
     /* The total of refund amounts for the order. */
-    @field:Json(name = "refunded_total_in_cents")
+    @Json(name = "refunded_total_in_cents")
     val refundedTotalInCents: kotlin.Long,
     /* Remaining due in cents to mark the cart as Paid */
-    @field:Json(name = "remaining_due_in_cents")
+    @Json(name = "remaining_due_in_cents")
     val remainingDueInCents: kotlin.Long,
     /* The order of the status. Orders start in 'Draft' status, then move to 'PendingPayment' and finally, 'Paid',  unless they are 'Cancelled'. */
-    @field:Json(name = "status")
+    @Json(name = "status")
     val status: DisplayOrder.Status,
     /* The sum of all the items in this order, plus fees, in USD cents. */
-    @field:Json(name = "total_in_cents")
+    @Json(name = "total_in_cents")
     val totalInCents: kotlin.Long,
     /* A UTC timestamp for the last time any field in this order was modified. */
-    @field:Json(name = "updated_at")
+    @Json(name = "updated_at")
     val updatedAt: java.time.OffsetDateTime,
-    @field:Json(name = "user")
+    @Json(name = "user")
     val user: DisplayOrderUser,
     /* The identifier of the user placing this order */
-    @field:Json(name = "user_id")
+    @Json(name = "user_id")
     val userId: java.util.UUID,
     /* Checkout carts have a limited time before they expire. This prevents users from blocking inventory from being  sold to other customers. The expiry time is configurable on the server and is typically 5 minutes. */
-    @field:Json(name = "expires_at")
+    @Json(name = "expires_at")
     val expiresAt: java.time.OffsetDateTime? = null,
     /* The organization id of the user, if applicable. This will generally be null, unless the purchase is coming via  a referral programme. */
-    @field:Json(name = "organization_id")
+    @Json(name = "organization_id")
     val organizationId: java.util.UUID? = null,
     /* A UTC timestamp for when payment for this order was received. Will be null if no payment has been made yet. */
-    @field:Json(name = "paid_at")
+    @Json(name = "paid_at")
     val paidAt: java.time.OffsetDateTime? = null,
-    @field:Json(name = "payment_method_data")
+    @Json(name = "payment_method_data")
     val paymentMethodData: DisplayOrderPaymentMethodData? = null,
     /* A convenience field indicating how long before `expires_at` is reached. */
-    @field:Json(name = "seconds_until_expiry")
+    @Json(name = "seconds_until_expiry")
     val secondsUntilExpiry: kotlin.Int? = null
 ) : Serializable {
     companion object {
@@ -104,10 +104,10 @@ data class DisplayOrder (
     */
     
     enum class Status(val value: kotlin.String){
-        @field:Json(name = "Cancelled") cancelled("Cancelled"),
-        @field:Json(name = "Draft") draft("Draft"),
-        @field:Json(name = "Paid") paid("Paid"),
-        @field:Json(name = "PendingPayment") pendingPayment("PendingPayment");
+        @Json(name = "Cancelled") cancelled("Cancelled"),
+        @Json(name = "Draft") draft("Draft"),
+        @Json(name = "Paid") paid("Paid"),
+        @Json(name = "PendingPayment") pendingPayment("PendingPayment");
     }
 }
 

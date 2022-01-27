@@ -22,7 +22,7 @@ import java.io.Serializable
 
 data class AddItemsCartRequestItems (
     /* EmojiID to buy */
-    @field:Json(name = "emoji_id")
+    @Json(name = "emoji_id")
     val emojiId: kotlin.String
 ) : Serializable {
     companion object {

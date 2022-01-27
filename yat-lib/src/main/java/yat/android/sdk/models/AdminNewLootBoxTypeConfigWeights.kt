@@ -24,13 +24,13 @@ import java.io.Serializable
 
 data class AdminNewLootBoxTypeConfigWeights (
     /* The inverse probability ratio. This is a 1:n value. i.e. an ipr of 5 means a 1 in 5 chance of occurring, or 20% */
-    @field:Json(name = "ipr")
+    @Json(name = "ipr")
     val ipr: kotlin.Double,
     /* The highest (inclusive) rhythm score range for inclusion when the probability spec hits */
-    @field:Json(name = "max_score")
+    @Json(name = "max_score")
     val maxScore: kotlin.Long,
     /* The lowest (inclusive) rhythm score range for inclusion when the probability spec hits */
-    @field:Json(name = "min_score")
+    @Json(name = "min_score")
     val minScore: kotlin.Long
 ) : Serializable {
     companion object {

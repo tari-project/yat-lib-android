@@ -26,17 +26,17 @@ import java.io.Serializable
  */
 
 data class ListOfCodeAvailabilityPaging (
-    @field:Json(name = "dir")
+    @Json(name = "dir")
     val dir: ListOfCodeAvailabilityPaging.Dir,
-    @field:Json(name = "limit")
+    @Json(name = "limit")
     val limit: kotlin.Int,
-    @field:Json(name = "page")
+    @Json(name = "page")
     val page: kotlin.Int,
-    @field:Json(name = "sort")
+    @Json(name = "sort")
     val sort: kotlin.String,
-    @field:Json(name = "tags")
+    @Json(name = "tags")
     val tags: kotlin.collections.Map<kotlin.String, kotlin.Any>,
-    @field:Json(name = "total")
+    @Json(name = "total")
     val total: kotlin.Long
 ) : Serializable {
     companion object {
@@ -49,8 +49,8 @@ data class ListOfCodeAvailabilityPaging (
     */
     
     enum class Dir(val value: kotlin.String){
-        @field:Json(name = "Asc") asc("Asc"),
-        @field:Json(name = "Desc") desc("Desc");
+        @Json(name = "Asc") asc("Asc"),
+        @Json(name = "Desc") desc("Desc");
     }
 }
 

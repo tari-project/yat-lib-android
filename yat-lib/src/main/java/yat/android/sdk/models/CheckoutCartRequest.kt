@@ -28,25 +28,25 @@ import java.io.Serializable
 
 data class CheckoutCartRequest (
     /* Payment method type */
-    @field:Json(name = "method")
+    @Json(name = "method")
     val method: CheckoutCartRequest.Method,
     /* Amount paid in cash. Applicable and required only for `Cash` payment option for Admin. */
-    @field:Json(name = "amount")
+    @Json(name = "amount")
     val amount: kotlin.Long? = null,
     /* URL user will be redirected if payment cancelled  Required for Stripe Checkout */
-    @field:Json(name = "cancel_url")
+    @Json(name = "cancel_url")
     val cancelUrl: kotlin.String? = null,
     /* External reference for cash payment. Applicable and required only for `Cash` payment option for Admin. */
-    @field:Json(name = "external_reference")
+    @Json(name = "external_reference")
     val externalReference: kotlin.String? = null,
     /* Optional: The user's public key to associate with this emoji id. If provided will use this pubkey otherwise  will default to the first pubkey returned for the user. */
-    @field:Json(name = "pubkey")
+    @Json(name = "pubkey")
     val pubkey: kotlin.String? = null,
     /* URL user will be redirected after successful payment  Required for Stripe Checkout */
-    @field:Json(name = "success_url")
+    @Json(name = "success_url")
     val successUrl: kotlin.String? = null,
     /* Optional: tracking data */
-    @field:Json(name = "tracking_data")
+    @Json(name = "tracking_data")
     val trackingData: kotlin.Any? = null
 ) : Serializable {
     companion object {
@@ -59,11 +59,11 @@ data class CheckoutCartRequest (
     */
     
     enum class Method(val value: kotlin.String){
-        @field:Json(name = "Free") free("Free"),
-        @field:Json(name = "CoinbaseCommerce") coinbaseCommerce("CoinbaseCommerce"),
-        @field:Json(name = "Stripe") stripe("Stripe"),
-        @field:Json(name = "Cash") cash("Cash"),
-        @field:Json(name = "PayPal") payPal("PayPal");
+        @Json(name = "Free") free("Free"),
+        @Json(name = "CoinbaseCommerce") coinbaseCommerce("CoinbaseCommerce"),
+        @Json(name = "Stripe") stripe("Stripe"),
+        @Json(name = "Cash") cash("Cash"),
+        @Json(name = "PayPal") payPal("PayPal");
     }
 }
 

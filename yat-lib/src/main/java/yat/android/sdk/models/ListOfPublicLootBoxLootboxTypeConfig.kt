@@ -27,25 +27,25 @@ import java.io.Serializable
 
 data class ListOfPublicLootBoxLootboxTypeConfig (
     /* A set of guaranteed drops in this loot box type */
-    @field:Json(name = "guarantees")
+    @Json(name = "guarantees")
     val guarantees: kotlin.collections.List<AdminNewLootBoxTypeConfigGuarantees>,
     /* The upper bound (inclusive) rhythm score for standard yats in the loot box */
-    @field:Json(name = "max_base_score")
+    @Json(name = "max_base_score")
     val maxBaseScore: kotlin.Long,
     /* Maximum yat length */
-    @field:Json(name = "max_length")
+    @Json(name = "max_length")
     val maxLength: kotlin.Long,
     /* The lower bound (inclusive) rhythm score for standard yats in the loot box */
-    @field:Json(name = "min_base_score")
+    @Json(name = "min_base_score")
     val minBaseScore: kotlin.Long,
     /* Minimum yat length */
-    @field:Json(name = "min_length")
+    @Json(name = "min_length")
     val minLength: kotlin.Long,
     /* The number of yats in the loot box */
-    @field:Json(name = "size")
+    @Json(name = "size")
     val size: kotlin.Long,
     /* A set of probability weightings for chance-based drops */
-    @field:Json(name = "weights")
+    @Json(name = "weights")
     val weights: kotlin.collections.List<AdminNewLootBoxTypeConfigWeights>
 ) : Serializable {
     companion object {

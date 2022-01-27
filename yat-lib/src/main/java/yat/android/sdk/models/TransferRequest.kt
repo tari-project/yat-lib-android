@@ -26,18 +26,18 @@ import java.io.Serializable
 
 data class TransferRequest (
     /* Clear emoji data when emoji transferred to destination */
-    @field:Json(name = "clear_on_transfer")
+    @Json(name = "clear_on_transfer")
     val clearOnTransfer: kotlin.Boolean,
-    @field:Json(name = "eid")
+    @Json(name = "eid")
     val eid: kotlin.String,
     /* Transfer to specified email, would register new user account if not existent */
-    @field:Json(name = "email")
+    @Json(name = "email")
     val email: kotlin.String,
     /* Admin can force transfer, for regular user it has no effect */
-    @field:Json(name = "force_transfer")
+    @Json(name = "force_transfer")
     val forceTransfer: kotlin.Boolean,
     /* Message displayed to recipient and included in the invitiation email */
-    @field:Json(name = "message")
+    @Json(name = "message")
     val message: kotlin.String? = null
 ) : Serializable {
     companion object {

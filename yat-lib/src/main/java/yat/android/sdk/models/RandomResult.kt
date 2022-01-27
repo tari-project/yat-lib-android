@@ -21,7 +21,7 @@ import java.io.Serializable
 
 data class RandomResult (
     /* Random Emoji IDs */
-    @field:Json(name = "result")
+    @Json(name = "result")
     val result: kotlin.collections.List<RandomResultResult>
 ) : Serializable {
     companion object {

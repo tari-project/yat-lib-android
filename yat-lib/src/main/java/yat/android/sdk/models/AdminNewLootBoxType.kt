@@ -22,13 +22,13 @@ import java.io.Serializable
  */
 
 data class AdminNewLootBoxType (
-    @field:Json(name = "config")
+    @Json(name = "config")
     val config: AdminNewLootBoxTypeConfig,
     /* A description for the loot box type */
-    @field:Json(name = "description")
+    @Json(name = "description")
     val description: kotlin.String,
     /* the name of the loot box type */
-    @field:Json(name = "name")
+    @Json(name = "name")
     val name: kotlin.String
 ) : Serializable {
     companion object {

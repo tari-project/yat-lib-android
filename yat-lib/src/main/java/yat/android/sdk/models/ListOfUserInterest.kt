@@ -21,9 +21,9 @@ import java.io.Serializable
  */
 
 data class ListOfUserInterest (
-    @field:Json(name = "data")
+    @Json(name = "data")
     val data: kotlin.collections.List<ListOfUserInterestData>? = null,
-    @field:Json(name = "paging")
+    @Json(name = "paging")
     val paging: ListOfCodeAvailabilityPaging? = null
 ) : Serializable {
     companion object {

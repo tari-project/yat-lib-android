@@ -24,13 +24,13 @@ import java.io.Serializable
  */
 
 data class DisplayOrderPaymentMethodDataMethods (
-    @field:Json(name = "address")
+    @Json(name = "address")
     val address: kotlin.String,
-    @field:Json(name = "amount")
+    @Json(name = "amount")
     val amount: kotlin.Double,
-    @field:Json(name = "currency")
+    @Json(name = "currency")
     val currency: kotlin.String,
-    @field:Json(name = "title")
+    @Json(name = "title")
     val title: kotlin.String
 ) : Serializable {
     companion object {

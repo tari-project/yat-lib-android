@@ -22,9 +22,9 @@ import java.io.Serializable
  */
 
 data class MetadataAttributes (
-    @field:Json(name = "trait_type")
+    @Json(name = "trait_type")
     val traitType: kotlin.String,
-    @field:Json(name = "value")
+    @Json(name = "value")
     val value: kotlin.Any
 ) : Serializable {
     companion object {
