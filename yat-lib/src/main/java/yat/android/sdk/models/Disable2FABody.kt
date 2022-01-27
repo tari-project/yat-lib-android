@@ -12,7 +12,8 @@
 package yat.android.sdk.models
 
 
-import com.squareup.moshi.Json
+
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 /**
@@ -23,10 +24,10 @@ import java.io.Serializable
 
 data class Disable2FABody (
     /* Make this method default */
-    @field:Json(name = "disable_all")
+    @SerializedName( "disable_all")
     val disableAll: kotlin.Boolean,
     /* Two factor authentication backend */
-    @field:Json(name = "provider")
+    @SerializedName( "provider")
     val provider: Disable2FABody.Provider? = null
 ) : Serializable {
     companion object {
@@ -39,8 +40,8 @@ data class Disable2FABody (
     */
     
     enum class Provider(val value: kotlin.String){
-        @field:Json(name = "GoogleAuthenticator") googleAuthenticator("GoogleAuthenticator"),
-        @field:Json(name = "SMS") sMS("SMS");
+        @SerializedName( "GoogleAuthenticator") googleAuthenticator("GoogleAuthenticator"),
+        @SerializedName( "SMS") sMS("SMS");
     }
 }
 

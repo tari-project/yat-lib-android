@@ -12,7 +12,8 @@
 package yat.android.sdk.models
 
 
-import com.squareup.moshi.Json
+
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 /**
@@ -22,9 +23,9 @@ import java.io.Serializable
  */
 
 data class EmojiListItemShape (
-    @field:Json(name = "pattern")
+    @SerializedName( "pattern")
     val pattern: kotlin.Any? = null,
-    @field:Json(name = "shape")
+    @SerializedName( "shape")
     val shape: EmojiListItemShape.Shape? = null
 ) : Serializable {
     companion object {
@@ -37,10 +38,10 @@ data class EmojiListItemShape (
     */
     
     enum class Shape(val value: kotlin.String){
-        @field:Json(name = "Repeaters") repeaters("Repeaters"),
-        @field:Json(name = "Eye Heart") eyeHeart("Eye Heart"),
-        @field:Json(name = "Bookends") bookends("Bookends"),
-        @field:Json(name = "Adoptables") adoptables("Adoptables");
+        @SerializedName( "Repeaters") repeaters("Repeaters"),
+        @SerializedName( "Eye Heart") eyeHeart("Eye Heart"),
+        @SerializedName( "Bookends") bookends("Bookends"),
+        @SerializedName( "Adoptables") adoptables("Adoptables");
     }
 }
 

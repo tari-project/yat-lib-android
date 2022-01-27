@@ -12,7 +12,8 @@
 package yat.android.sdk.models
 
 
-import com.squareup.moshi.Json
+
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 /**
@@ -26,19 +27,19 @@ import java.io.Serializable
 
 data class BackupDisableBody (
     /* Backup code */
-    @field:Json(name = "backup_code")
+    @SerializedName( "backup_code")
     val backupCode: kotlin.String,
     /* Alternate identifier */
-    @field:Json(name = "alternate_id")
+    @SerializedName( "alternate_id")
     val alternateId: kotlin.String? = null,
     /* Make this method default */
-    @field:Json(name = "disable_all")
+    @SerializedName( "disable_all")
     val disableAll: kotlin.Boolean? = null,
     /* Email */
-    @field:Json(name = "email")
+    @SerializedName( "email")
     val email: kotlin.String? = null,
     /* Two factor authentication backend */
-    @field:Json(name = "provider")
+    @SerializedName( "provider")
     val provider: BackupDisableBody.Provider? = null
 ) : Serializable {
     companion object {
@@ -51,8 +52,8 @@ data class BackupDisableBody (
     */
     
     enum class Provider(val value: kotlin.String){
-        @field:Json(name = "GoogleAuthenticator") googleAuthenticator("GoogleAuthenticator"),
-        @field:Json(name = "SMS") sMS("SMS");
+        @SerializedName( "GoogleAuthenticator") googleAuthenticator("GoogleAuthenticator"),
+        @SerializedName( "SMS") sMS("SMS");
     }
 }
 

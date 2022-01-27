@@ -11,7 +11,8 @@
 */
 package yat.android.sdk.models
 
-import com.squareup.moshi.Json
+
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 /**
@@ -21,9 +22,9 @@ import java.io.Serializable
  */
 
 data class ListOfPublicLootBox (
-    @field:Json(name = "data")
+    @SerializedName( "data")
     val data: kotlin.collections.List<ListOfPublicLootBoxData>? = null,
-    @field:Json(name = "paging")
+    @SerializedName( "paging")
     val paging: ListOfCodeAvailabilityPaging? = null
 ) : Serializable {
     companion object {

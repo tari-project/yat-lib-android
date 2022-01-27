@@ -12,7 +12,8 @@
 package yat.android.sdk.models
 
 
-import com.squareup.moshi.Json
+
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 /**
@@ -24,13 +25,13 @@ import java.io.Serializable
  */
 
 data class DisplayOrderPaymentMethodDataMethods (
-    @field:Json(name = "address")
+    @SerializedName( "address")
     val address: kotlin.String,
-    @field:Json(name = "amount")
+    @SerializedName( "amount")
     val amount: kotlin.Double,
-    @field:Json(name = "currency")
+    @SerializedName( "currency")
     val currency: kotlin.String,
-    @field:Json(name = "title")
+    @SerializedName( "title")
     val title: kotlin.String
 ) : Serializable {
     companion object {

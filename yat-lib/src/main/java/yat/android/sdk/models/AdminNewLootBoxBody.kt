@@ -12,7 +12,8 @@
 package yat.android.sdk.models
 
 
-import com.squareup.moshi.Json
+
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 /**
@@ -25,16 +26,16 @@ import java.io.Serializable
 
 data class AdminNewLootBoxBody (
     /* Status lootbox will be created in  If status is `Used` lootbox with be automatically opened */
-    @field:Json(name = "status")
+    @SerializedName( "status")
     val status: AdminNewLootBoxBody.Status,
     /* LootBox emoji IDs */
-    @field:Json(name = "yats")
+    @SerializedName( "yats")
     val yats: kotlin.collections.List<kotlin.String>,
     /* Assign lootbox an owner with matching email  Should not be set if owner_id is set */
-    @field:Json(name = "owner_email")
+    @SerializedName( "owner_email")
     val ownerEmail: kotlin.String? = null,
     /* Lootbox owner_id, required for Owned and Used lootboxes */
-    @field:Json(name = "owner_id")
+    @SerializedName( "owner_id")
     val ownerId: java.util.UUID? = null
 ) : Serializable {
     companion object {
@@ -47,10 +48,10 @@ data class AdminNewLootBoxBody (
     */
     
     enum class Status(val value: kotlin.String){
-        @field:Json(name = "Draft") draft("Draft"),
-        @field:Json(name = "Available") available("Available"),
-        @field:Json(name = "Owned") owned("Owned"),
-        @field:Json(name = "Used") used("Used");
+        @SerializedName( "Draft") draft("Draft"),
+        @SerializedName( "Available") available("Available"),
+        @SerializedName( "Owned") owned("Owned"),
+        @SerializedName( "Used") used("Used");
     }
 }
 

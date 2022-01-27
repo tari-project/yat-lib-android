@@ -12,7 +12,8 @@
 package yat.android.sdk.models
 
 
-import com.squareup.moshi.Json
+
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 /**
@@ -25,16 +26,16 @@ import java.io.Serializable
 
 data class LoginRequest (
     /* Required: Password */
-    @field:Json(name = "password")
+    @SerializedName( "password")
     val password: kotlin.String,
     /* Alternate identifier */
-    @field:Json(name = "alternate_id")
+    @SerializedName( "alternate_id")
     val alternateId: kotlin.String? = null,
     /* Email */
-    @field:Json(name = "email")
+    @SerializedName( "email")
     val email: kotlin.String? = null,
     /* Response from google Recaptcha */
-    @field:Json(name = "g_recaptcha_response")
+    @SerializedName( "g_recaptcha_response")
     val gRecaptchaResponse: kotlin.String? = null
 ) : Serializable {
     companion object {

@@ -11,7 +11,8 @@
 */
 package yat.android.sdk.models
 
-import com.squareup.moshi.Json
+
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 /**
@@ -25,19 +26,19 @@ import java.io.Serializable
 
 data class EditRequest (
     /* Optional: Allow many addresses per Tag */
-    @field:Json(name = "bypass_single_restrictions")
+    @SerializedName( "bypass_single_restrictions")
     val bypassSingleRestrictions: kotlin.Boolean? = null,
     /* Optional: hashes of records to delete */
-    @field:Json(name = "delete")
+    @SerializedName( "delete")
     val delete: kotlin.collections.List<kotlin.String>? = null,
     /* Optional: list of records to add */
-    @field:Json(name = "insert")
+    @SerializedName( "insert")
     val insert: kotlin.collections.List<EditRequestInsert>? = null,
     /* Optional: merkle root (use WASM to generate) */
-    @field:Json(name = "merkle_root")
+    @SerializedName( "merkle_root")
     val merkleRoot: kotlin.String? = null,
     /* Optional: signature (use WASM to generate) */
-    @field:Json(name = "signature")
+    @SerializedName( "signature")
     val signature: kotlin.String? = null
 ) : Serializable {
     companion object {

@@ -12,7 +12,8 @@
 package yat.android.sdk.models
 
 
-import com.squareup.moshi.Json
+
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 /**
@@ -25,16 +26,16 @@ import java.io.Serializable
 
 data class Enable2FAResponse (
     /* One time backup codes to login */
-    @field:Json(name = "backup_codes")
+    @SerializedName( "backup_codes")
     val backupCodes: kotlin.collections.List<kotlin.String>? = null,
     /* GA secret as QR code in svg image */
-    @field:Json(name = "ga_qr_code_svg")
+    @SerializedName( "ga_qr_code_svg")
     val gaQrCodeSvg: kotlin.String? = null,
     /* GA base32 encoded secret, will be null when code is disabled */
-    @field:Json(name = "ga_secret")
+    @SerializedName( "ga_secret")
     val gaSecret: kotlin.String? = null,
     /* Phone last digits */
-    @field:Json(name = "phone_last_digits")
+    @SerializedName( "phone_last_digits")
     val phoneLastDigits: kotlin.String? = null
 ) : Serializable {
     companion object {

@@ -12,7 +12,8 @@
 package yat.android.sdk.models
 
 
-import com.squareup.moshi.Json
+
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 /**
@@ -38,41 +39,41 @@ import java.io.Serializable
  */
 
 data class ListOfCodeAvailabilityData (
-    @field:Json(name = "total_uses")
+    @SerializedName( "total_uses")
     val totalUses: kotlin.Long,
-    @field:Json(name = "activator")
+    @SerializedName( "activator")
     val activator: ListOfCodeAvailabilityData.Activator? = null,
-    @field:Json(name = "available")
+    @SerializedName( "available")
     val available: kotlin.Long? = null,
-    @field:Json(name = "code_type")
+    @SerializedName( "code_type")
     val codeType: ListOfCodeAvailabilityData.CodeType? = null,
-    @field:Json(name = "created_at")
+    @SerializedName( "created_at")
     val createdAt: java.time.OffsetDateTime? = null,
-    @field:Json(name = "deleted_at")
+    @SerializedName( "deleted_at")
     val deletedAt: java.time.OffsetDateTime? = null,
-    @field:Json(name = "discount_as_percentage")
+    @SerializedName( "discount_as_percentage")
     val discountAsPercentage: kotlin.Int? = null,
-    @field:Json(name = "discount_in_cents")
+    @SerializedName( "discount_in_cents")
     val discountInCents: kotlin.Int? = null,
-    @field:Json(name = "end_date")
+    @SerializedName( "end_date")
     val endDate: java.time.OffsetDateTime? = null,
-    @field:Json(name = "id")
+    @SerializedName( "id")
     val id: java.util.UUID? = null,
-    @field:Json(name = "max_emojis_per_user")
+    @SerializedName( "max_emojis_per_user")
     val maxEmojisPerUser: kotlin.Int? = null,
-    @field:Json(name = "max_uses")
+    @SerializedName( "max_uses")
     val maxUses: kotlin.Int? = null,
-    @field:Json(name = "name")
+    @SerializedName( "name")
     val name: kotlin.String? = null,
-    @field:Json(name = "organization_id")
+    @SerializedName( "organization_id")
     val organizationId: java.util.UUID? = null,
-    @field:Json(name = "pattern")
+    @SerializedName( "pattern")
     val pattern: kotlin.Any? = null,
-    @field:Json(name = "redemption_code")
+    @SerializedName( "redemption_code")
     val redemptionCode: kotlin.String? = null,
-    @field:Json(name = "start_date")
+    @SerializedName( "start_date")
     val startDate: java.time.OffsetDateTime? = null,
-    @field:Json(name = "updated_at")
+    @SerializedName( "updated_at")
     val updatedAt: java.time.OffsetDateTime? = null
 ) : Serializable {
     companion object {
@@ -85,8 +86,8 @@ data class ListOfCodeAvailabilityData (
     */
     
     enum class Activator(val value: kotlin.String){
-        @field:Json(name = "RedemptionCode") redemptionCode("RedemptionCode"),
-        @field:Json(name = "SecretKey") secretKey("SecretKey");
+        @SerializedName( "RedemptionCode") redemptionCode("RedemptionCode"),
+        @SerializedName( "SecretKey") secretKey("SecretKey");
     }
     /**
     * 
@@ -94,8 +95,8 @@ data class ListOfCodeAvailabilityData (
     */
     
     enum class CodeType(val value: kotlin.String){
-        @field:Json(name = "Discount") discount("Discount"),
-        @field:Json(name = "RandomYat") randomYat("RandomYat");
+        @SerializedName( "Discount") discount("Discount"),
+        @SerializedName( "RandomYat") randomYat("RandomYat");
     }
 }
 

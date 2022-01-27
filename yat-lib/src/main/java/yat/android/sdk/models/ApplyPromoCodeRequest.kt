@@ -12,7 +12,8 @@
 package yat.android.sdk.models
 
 
-import com.squareup.moshi.Json
+
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 /**
@@ -22,7 +23,7 @@ import java.io.Serializable
 
 data class ApplyPromoCodeRequest (
     /* Code to apply */
-    @field:Json(name = "code")
+    @SerializedName( "code")
     val code: kotlin.String
 ) : Serializable {
     companion object {

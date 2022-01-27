@@ -12,7 +12,8 @@
 package yat.android.sdk.models
 
 
-import com.squareup.moshi.Json
+
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 /**
@@ -22,7 +23,7 @@ import java.io.Serializable
 
 data class RhythmResponse (
     /* The yat rhythm score, a number between 1 (least prestigious) and 100 (most prestigious) */
-    @field:Json(name = "rhythm")
+    @SerializedName( "rhythm")
     val rhythm: kotlin.Long
 ) : Serializable {
     companion object {

@@ -12,7 +12,8 @@
 package yat.android.sdk.models
 
 
-import com.squareup.moshi.Json
+
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 /**
@@ -26,18 +27,18 @@ import java.io.Serializable
 
 data class TransferRequest (
     /* Clear emoji data when emoji transferred to destination */
-    @field:Json(name = "clear_on_transfer")
+    @SerializedName( "clear_on_transfer")
     val clearOnTransfer: kotlin.Boolean,
-    @field:Json(name = "eid")
+    @SerializedName( "eid")
     val eid: kotlin.String,
     /* Transfer to specified email, would register new user account if not existent */
-    @field:Json(name = "email")
+    @SerializedName( "email")
     val email: kotlin.String,
     /* Admin can force transfer, for regular user it has no effect */
-    @field:Json(name = "force_transfer")
+    @SerializedName( "force_transfer")
     val forceTransfer: kotlin.Boolean,
     /* Message displayed to recipient and included in the invitiation email */
-    @field:Json(name = "message")
+    @SerializedName( "message")
     val message: kotlin.String? = null
 ) : Serializable {
     companion object {

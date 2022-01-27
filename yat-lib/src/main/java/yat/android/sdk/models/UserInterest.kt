@@ -12,7 +12,8 @@
 package yat.android.sdk.models
 
 
-import com.squareup.moshi.Json
+
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 /**
@@ -25,15 +26,15 @@ import java.io.Serializable
  */
 
 data class UserInterest (
-    @field:Json(name = "created_at")
+    @SerializedName( "created_at")
     val createdAt: java.time.OffsetDateTime,
-    @field:Json(name = "emoji_id")
+    @SerializedName( "emoji_id")
     val emojiId: kotlin.String,
-    @field:Json(name = "id")
+    @SerializedName( "id")
     val id: java.util.UUID,
-    @field:Json(name = "updated_at")
+    @SerializedName( "updated_at")
     val updatedAt: java.time.OffsetDateTime,
-    @field:Json(name = "user_id")
+    @SerializedName( "user_id")
     val userId: java.util.UUID
 ) : Serializable {
     companion object {

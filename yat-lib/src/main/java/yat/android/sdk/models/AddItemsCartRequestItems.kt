@@ -12,7 +12,8 @@
 package yat.android.sdk.models
 
 
-import com.squareup.moshi.Json
+
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 /**
@@ -22,7 +23,7 @@ import java.io.Serializable
 
 data class AddItemsCartRequestItems (
     /* EmojiID to buy */
-    @field:Json(name = "emoji_id")
+    @SerializedName( "emoji_id")
     val emojiId: kotlin.String
 ) : Serializable {
     companion object {

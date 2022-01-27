@@ -11,7 +11,8 @@
 */
 package yat.android.sdk.models
 
-import com.squareup.moshi.Json
+
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 /**
@@ -25,17 +26,17 @@ import java.io.Serializable
  */
 
 data class Metadata (
-    @field:Json(name = "animation_url")
+    @SerializedName( "animation_url")
     val animationUrl: kotlin.String,
-    @field:Json(name = "attributes")
+    @SerializedName( "attributes")
     val attributes: kotlin.collections.List<MetadataAttributes>,
-    @field:Json(name = "description")
+    @SerializedName( "description")
     val description: kotlin.String,
-    @field:Json(name = "external_link")
+    @SerializedName( "external_link")
     val externalLink: kotlin.String,
-    @field:Json(name = "image")
+    @SerializedName( "image")
     val image: kotlin.String,
-    @field:Json(name = "name")
+    @SerializedName( "name")
     val name: kotlin.String
 ) : Serializable {
     companion object {

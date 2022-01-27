@@ -11,7 +11,8 @@
 */
 package yat.android.sdk.models
 
-import com.squareup.moshi.Json
+
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 /**
@@ -32,36 +33,36 @@ import java.io.Serializable
 
 data class ListOfPublicLootBoxData (
     /* Average score of emoji IDs in loot box */
-    @field:Json(name = "average_rhythm_score")
+    @SerializedName( "average_rhythm_score")
     val averageRhythmScore: kotlin.Double,
-    @field:Json(name = "created_at")
+    @SerializedName( "created_at")
     val createdAt: java.time.OffsetDateTime,
-    @field:Json(name = "id")
+    @SerializedName( "id")
     val id: java.util.UUID,
     /* The prices of the yats in the box, in cents */
-    @field:Json(name = "prices")
+    @SerializedName( "prices")
     val prices: kotlin.collections.List<kotlin.Int>,
     /* The rhythm scores of the yats in the box */
-    @field:Json(name = "scores")
+    @SerializedName( "scores")
     val scores: kotlin.collections.List<kotlin.Long>,
     /* Status loot box will be created in */
-    @field:Json(name = "status")
+    @SerializedName( "status")
     val status: ListOfPublicLootBoxData.Status,
     /* Total value of EmojiIDs in the Loot Box */
-    @field:Json(name = "total_value")
+    @SerializedName( "total_value")
     val totalValue: kotlin.Double,
     /* Loot box yats */
-    @field:Json(name = "yats")
+    @SerializedName( "yats")
     val yats: kotlin.collections.List<kotlin.String>,
-    @field:Json(name = "lootbox_type")
+    @SerializedName( "lootbox_type")
     val lootboxType: ListOfPublicLootBoxLootboxType? = null,
     /* For Admin: The type of loot box, if applicable */
-    @field:Json(name = "lootbox_type_id")
+    @SerializedName( "lootbox_type_id")
     val lootboxTypeId: java.util.UUID? = null,
-    @field:Json(name = "owner")
+    @SerializedName( "owner")
     val owner: ListOfPublicLootBoxOwner? = null,
     /* Loot box owner_id, required for Owned and Used loot boxes */
-    @field:Json(name = "owner_id")
+    @SerializedName( "owner_id")
     val ownerId: java.util.UUID? = null
 ) : Serializable {
     companion object {
@@ -74,10 +75,10 @@ data class ListOfPublicLootBoxData (
     */
     
     enum class Status(val value: kotlin.String){
-        @field:Json(name = "Draft") draft("Draft"),
-        @field:Json(name = "Available") available("Available"),
-        @field:Json(name = "Owned") owned("Owned"),
-        @field:Json(name = "Used") used("Used");
+        @SerializedName( "Draft") draft("Draft"),
+        @SerializedName( "Available") available("Available"),
+        @SerializedName( "Owned") owned("Owned"),
+        @SerializedName( "Used") used("Used");
     }
 }
 

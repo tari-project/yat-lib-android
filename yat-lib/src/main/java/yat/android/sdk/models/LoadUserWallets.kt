@@ -12,7 +12,8 @@
 package yat.android.sdk.models
 
 
-import com.squareup.moshi.Json
+
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 /**
@@ -22,9 +23,9 @@ import java.io.Serializable
  */
 
 data class LoadUserWallets (
-    @field:Json(name = "eth_address")
+    @SerializedName( "eth_address")
     val ethAddress: kotlin.String,
-    @field:Json(name = "user_id")
+    @SerializedName( "user_id")
     val userId: java.util.UUID
 ) : Serializable {
     companion object {

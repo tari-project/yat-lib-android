@@ -12,7 +12,8 @@
 package yat.android.sdk.models
 
 
-import com.squareup.moshi.Json
+
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 /**
@@ -38,41 +39,41 @@ import java.io.Serializable
  */
 
 data class DisplayUserExtended (
-    @field:Json(name = "emoji_ids")
+    @SerializedName( "emoji_ids")
     val emojiIds: kotlin.collections.List<kotlin.String>,
-    @field:Json(name = "alternate_id")
+    @SerializedName( "alternate_id")
     val alternateId: kotlin.String? = null,
-    @field:Json(name = "created_at")
+    @SerializedName( "created_at")
     val createdAt: java.time.OffsetDateTime? = null,
-    @field:Json(name = "deactivated_at")
+    @SerializedName( "deactivated_at")
     val deactivatedAt: java.time.OffsetDateTime? = null,
-    @field:Json(name = "email")
+    @SerializedName( "email")
     val email: kotlin.String? = null,
-    @field:Json(name = "email_verified_at")
+    @SerializedName( "email_verified_at")
     val emailVerifiedAt: java.time.OffsetDateTime? = null,
-    @field:Json(name = "first_name")
+    @SerializedName( "first_name")
     val firstName: kotlin.String? = null,
-    @field:Json(name = "free_limit")
+    @SerializedName( "free_limit")
     val freeLimit: kotlin.Int? = null,
-    @field:Json(name = "id")
+    @SerializedName( "id")
     val id: java.util.UUID? = null,
-    @field:Json(name = "last_name")
+    @SerializedName( "last_name")
     val lastName: kotlin.String? = null,
-    @field:Json(name = "pubkeys")
+    @SerializedName( "pubkeys")
     val pubkeys: kotlin.collections.List<kotlin.String>? = null,
-    @field:Json(name = "remaining_free_emoji")
+    @SerializedName( "remaining_free_emoji")
     val remainingFreeEmoji: kotlin.Int? = null,
-    @field:Json(name = "role")
+    @SerializedName( "role")
     val role: DisplayUserExtended.Role? = null,
-    @field:Json(name = "source")
+    @SerializedName( "source")
     val source: kotlin.String? = null,
-    @field:Json(name = "two_factor_auth")
+    @SerializedName( "two_factor_auth")
     val twoFactorAuth: List<DisplayUserExtended.TwoFactorAuth>? = null,
-    @field:Json(name = "two_factor_last_prompted_at")
+    @SerializedName( "two_factor_last_prompted_at")
     val twoFactorLastPromptedAt: java.time.OffsetDateTime? = null,
-    @field:Json(name = "two_factor_should_prompt")
+    @SerializedName( "two_factor_should_prompt")
     val twoFactorShouldPrompt: kotlin.Boolean? = null,
-    @field:Json(name = "updated_at")
+    @SerializedName( "updated_at")
     val updatedAt: java.time.OffsetDateTime? = null
 ) : Serializable {
     companion object {
@@ -85,13 +86,13 @@ data class DisplayUserExtended (
     */
     
     enum class Role(val value: kotlin.String){
-        @field:Json(name = "Admin") admin("Admin"),
-        @field:Json(name = "OrgController") orgController("OrgController"),
-        @field:Json(name = "OrgMember") orgMember("OrgMember"),
-        @field:Json(name = "OrgOwner") orgOwner("OrgOwner"),
-        @field:Json(name = "Bot") bot("Bot"),
-        @field:Json(name = "Super") `super`("Super"),
-        @field:Json(name = "User") user("User");
+        @SerializedName( "Admin") admin("Admin"),
+        @SerializedName( "OrgController") orgController("OrgController"),
+        @SerializedName( "OrgMember") orgMember("OrgMember"),
+        @SerializedName( "OrgOwner") orgOwner("OrgOwner"),
+        @SerializedName( "Bot") bot("Bot"),
+        @SerializedName( "Super") `super`("Super"),
+        @SerializedName( "User") user("User");
     }
     /**
     * 
@@ -99,8 +100,8 @@ data class DisplayUserExtended (
     */
     
     enum class TwoFactorAuth(val value: String){
-        @field:Json(name = "GoogleAuthenticator") googleAuthenticator("GoogleAuthenticator"),
-        @field:Json(name = "SMS") sMS("SMS");
+        @SerializedName( "GoogleAuthenticator") googleAuthenticator("GoogleAuthenticator"),
+        @SerializedName( "SMS") sMS("SMS");
     }
 }
 

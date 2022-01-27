@@ -12,7 +12,8 @@
 package yat.android.sdk.models
 
 
-import com.squareup.moshi.Json
+
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 /**
@@ -22,9 +23,9 @@ import java.io.Serializable
  */
 
 data class SuccessResponse2FA (
-    @field:Json(name = "message")
+    @SerializedName( "message")
     val message: kotlin.String,
-    @field:Json(name = "phone_last_digits")
+    @SerializedName( "phone_last_digits")
     val phoneLastDigits: kotlin.String? = null
 ) : Serializable {
     companion object {

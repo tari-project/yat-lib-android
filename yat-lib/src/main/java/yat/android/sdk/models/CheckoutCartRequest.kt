@@ -12,7 +12,8 @@
 package yat.android.sdk.models
 
 
-import com.squareup.moshi.Json
+
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 /**
@@ -28,25 +29,25 @@ import java.io.Serializable
 
 data class CheckoutCartRequest (
     /* Payment method type */
-    @field:Json(name = "method")
+    @SerializedName( "method")
     val method: CheckoutCartRequest.Method,
     /* Amount paid in cash. Applicable and required only for `Cash` payment option for Admin. */
-    @field:Json(name = "amount")
+    @SerializedName( "amount")
     val amount: kotlin.Long? = null,
     /* URL user will be redirected if payment cancelled  Required for Stripe Checkout */
-    @field:Json(name = "cancel_url")
+    @SerializedName( "cancel_url")
     val cancelUrl: kotlin.String? = null,
     /* External reference for cash payment. Applicable and required only for `Cash` payment option for Admin. */
-    @field:Json(name = "external_reference")
+    @SerializedName( "external_reference")
     val externalReference: kotlin.String? = null,
     /* Optional: The user's public key to associate with this emoji id. If provided will use this pubkey otherwise  will default to the first pubkey returned for the user. */
-    @field:Json(name = "pubkey")
+    @SerializedName( "pubkey")
     val pubkey: kotlin.String? = null,
     /* URL user will be redirected after successful payment  Required for Stripe Checkout */
-    @field:Json(name = "success_url")
+    @SerializedName( "success_url")
     val successUrl: kotlin.String? = null,
     /* Optional: tracking data */
-    @field:Json(name = "tracking_data")
+    @SerializedName( "tracking_data")
     val trackingData: kotlin.Any? = null
 ) : Serializable {
     companion object {
@@ -59,11 +60,11 @@ data class CheckoutCartRequest (
     */
     
     enum class Method(val value: kotlin.String){
-        @field:Json(name = "Free") free("Free"),
-        @field:Json(name = "CoinbaseCommerce") coinbaseCommerce("CoinbaseCommerce"),
-        @field:Json(name = "Stripe") stripe("Stripe"),
-        @field:Json(name = "Cash") cash("Cash"),
-        @field:Json(name = "PayPal") payPal("PayPal");
+        @SerializedName( "Free") free("Free"),
+        @SerializedName( "CoinbaseCommerce") coinbaseCommerce("CoinbaseCommerce"),
+        @SerializedName( "Stripe") stripe("Stripe"),
+        @SerializedName( "Cash") cash("Cash"),
+        @SerializedName( "PayPal") payPal("PayPal");
     }
 }
 

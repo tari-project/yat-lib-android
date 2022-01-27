@@ -11,7 +11,8 @@
 */
 package yat.android.sdk.models
 
-import com.squareup.moshi.Json
+
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 /**
@@ -24,19 +25,19 @@ import java.io.Serializable
  */
 
 data class ListOfPublicLootBoxLootboxType (
-    @field:Json(name = "config")
+    @SerializedName( "config")
     val config: ListOfPublicLootBoxLootboxTypeConfig,
     /* The timestamp for when this loot box type was created */
-    @field:Json(name = "created_at")
+    @SerializedName( "created_at")
     val createdAt: java.time.OffsetDateTime,
     /* A more detailed description of the loot box type */
-    @field:Json(name = "description")
+    @SerializedName( "description")
     val description: kotlin.String,
     /* The loot box type id */
-    @field:Json(name = "id")
+    @SerializedName( "id")
     val id: java.util.UUID,
     /* The name of this loot box type */
-    @field:Json(name = "name")
+    @SerializedName( "name")
     val name: kotlin.String
 ) : Serializable {
     companion object {

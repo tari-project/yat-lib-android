@@ -12,7 +12,8 @@
 package yat.android.sdk.models
 
 
-import com.squareup.moshi.Json
+
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 /**
@@ -23,10 +24,10 @@ import java.io.Serializable
 
 data class Confirm2Fa (
     /* Two factor authentication code */
-    @field:Json(name = "code")
+    @SerializedName( "code")
     val code: kotlin.String,
     /* Refresh token obtained from login request */
-    @field:Json(name = "refresh_token")
+    @SerializedName( "refresh_token")
     val refreshToken: kotlin.String
 ) : Serializable {
     companion object {

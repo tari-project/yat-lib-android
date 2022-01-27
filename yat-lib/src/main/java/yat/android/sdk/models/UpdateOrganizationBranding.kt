@@ -12,7 +12,8 @@
 package yat.android.sdk.models
 
 
-import com.squareup.moshi.Json
+
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 /**
@@ -26,17 +27,17 @@ import java.io.Serializable
  */
 
 data class UpdateOrganizationBranding (
-    @field:Json(name = "currencies")
+    @SerializedName( "currencies")
     val currencies: kotlin.collections.List<kotlin.String>,
-    @field:Json(name = "return_link")
+    @SerializedName( "return_link")
     val returnLink: kotlin.String,
-    @field:Json(name = "logo")
+    @SerializedName( "logo")
     val logo: kotlin.String? = null,
-    @field:Json(name = "logo_small")
+    @SerializedName( "logo_small")
     val logoSmall: kotlin.String? = null,
-    @field:Json(name = "logo_thumbnail")
+    @SerializedName( "logo_thumbnail")
     val logoThumbnail: kotlin.String? = null,
-    @field:Json(name = "requires_email")
+    @SerializedName( "requires_email")
     val requiresEmail: kotlin.Boolean? = null
 ) : Serializable {
     companion object {

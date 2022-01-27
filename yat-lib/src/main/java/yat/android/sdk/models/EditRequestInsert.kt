@@ -12,7 +12,8 @@
 package yat.android.sdk.models
 
 
-import com.squareup.moshi.Json
+
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 /**
@@ -23,10 +24,10 @@ import java.io.Serializable
 
 data class EditRequestInsert (
     /* Category data in text format */
-    @field:Json(name = "data")
+    @SerializedName( "data")
     val data: kotlin.String,
     /* Category ID as a hex number */
-    @field:Json(name = "tag")
+    @SerializedName( "tag")
     val tag: kotlin.String
 ) : Serializable {
     companion object {

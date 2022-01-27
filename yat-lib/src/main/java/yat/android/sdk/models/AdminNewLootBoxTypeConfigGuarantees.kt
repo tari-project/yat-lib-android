@@ -12,7 +12,8 @@
 package yat.android.sdk.models
 
 
-import com.squareup.moshi.Json
+
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 /**
@@ -24,13 +25,13 @@ import java.io.Serializable
 
 data class AdminNewLootBoxTypeConfigGuarantees (
     /* The number of guaranteed drops of this type in the loot box */
-    @field:Json(name = "count")
+    @SerializedName( "count")
     val count: kotlin.Long,
     /* The highest (inclusive) rhythm score range for guaranteed drop */
-    @field:Json(name = "max_score")
+    @SerializedName( "max_score")
     val maxScore: kotlin.Long,
     /* The lowest (inclusive) rhythm score range for guaranteed drop */
-    @field:Json(name = "min_score")
+    @SerializedName( "min_score")
     val minScore: kotlin.Long
 ) : Serializable {
     companion object {

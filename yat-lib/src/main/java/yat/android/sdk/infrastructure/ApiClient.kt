@@ -129,7 +129,8 @@ open class ApiClient {
                     }
                 }.build()
             }
-            mediaType == JsonMediaType -> Serializer.moshi.adapter(T::class.java).toJson(content).toRequestBody(
+//            T::class.java
+            mediaType == JsonMediaType -> Serializer.gson.toJson(content).toRequestBody(
                 mediaType.toMediaTypeOrNull()
             )
             mediaType == XmlMediaType -> throw UnsupportedOperationException("xml not currently supported.")
@@ -147,7 +148,7 @@ open class ApiClient {
         }
         when(mediaType) {
             JsonMediaType -> {
-                val bodyObject = Serializer.moshi.adapter(T::class.java).fromJson(bodyContent)
+                val bodyObject = Serializer.gson.fromJson(bodyContent, T::class.java)
                 if (bodyObject is TokenResponse) {
                     tokenStorage.accessToken = bodyObject.accessToken
                     tokenStorage.refreshToken = bodyObject.refreshToken
@@ -267,7 +268,7 @@ open class ApiClient {
         formatter. It also easily allows to provide a simple way to define a custom date format pattern
         inside a gson/moshi adapter.
         */
-        return Serializer.moshi.adapter(T::class.java).toJson(value).replace("\"", "")
+        return Serializer.gson.toJson(value).replace("\"", "")
     }
 
     private class AccessTokenAuthenticator: Authenticator {

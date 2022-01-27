@@ -11,7 +11,8 @@
 */
 package yat.android.sdk.models
 
-import com.squareup.moshi.Json
+
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 /**
@@ -27,25 +28,25 @@ import java.io.Serializable
 
 data class AdminNewLootBoxTypeConfig (
     /* A set of guaranteed drops in this loot box type */
-    @field:Json(name = "guarantees")
+    @SerializedName( "guarantees")
     val guarantees: kotlin.collections.List<AdminNewLootBoxTypeConfigGuarantees>,
     /* The upper bound (inclusive) rhythm score for standard yats in the loot box */
-    @field:Json(name = "max_base_score")
+    @SerializedName( "max_base_score")
     val maxBaseScore: kotlin.Long,
     /* Maximum yat length */
-    @field:Json(name = "max_length")
+    @SerializedName( "max_length")
     val maxLength: kotlin.Long,
     /* The lower bound (inclusive) rhythm score for standard yats in the loot box */
-    @field:Json(name = "min_base_score")
+    @SerializedName( "min_base_score")
     val minBaseScore: kotlin.Long,
     /* Minimum yat length */
-    @field:Json(name = "min_length")
+    @SerializedName( "min_length")
     val minLength: kotlin.Long,
     /* The number of yats in the loot box */
-    @field:Json(name = "size")
+    @SerializedName( "size")
     val size: kotlin.Long,
     /* A set of probability weightings for chance-based drops */
-    @field:Json(name = "weights")
+    @SerializedName( "weights")
     val weights: kotlin.collections.List<AdminNewLootBoxTypeConfigWeights>
 ) : Serializable {
     companion object {

@@ -11,7 +11,8 @@
 */
 package yat.android.sdk.models
 
-import com.squareup.moshi.Json
+
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 /**
@@ -22,11 +23,11 @@ import java.io.Serializable
  */
 
 data class PaymentAddressResponse (
-    @field:Json(name = "status")
+    @SerializedName( "status")
     var status: kotlin.Boolean,
-    @field:Json(name = "error")
+    @SerializedName( "error")
     var error: EidResponseError? = null,
-    @field:Json(name = "result")
+    @SerializedName( "result")
     var result: kotlin.collections.Map<kotlin.String, PaymentAddressResponseResult>? = null
 ) : Serializable {
     companion object {

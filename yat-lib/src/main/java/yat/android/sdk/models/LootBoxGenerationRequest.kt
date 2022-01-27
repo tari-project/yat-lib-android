@@ -12,7 +12,8 @@
 package yat.android.sdk.models
 
 
-import com.squareup.moshi.Json
+
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 /**
@@ -23,10 +24,10 @@ import java.io.Serializable
 
 data class LootBoxGenerationRequest (
     /* The id of the loot box type to generate */
-    @field:Json(name = "loot_box_type_id")
+    @SerializedName( "loot_box_type_id")
     val lootBoxTypeId: java.util.UUID,
     /* The number of loot boxes to generate in this sample */
-    @field:Json(name = "num_boxes")
+    @SerializedName( "num_boxes")
     val numBoxes: kotlin.Long
 ) : Serializable {
     companion object {

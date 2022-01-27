@@ -11,7 +11,8 @@
 */
 package yat.android.sdk.models
 
-import com.squareup.moshi.Json
+
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 /**
@@ -22,10 +23,10 @@ import java.io.Serializable
 
 data class AddItemsCartRequest (
     /* New items to add to cart */
-    @field:Json(name = "items")
+    @SerializedName( "items")
     val items: kotlin.collections.List<AddItemsCartRequestItems>,
     /* Tracking data */
-    @field:Json(name = "tracking_data")
+    @SerializedName( "tracking_data")
     val trackingData: kotlin.Any? = null
 ) : Serializable {
     companion object {

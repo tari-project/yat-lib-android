@@ -12,7 +12,8 @@
 package yat.android.sdk.models
 
 
-import com.squareup.moshi.Json
+
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 /**
@@ -29,28 +30,28 @@ import java.io.Serializable
 
 data class PaymentAddressResponseResult (
     /* The payment address */
-    @field:Json(name = "address")
+    @SerializedName( "address")
     var address: kotlin.String,
     /* The category of this address */
-    @field:Json(name = "category")
+    @SerializedName( "category")
     var category: kotlin.String,
     /* Optional: Is this address the default address for the category */
-    @field:Json(name = "default")
+    @SerializedName( "default")
     var default: kotlin.Boolean,
     /* Optional: Description of the address */
-    @field:Json(name = "description")
+    @SerializedName( "description")
     var description: kotlin.String? = null,
     /* Optional: CryptoToken long name is a defined name for the ERC20 token */
-    @field:Json(name = "long_name")
+    @SerializedName( "long_name")
     var longName: kotlin.String? = null,
     /* Optional: CryptoToken settlement network for the ERC20 token */
-    @field:Json(name = "settlement_network")
+    @SerializedName( "settlement_network")
     var settlementNetwork: kotlin.String? = null,
     /* Optional: CryptoToken short name to identify an ERC20 token */
-    @field:Json(name = "short_name")
+    @SerializedName( "short_name")
     var shortName: kotlin.String? = null,
     /* Optional: Proof of ownership signature for the address */
-    @field:Json(name = "signature")
+    @SerializedName( "signature")
     var signature: kotlin.String? = null
 ) : Serializable {
     companion object {

@@ -12,7 +12,8 @@
 package yat.android.sdk.models
 
 
-import com.squareup.moshi.Json
+
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 /**
@@ -21,7 +22,7 @@ import java.io.Serializable
  */
 
 data class SuccessResponse (
-    @field:Json(name = "message")
+    @SerializedName( "message")
     val message: kotlin.String
 ) : Serializable {
     companion object {

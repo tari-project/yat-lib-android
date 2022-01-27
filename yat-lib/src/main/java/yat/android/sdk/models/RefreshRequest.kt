@@ -12,7 +12,8 @@
 package yat.android.sdk.models
 
 
-import com.squareup.moshi.Json
+
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 /**
@@ -22,7 +23,7 @@ import java.io.Serializable
 
 data class RefreshRequest (
     /* Refresh token obtained from login request */
-    @field:Json(name = "refresh_token")
+    @SerializedName( "refresh_token")
     val refreshToken: kotlin.String
 ) : Serializable {
     companion object {

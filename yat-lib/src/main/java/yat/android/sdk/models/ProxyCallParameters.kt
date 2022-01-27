@@ -12,7 +12,8 @@
 package yat.android.sdk.models
 
 
-import com.squareup.moshi.Json
+
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 /**
@@ -23,10 +24,10 @@ import java.io.Serializable
 
 data class ProxyCallParameters (
     /* `ProxyService` type */
-    @field:Json(name = "service")
+    @SerializedName( "service")
     val service: ProxyCallParameters.Service,
     /* The data to pass through to the proxied service */
-    @field:Json(name = "data")
+    @SerializedName( "data")
     val data: kotlin.String? = null
 ) : Serializable {
     companion object {
@@ -39,8 +40,8 @@ data class ProxyCallParameters (
     */
     
     enum class Service(val value: kotlin.String){
-        @field:Json(name = "Echo") echo("Echo"),
-        @field:Json(name = "Scraper") scraper("Scraper");
+        @SerializedName( "Echo") echo("Echo"),
+        @SerializedName( "Scraper") scraper("Scraper");
     }
 }
 

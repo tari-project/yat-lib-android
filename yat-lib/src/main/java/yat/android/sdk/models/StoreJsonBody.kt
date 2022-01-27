@@ -11,7 +11,8 @@
 */
 package yat.android.sdk.models
 
-import com.squareup.moshi.Json
+
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 /**
@@ -22,10 +23,10 @@ import java.io.Serializable
 
 data class StoreJsonBody (
     /* Data value allows to store any Json value, limited by 250Kb */
-    @field:Json(name = "data")
+    @SerializedName( "data")
     val data: kotlin.Any,
     /* Link tag items as part of the transaction  All previously linked tags not present in new request will be deleted */
-    @field:Json(name = "linked_tags")
+    @SerializedName( "linked_tags")
     val linkedTags: kotlin.collections.List<EditRequestInsert>? = null
 ) : Serializable {
     companion object {

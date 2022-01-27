@@ -12,7 +12,8 @@
 package yat.android.sdk.models
 
 
-import com.squareup.moshi.Json
+
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 /**
@@ -26,20 +27,20 @@ import java.io.Serializable
  */
 
 data class EmojiStatsResponseMetrics (
-    @field:Json(name = "description")
+    @SerializedName( "description")
     val description: kotlin.String,
-    @field:Json(name = "finish_date")
+    @SerializedName( "finish_date")
     val finishDate: java.time.OffsetDateTime,
     /* Counter object */
-    @field:Json(name = "key")
+    @SerializedName( "key")
     val key: kotlin.String,
     /* Counter type */
-    @field:Json(name = "metric")
+    @SerializedName( "metric")
     val metric: kotlin.String,
-    @field:Json(name = "start_date")
+    @SerializedName( "start_date")
     val startDate: java.time.OffsetDateTime,
     /* Counter value */
-    @field:Json(name = "value")
+    @SerializedName( "value")
     val value: kotlin.Long
 ) : Serializable {
     companion object {

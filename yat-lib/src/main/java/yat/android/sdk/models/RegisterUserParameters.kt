@@ -12,7 +12,8 @@
 package yat.android.sdk.models
 
 
-import com.squareup.moshi.Json
+
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 /**
@@ -31,34 +32,34 @@ import java.io.Serializable
 
 data class RegisterUserParameters (
     /* Optional: Whether to force activation during creation (requires UserActivate scope) */
-    @field:Json(name = "activate")
+    @SerializedName( "activate")
     val activate: kotlin.Boolean? = null,
     /* Optional: Source of activation (requires UserActivate scope) */
-    @field:Json(name = "activation_source")
+    @SerializedName( "activation_source")
     val activationSource: kotlin.String? = null,
     /* Alternate identifier */
-    @field:Json(name = "alternate_id")
+    @SerializedName( "alternate_id")
     val alternateId: kotlin.String? = null,
     /* Email address */
-    @field:Json(name = "email")
+    @SerializedName( "email")
     val email: kotlin.String? = null,
     /* Optional: first name */
-    @field:Json(name = "first_name")
+    @SerializedName( "first_name")
     val firstName: kotlin.String? = null,
     /* Response from google Recaptcha */
-    @field:Json(name = "g_recaptcha_response")
+    @SerializedName( "g_recaptcha_response")
     val gRecaptchaResponse: kotlin.String? = null,
     /* Optional: last name */
-    @field:Json(name = "last_name")
+    @SerializedName( "last_name")
     val lastName: kotlin.String? = null,
     /* Parameter to pass everflow click id */
-    @field:Json(name = "partner_conversion_id")
+    @SerializedName( "partner_conversion_id")
     val partnerConversionId: kotlin.String? = null,
     /* Optional: password */
-    @field:Json(name = "password")
+    @SerializedName( "password")
     val password: kotlin.String? = null,
     /* Required when registering with `alternate_id`, source for non custodial user */
-    @field:Json(name = "source")
+    @SerializedName( "source")
     val source: kotlin.String? = null
 ) : Serializable {
     companion object {

@@ -12,7 +12,8 @@
 package yat.android.sdk.models
 
 
-import com.squareup.moshi.Json
+
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 /**
@@ -24,13 +25,13 @@ import java.io.Serializable
  */
 
 data class SignatureResponse (
-    @field:Json(name = "account")
+    @SerializedName( "account")
     val account: kotlin.String,
-    @field:Json(name = "expiry")
+    @SerializedName( "expiry")
     val expiry: kotlin.Long,
-    @field:Json(name = "signature")
+    @SerializedName( "signature")
     val signature: kotlin.String,
-    @field:Json(name = "token")
+    @SerializedName( "token")
     val token: kotlin.String
 ) : Serializable {
     companion object {

@@ -12,7 +12,8 @@
 package yat.android.sdk.models
 
 
-import com.squareup.moshi.Json
+
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 /**
@@ -39,58 +40,58 @@ import java.io.Serializable
 
 data class DisplayOrderOrderItems (
     /* The fee attributable to the referral partner, in addition to the nominal unit price, in USD cents. */
-    @field:Json(name = "client_fee_in_cents")
+    @SerializedName( "client_fee_in_cents")
     val clientFeeInCents: kotlin.Int,
     /* The fee attributable to the service host or company, in addition to the nominal unit price, in USD cents. */
-    @field:Json(name = "company_fee_in_cents")
+    @SerializedName( "company_fee_in_cents")
     val companyFeeInCents: kotlin.Int,
     /* A UTC timestamp for when this order item was created. */
-    @field:Json(name = "created_at")
+    @SerializedName( "created_at")
     val createdAt: java.time.OffsetDateTime,
     /* A unique identifier for this order item */
-    @field:Json(name = "id")
+    @SerializedName( "id")
     val id: java.util.UUID,
     /* The type of order. Current enumerations are EmojiId and Discount */
-    @field:Json(name = "item_type")
+    @SerializedName( "item_type")
     val itemType: DisplayOrderOrderItems.ItemType,
     /* The id of the order this order item */
-    @field:Json(name = "order_id")
+    @SerializedName( "order_id")
     val orderId: java.util.UUID,
     /* The number of items in the line order. For emoji id sales, this should always be one. */
-    @field:Json(name = "quantity")
+    @SerializedName( "quantity")
     val quantity: kotlin.Int,
     /* The number of items refunded. For emoji id sales, this should always at most be one. */
-    @field:Json(name = "refunded_quantity")
+    @SerializedName( "refunded_quantity")
     val refundedQuantity: kotlin.Int,
     /* The nominal, non-discounted price of the item, in USD cents. */
-    @field:Json(name = "unit_price_in_cents")
+    @SerializedName( "unit_price_in_cents")
     val unitPriceInCents: kotlin.Int,
     /* A UTC timestamp for when any field in the order item was modified. */
-    @field:Json(name = "updated_at")
+    @SerializedName( "updated_at")
     val updatedAt: java.time.OffsetDateTime,
     /* The code associated with this order item for providing a discount. */
-    @field:Json(name = "code_id")
+    @SerializedName( "code_id")
     val codeId: java.util.UUID? = null,
     /* The emoji id that is being purchased */
-    @field:Json(name = "emoji_id")
+    @SerializedName( "emoji_id")
     val emojiId: kotlin.Any? = null,
     /* Main item ID */
-    @field:Json(name = "main_id")
+    @SerializedName( "main_id")
     val mainId: java.util.UUID? = null,
     /* Main item table */
-    @field:Json(name = "main_table")
+    @SerializedName( "main_table")
     val mainTable: kotlin.Any? = null,
     /* A UTC timestamp for when this order item was marked as invalid. */
-    @field:Json(name = "marked_invalid_at")
+    @SerializedName( "marked_invalid_at")
     val markedInvalidAt: java.time.OffsetDateTime? = null,
     /* Marked invalid at reason Taken / PendingPurchase */
-    @field:Json(name = "marked_invalid_at_reason")
+    @SerializedName( "marked_invalid_at_reason")
     val markedInvalidAtReason: DisplayOrderOrderItems.MarkedInvalidAtReason? = null,
     /* Parent order item's ID, set for discounts and fees */
-    @field:Json(name = "parent_id")
+    @SerializedName( "parent_id")
     val parentId: java.util.UUID? = null,
     /* The rhythm score belonging to this order item, only set for order items containing EmojiIds. */
-    @field:Json(name = "rhythm_score")
+    @SerializedName( "rhythm_score")
     val rhythmScore: kotlin.Int? = null
 ) : Serializable {
     companion object {
@@ -103,9 +104,9 @@ data class DisplayOrderOrderItems (
     */
     
     enum class ItemType(val value: kotlin.String){
-        @field:Json(name = "Discount") discount("Discount"),
-        @field:Json(name = "LootBox") lootBox("LootBox"),
-        @field:Json(name = "EmojiId") emojiId("EmojiId");
+        @SerializedName( "Discount") discount("Discount"),
+        @SerializedName( "LootBox") lootBox("LootBox"),
+        @SerializedName( "EmojiId") emojiId("EmojiId");
     }
     /**
     * Marked invalid at reason Taken / PendingPurchase
@@ -113,8 +114,8 @@ data class DisplayOrderOrderItems (
     */
     
     enum class MarkedInvalidAtReason(val value: kotlin.String){
-        @field:Json(name = "Taken") taken("Taken"),
-        @field:Json(name = "PendingPurchase") pendingPurchase("PendingPurchase");
+        @SerializedName( "Taken") taken("Taken"),
+        @SerializedName( "PendingPurchase") pendingPurchase("PendingPurchase");
     }
 }
 

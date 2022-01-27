@@ -11,7 +11,8 @@
 */
 package yat.android.sdk.models
 
-import com.squareup.moshi.Json
+
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 /**
@@ -34,45 +35,45 @@ import java.io.Serializable
 
 data class SearchResultResult (
     /* The availability state of this emoji */
-    @field:Json(name = "availability")
+    @SerializedName( "availability")
     val availability: SearchResultResult.Availability,
     /* Whether the Emoji ID is available for purchase */
-    @field:Json(name = "available")
+    @SerializedName( "available")
     val available: kotlin.Boolean,
     /* Emoji ID in canonical form */
-    @field:Json(name = "emoji_id")
+    @SerializedName( "emoji_id")
     val emojiId: kotlin.String,
     /* Which emoji are flippable */
-    @field:Json(name = "flippable_emoji")
+    @SerializedName( "flippable_emoji")
     val flippableEmoji: kotlin.collections.List<kotlin.Boolean>,
     /* Canonical EmojiID length in emojis */
-    @field:Json(name = "length")
+    @SerializedName( "length")
     val length: kotlin.Long,
     /* If this Emoji is minted */
-    @field:Json(name = "minted")
+    @SerializedName( "minted")
     val minted: kotlin.Boolean,
     /* EmojiID rhythm score */
-    @field:Json(name = "rhythm_score")
+    @SerializedName( "rhythm_score")
     val rhythmScore: kotlin.Long,
-    @field:Json(name = "shape")
+    @SerializedName( "shape")
     val shape: EmojiListItemShape,
     /* Emoji key words */
-    @field:Json(name = "short_names")
+    @SerializedName( "short_names")
     val shortNames: kotlin.collections.List<kotlin.String>,
     /* Total lookups using this API, if someone is viewing this Emoji ID  using their own self hosted node, it will not be counted here */
-    @field:Json(name = "stats")
+    @SerializedName( "stats")
     val stats: kotlin.collections.List<EmojiStatsResponseMetrics>,
     /* EmojiID copy text */
-    @field:Json(name = "copy")
+    @SerializedName( "copy")
     val copy: kotlin.Any? = null,
     /* The generation of the Yat, if it has been purchased. */
-    @field:Json(name = "generation")
+    @SerializedName( "generation")
     val generation: kotlin.Int? = null,
     /* The origin of the Yat if it was from a Prism Case */
-    @field:Json(name = "origin")
+    @SerializedName( "origin")
     val origin: kotlin.String? = null,
     /* Pricing in US cents, e.g. 1024 is 10.24 USD.  Price is 0 if the emoji is not available */
-    @field:Json(name = "price")
+    @SerializedName( "price")
     val price: kotlin.Int? = null
 ) : Serializable {
     companion object {
@@ -85,11 +86,11 @@ data class SearchResultResult (
     */
     
     enum class Availability(val value: kotlin.String){
-        @field:Json(name = "Available") available("Available"),
-        @field:Json(name = "Taken") taken("Taken"),
-        @field:Json(name = "InCart") inCart("InCart"),
-        @field:Json(name = "ComingSoon") comingSoon("ComingSoon"),
-        @field:Json(name = "NoPrice") noPrice("NoPrice");
+        @SerializedName( "Available") available("Available"),
+        @SerializedName( "Taken") taken("Taken"),
+        @SerializedName( "InCart") inCart("InCart"),
+        @SerializedName( "ComingSoon") comingSoon("ComingSoon"),
+        @SerializedName( "NoPrice") noPrice("NoPrice");
     }
 }
 

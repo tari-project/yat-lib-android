@@ -12,7 +12,8 @@
 package yat.android.sdk.models
 
 
-import com.squareup.moshi.Json
+
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 /**
@@ -22,9 +23,9 @@ import java.io.Serializable
  */
 
 data class DisplayFeature (
-    @field:Json(name = "code")
+    @SerializedName( "code")
     val code: kotlin.String,
-    @field:Json(name = "id")
+    @SerializedName( "id")
     val id: java.util.UUID
 ) : Serializable {
     companion object {

@@ -12,7 +12,8 @@
 package yat.android.sdk.models
 
 
-import com.squareup.moshi.Json
+
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 /**
@@ -25,16 +26,16 @@ import java.io.Serializable
 
 data class UpdateAccountResponseTokenResponse (
     /* Access token */
-    @field:Json(name = "access_token")
+    @SerializedName( "access_token")
     val accessToken: kotlin.String,
     /* Has a password set */
-    @field:Json(name = "has_password")
+    @SerializedName( "has_password")
     val hasPassword: kotlin.Boolean,
     /* Refresh token,  only required for 2FA (???) */
-    @field:Json(name = "refresh_token")
+    @SerializedName( "refresh_token")
     val refreshToken: kotlin.String,
     /* Whether has 2FA enabled or not */
-    @field:Json(name = "requires_2fa")
+    @SerializedName( "requires_2fa")
     val requires2fa: UpdateAccountResponseTokenResponse.Requires2fa? = null
 ) : Serializable {
     companion object {
@@ -47,8 +48,8 @@ data class UpdateAccountResponseTokenResponse (
     */
     
     enum class Requires2fa(val value: kotlin.String){
-        @field:Json(name = "GoogleAuthenticator") googleAuthenticator("GoogleAuthenticator"),
-        @field:Json(name = "SMS") sMS("SMS");
+        @SerializedName( "GoogleAuthenticator") googleAuthenticator("GoogleAuthenticator"),
+        @SerializedName( "SMS") sMS("SMS");
     }
 }
 

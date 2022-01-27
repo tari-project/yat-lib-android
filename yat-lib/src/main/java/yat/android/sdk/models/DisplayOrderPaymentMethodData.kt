@@ -11,7 +11,8 @@
 */
 package yat.android.sdk.models
 
-import com.squareup.moshi.Json
+
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 /**
@@ -28,28 +29,28 @@ import java.io.Serializable
 
 data class DisplayOrderPaymentMethodData (
     /* Client Secret for the `Stripe` method for Elements and Checkout */
-    @field:Json(name = "client_secret")
+    @SerializedName( "client_secret")
     val clientSecret: kotlin.String,
     /* Payment method */
-    @field:Json(name = "method")
+    @SerializedName( "method")
     val method: DisplayOrderPaymentMethodData.Method,
     /* Metadata for `CoinbaseCommerce` payment method */
-    @field:Json(name = "methods")
+    @SerializedName( "methods")
     val methods: kotlin.collections.List<DisplayOrderPaymentMethodDataMethods>,
     /* Payment method ID for `Stripe` method */
-    @field:Json(name = "payment_intent_id")
+    @SerializedName( "payment_intent_id")
     val paymentIntentId: kotlin.String,
     /* Cancel url for `Stripe` method when using Checkout */
-    @field:Json(name = "cancel_url")
+    @SerializedName( "cancel_url")
     val cancelUrl: kotlin.String? = null,
     /* Invoice ID for the `Stripe` method for Elements */
-    @field:Json(name = "invoice_id")
+    @SerializedName( "invoice_id")
     val invoiceId: kotlin.String? = null,
     /* Invoice ID for the `Stripe` method for Checkout */
-    @field:Json(name = "session_id")
+    @SerializedName( "session_id")
     val sessionId: kotlin.String? = null,
     /* Success url for `Stripe` method when using Checkout */
-    @field:Json(name = "success_url")
+    @SerializedName( "success_url")
     val successUrl: kotlin.String? = null
 ) : Serializable {
     companion object {
@@ -62,8 +63,8 @@ data class DisplayOrderPaymentMethodData (
     */
     
     enum class Method(val value: kotlin.String){
-        @field:Json(name = "CoinbaseCommerce") coinbaseCommerce("CoinbaseCommerce"),
-        @field:Json(name = "Stripe") stripe("Stripe");
+        @SerializedName( "CoinbaseCommerce") coinbaseCommerce("CoinbaseCommerce"),
+        @SerializedName( "Stripe") stripe("Stripe");
     }
 }
 

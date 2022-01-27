@@ -12,7 +12,8 @@
 package yat.android.sdk.models
 
 
-import com.squareup.moshi.Json
+
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 /**
@@ -23,10 +24,10 @@ import java.io.Serializable
 
 data class ProxyResult (
     /* The response from the proxied service as a Json object */
-    @field:Json(name = "json")
+    @SerializedName( "json")
     val json: kotlin.Any,
     /* The response from the proxied service as a String */
-    @field:Json(name = "value")
+    @SerializedName( "value")
     val value: kotlin.String
 ) : Serializable {
     companion object {

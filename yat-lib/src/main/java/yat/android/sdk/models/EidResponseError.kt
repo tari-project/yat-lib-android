@@ -12,7 +12,8 @@
 package yat.android.sdk.models
 
 
-import com.squareup.moshi.Json
+
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 /**
@@ -23,9 +24,9 @@ import java.io.Serializable
 
 data class EidResponseError (
     /* Error code */
-    @field:Json(name = "code")
+    @SerializedName( "code")
     var code: kotlin.String,
-    @field:Json(name = "reason")
+    @SerializedName( "reason")
     var reason: kotlin.String
 ) : Serializable {
     companion object {

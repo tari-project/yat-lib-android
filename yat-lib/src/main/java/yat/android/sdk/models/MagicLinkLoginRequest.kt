@@ -12,7 +12,8 @@
 package yat.android.sdk.models
 
 
-import com.squareup.moshi.Json
+
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 /**
@@ -25,16 +26,16 @@ import java.io.Serializable
 
 data class MagicLinkLoginRequest (
     /* Email */
-    @field:Json(name = "email")
+    @SerializedName( "email")
     val email: kotlin.String? = null,
     /* Response from google Recaptcha */
-    @field:Json(name = "g_recaptcha_response")
+    @SerializedName( "g_recaptcha_response")
     val gRecaptchaResponse: kotlin.String? = null,
     /* Redirect path */
-    @field:Json(name = "redirect")
+    @SerializedName( "redirect")
     val redirect: kotlin.String? = null,
     /* User ID */
-    @field:Json(name = "user_id")
+    @SerializedName( "user_id")
     val userId: java.util.UUID? = null
 ) : Serializable {
     companion object {

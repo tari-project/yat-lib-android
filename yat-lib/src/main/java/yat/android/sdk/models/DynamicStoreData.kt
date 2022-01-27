@@ -1,20 +1,20 @@
 package yat.android.sdk.models
 
 import com.google.gson.annotations.SerializedName
-import com.squareup.moshi.Json
+
 import java.io.Serializable
 
 data class DynamicStoreData(
-    @field:Json(name = "gif")
+    @SerializedName( "gif")
     val gif: String?,
-    @field:Json(name = "image")
+    @SerializedName( "image")
     val image: String?,
-    @field:Json(name = "video")
+    @SerializedName( "video")
     val video: String?,
-    @field:Json(name = "webm")
+    @SerializedName( "webm")
     val webm: String?,
-    @field:Json(name = "v_video")
+    @SerializedName( "v_video")
     val verticalVideo: String?,
-    @field:Json(name = "v_webm")
+    @SerializedName( "v_webm")
     val verticalWebm: String?,
 ) : Serializable

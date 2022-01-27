@@ -11,7 +11,8 @@
 */
 package yat.android.sdk.models
 
-import com.squareup.moshi.Json
+
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 /**
@@ -23,12 +24,12 @@ import java.io.Serializable
 
 data class EidResponse (
     /* Response status.  If true, the requested data will be in the result field, null otherwise */
-    @field:Json(name = "status")
+    @SerializedName( "status")
     val status: kotlin.Boolean,
-    @field:Json(name = "error")
+    @SerializedName( "error")
     val error: EidResponseError? = null,
     /* Records associated with EmojiID */
-    @field:Json(name = "result")
+    @SerializedName( "result")
     val result: kotlin.collections.List<EidResponseResult>? = null
 ) : Serializable {
     companion object {

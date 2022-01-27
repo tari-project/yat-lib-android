@@ -12,7 +12,8 @@
 package yat.android.sdk.models
 
 
-import com.squareup.moshi.Json
+
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 /**
@@ -23,10 +24,10 @@ import java.io.Serializable
 
 data class MagicLinkLoginResponse (
     /* Message */
-    @field:Json(name = "message")
+    @SerializedName( "message")
     val message: kotlin.String,
     /* Status of requested user after completing the login request */
-    @field:Json(name = "status")
+    @SerializedName( "status")
     val status: MagicLinkLoginResponse.Status
 ) : Serializable {
     companion object {
@@ -39,10 +40,10 @@ data class MagicLinkLoginResponse (
     */
     
     enum class Status(val value: kotlin.String){
-        @field:Json(name = "Active") active("Active"),
-        @field:Json(name = "RegisteredInactive") registeredInactive("RegisteredInactive"),
-        @field:Json(name = "RegisteredActive") registeredActive("RegisteredActive"),
-        @field:Json(name = "Inactive") inactive("Inactive");
+        @SerializedName( "Active") active("Active"),
+        @SerializedName( "RegisteredInactive") registeredInactive("RegisteredInactive"),
+        @SerializedName( "RegisteredActive") registeredActive("RegisteredActive"),
+        @SerializedName( "Inactive") inactive("Inactive");
     }
 }
 

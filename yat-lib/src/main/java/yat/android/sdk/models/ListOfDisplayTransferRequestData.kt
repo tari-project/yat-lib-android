@@ -12,7 +12,8 @@
 package yat.android.sdk.models
 
 
-import com.squareup.moshi.Json
+
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 /**
@@ -30,25 +31,25 @@ import java.io.Serializable
  */
 
 data class ListOfDisplayTransferRequestData (
-    @field:Json(name = "clear_on_transfer")
+    @SerializedName( "clear_on_transfer")
     val clearOnTransfer: kotlin.Boolean,
-    @field:Json(name = "created_at")
+    @SerializedName( "created_at")
     val createdAt: java.time.OffsetDateTime,
-    @field:Json(name = "eid")
+    @SerializedName( "eid")
     val eid: kotlin.String,
-    @field:Json(name = "email")
+    @SerializedName( "email")
     val email: kotlin.String,
-    @field:Json(name = "id")
+    @SerializedName( "id")
     val id: java.util.UUID,
-    @field:Json(name = "recipient_id")
+    @SerializedName( "recipient_id")
     val recipientId: java.util.UUID,
-    @field:Json(name = "accepted_at")
+    @SerializedName( "accepted_at")
     val acceptedAt: java.time.OffsetDateTime? = null,
-    @field:Json(name = "deleted_at")
+    @SerializedName( "deleted_at")
     val deletedAt: java.time.OffsetDateTime? = null,
-    @field:Json(name = "message")
+    @SerializedName( "message")
     val message: kotlin.String? = null,
-    @field:Json(name = "sender_code_accepted_at")
+    @SerializedName( "sender_code_accepted_at")
     val senderCodeAcceptedAt: java.time.OffsetDateTime? = null
 ) : Serializable {
     companion object {

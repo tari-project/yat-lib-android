@@ -12,7 +12,8 @@
 package yat.android.sdk.models
 
 
-import com.squareup.moshi.Json
+
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 /**
@@ -25,16 +26,16 @@ import java.io.Serializable
 
 data class RandomYatActivateBody (
     /* Schnorr signature nonce as a hex string */
-    @field:Json(name = "nonce")
+    @SerializedName( "nonce")
     val nonce: kotlin.String,
     /* Public key to authorize usage of a code */
-    @field:Json(name = "pubkey")
+    @SerializedName( "pubkey")
     val pubkey: kotlin.String,
     /* Schnorr signature as a hex with alternate_id as a challenge */
-    @field:Json(name = "signature")
+    @SerializedName( "signature")
     val signature: kotlin.String,
     /* Custom tracking data to be associated with a purchase */
-    @field:Json(name = "tracking_data")
+    @SerializedName( "tracking_data")
     val trackingData: kotlin.Any? = null
 ) : Serializable {
     companion object {

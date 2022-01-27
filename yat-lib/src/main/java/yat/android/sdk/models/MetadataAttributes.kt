@@ -12,7 +12,8 @@
 package yat.android.sdk.models
 
 
-import com.squareup.moshi.Json
+
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 /**
@@ -22,9 +23,9 @@ import java.io.Serializable
  */
 
 data class MetadataAttributes (
-    @field:Json(name = "trait_type")
+    @SerializedName( "trait_type")
     val traitType: kotlin.String,
-    @field:Json(name = "value")
+    @SerializedName( "value")
     val value: kotlin.Any
 ) : Serializable {
     companion object {

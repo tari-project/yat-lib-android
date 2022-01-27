@@ -11,7 +11,8 @@
 */
 package yat.android.sdk.models
 
-import com.squareup.moshi.Json
+
+import com.google.gson.annotations.SerializedName
 import java.io.Serializable
 
 /**
@@ -22,9 +23,9 @@ import java.io.Serializable
 
 data class SearchResult (
     /* Alternative Emoji IDs */
-    @field:Json(name = "alternates")
+    @SerializedName( "alternates")
     val alternates: kotlin.collections.List<RandomResultResult>,
-    @field:Json(name = "result")
+    @SerializedName( "result")
     val result: SearchResultResult
 ) : Serializable {
     companion object {
