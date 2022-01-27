@@ -32,36 +32,36 @@ import java.io.Serializable
 
 data class ListOfPublicLootBoxData (
     /* Average score of emoji IDs in loot box */
-    @Json(name = "average_rhythm_score")
+    @field:Json(name = "average_rhythm_score")
     val averageRhythmScore: kotlin.Double,
-    @Json(name = "created_at")
+    @field:Json(name = "created_at")
     val createdAt: java.time.OffsetDateTime,
-    @Json(name = "id")
+    @field:Json(name = "id")
     val id: java.util.UUID,
     /* The prices of the yats in the box, in cents */
-    @Json(name = "prices")
+    @field:Json(name = "prices")
     val prices: kotlin.collections.List<kotlin.Int>,
     /* The rhythm scores of the yats in the box */
-    @Json(name = "scores")
+    @field:Json(name = "scores")
     val scores: kotlin.collections.List<kotlin.Long>,
     /* Status loot box will be created in */
-    @Json(name = "status")
+    @field:Json(name = "status")
     val status: ListOfPublicLootBoxData.Status,
     /* Total value of EmojiIDs in the Loot Box */
-    @Json(name = "total_value")
+    @field:Json(name = "total_value")
     val totalValue: kotlin.Double,
     /* Loot box yats */
-    @Json(name = "yats")
+    @field:Json(name = "yats")
     val yats: kotlin.collections.List<kotlin.String>,
-    @Json(name = "lootbox_type")
+    @field:Json(name = "lootbox_type")
     val lootboxType: ListOfPublicLootBoxLootboxType? = null,
     /* For Admin: The type of loot box, if applicable */
-    @Json(name = "lootbox_type_id")
+    @field:Json(name = "lootbox_type_id")
     val lootboxTypeId: java.util.UUID? = null,
-    @Json(name = "owner")
+    @field:Json(name = "owner")
     val owner: ListOfPublicLootBoxOwner? = null,
     /* Loot box owner_id, required for Owned and Used loot boxes */
-    @Json(name = "owner_id")
+    @field:Json(name = "owner_id")
     val ownerId: java.util.UUID? = null
 ) : Serializable {
     companion object {
@@ -74,10 +74,10 @@ data class ListOfPublicLootBoxData (
     */
     
     enum class Status(val value: kotlin.String){
-        @Json(name = "Draft") draft("Draft"),
-        @Json(name = "Available") available("Available"),
-        @Json(name = "Owned") owned("Owned"),
-        @Json(name = "Used") used("Used");
+        @field:Json(name = "Draft") draft("Draft"),
+        @field:Json(name = "Available") available("Available"),
+        @field:Json(name = "Owned") owned("Owned"),
+        @field:Json(name = "Used") used("Used");
     }
 }
 

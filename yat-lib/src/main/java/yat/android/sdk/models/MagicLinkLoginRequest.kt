@@ -25,16 +25,16 @@ import java.io.Serializable
 
 data class MagicLinkLoginRequest (
     /* Email */
-    @Json(name = "email")
+    @field:Json(name = "email")
     val email: kotlin.String? = null,
     /* Response from google Recaptcha */
-    @Json(name = "g_recaptcha_response")
+    @field:Json(name = "g_recaptcha_response")
     val gRecaptchaResponse: kotlin.String? = null,
     /* Redirect path */
-    @Json(name = "redirect")
+    @field:Json(name = "redirect")
     val redirect: kotlin.String? = null,
     /* User ID */
-    @Json(name = "user_id")
+    @field:Json(name = "user_id")
     val userId: java.util.UUID? = null
 ) : Serializable {
     companion object {

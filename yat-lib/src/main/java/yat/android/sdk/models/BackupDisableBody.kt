@@ -26,19 +26,19 @@ import java.io.Serializable
 
 data class BackupDisableBody (
     /* Backup code */
-    @Json(name = "backup_code")
+    @field:Json(name = "backup_code")
     val backupCode: kotlin.String,
     /* Alternate identifier */
-    @Json(name = "alternate_id")
+    @field:Json(name = "alternate_id")
     val alternateId: kotlin.String? = null,
     /* Make this method default */
-    @Json(name = "disable_all")
+    @field:Json(name = "disable_all")
     val disableAll: kotlin.Boolean? = null,
     /* Email */
-    @Json(name = "email")
+    @field:Json(name = "email")
     val email: kotlin.String? = null,
     /* Two factor authentication backend */
-    @Json(name = "provider")
+    @field:Json(name = "provider")
     val provider: BackupDisableBody.Provider? = null
 ) : Serializable {
     companion object {
@@ -51,8 +51,8 @@ data class BackupDisableBody (
     */
     
     enum class Provider(val value: kotlin.String){
-        @Json(name = "GoogleAuthenticator") googleAuthenticator("GoogleAuthenticator"),
-        @Json(name = "SMS") sMS("SMS");
+        @field:Json(name = "GoogleAuthenticator") googleAuthenticator("GoogleAuthenticator"),
+        @field:Json(name = "SMS") sMS("SMS");
     }
 }
 

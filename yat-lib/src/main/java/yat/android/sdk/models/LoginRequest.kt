@@ -25,16 +25,16 @@ import java.io.Serializable
 
 data class LoginRequest (
     /* Required: Password */
-    @Json(name = "password")
+    @field:Json(name = "password")
     val password: kotlin.String,
     /* Alternate identifier */
-    @Json(name = "alternate_id")
+    @field:Json(name = "alternate_id")
     val alternateId: kotlin.String? = null,
     /* Email */
-    @Json(name = "email")
+    @field:Json(name = "email")
     val email: kotlin.String? = null,
     /* Response from google Recaptcha */
-    @Json(name = "g_recaptcha_response")
+    @field:Json(name = "g_recaptcha_response")
     val gRecaptchaResponse: kotlin.String? = null
 ) : Serializable {
     companion object {

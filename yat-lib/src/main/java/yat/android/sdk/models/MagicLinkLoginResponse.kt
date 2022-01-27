@@ -23,10 +23,10 @@ import java.io.Serializable
 
 data class MagicLinkLoginResponse (
     /* Message */
-    @Json(name = "message")
+    @field:Json(name = "message")
     val message: kotlin.String,
     /* Status of requested user after completing the login request */
-    @Json(name = "status")
+    @field:Json(name = "status")
     val status: MagicLinkLoginResponse.Status
 ) : Serializable {
     companion object {
@@ -39,10 +39,10 @@ data class MagicLinkLoginResponse (
     */
     
     enum class Status(val value: kotlin.String){
-        @Json(name = "Active") active("Active"),
-        @Json(name = "RegisteredInactive") registeredInactive("RegisteredInactive"),
-        @Json(name = "RegisteredActive") registeredActive("RegisteredActive"),
-        @Json(name = "Inactive") inactive("Inactive");
+        @field:Json(name = "Active") active("Active"),
+        @field:Json(name = "RegisteredInactive") registeredInactive("RegisteredInactive"),
+        @field:Json(name = "RegisteredActive") registeredActive("RegisteredActive"),
+        @field:Json(name = "Inactive") inactive("Inactive");
     }
 }
 

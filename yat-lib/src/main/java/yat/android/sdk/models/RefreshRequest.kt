@@ -22,7 +22,7 @@ import java.io.Serializable
 
 data class RefreshRequest (
     /* Refresh token obtained from login request */
-    @Json(name = "refresh_token")
+    @field:Json(name = "refresh_token")
     val refreshToken: kotlin.String
 ) : Serializable {
     companion object {

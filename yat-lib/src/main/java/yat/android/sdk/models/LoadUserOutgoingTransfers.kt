@@ -21,9 +21,9 @@ import java.io.Serializable
  */
 
 data class LoadUserOutgoingTransfers (
-    @Json(name = "data")
+    @field:Json(name = "data")
     val data: kotlin.collections.List<ListOfDisplayTransferRequestData>? = null,
-    @Json(name = "paging")
+    @field:Json(name = "paging")
     val paging: ListOfCodeAvailabilityPaging? = null
 ) : Serializable {
     companion object {

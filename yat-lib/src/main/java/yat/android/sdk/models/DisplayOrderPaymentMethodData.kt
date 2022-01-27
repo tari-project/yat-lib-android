@@ -28,28 +28,28 @@ import java.io.Serializable
 
 data class DisplayOrderPaymentMethodData (
     /* Client Secret for the `Stripe` method for Elements and Checkout */
-    @Json(name = "client_secret")
+    @field:Json(name = "client_secret")
     val clientSecret: kotlin.String,
     /* Payment method */
-    @Json(name = "method")
+    @field:Json(name = "method")
     val method: DisplayOrderPaymentMethodData.Method,
     /* Metadata for `CoinbaseCommerce` payment method */
-    @Json(name = "methods")
+    @field:Json(name = "methods")
     val methods: kotlin.collections.List<DisplayOrderPaymentMethodDataMethods>,
     /* Payment method ID for `Stripe` method */
-    @Json(name = "payment_intent_id")
+    @field:Json(name = "payment_intent_id")
     val paymentIntentId: kotlin.String,
     /* Cancel url for `Stripe` method when using Checkout */
-    @Json(name = "cancel_url")
+    @field:Json(name = "cancel_url")
     val cancelUrl: kotlin.String? = null,
     /* Invoice ID for the `Stripe` method for Elements */
-    @Json(name = "invoice_id")
+    @field:Json(name = "invoice_id")
     val invoiceId: kotlin.String? = null,
     /* Invoice ID for the `Stripe` method for Checkout */
-    @Json(name = "session_id")
+    @field:Json(name = "session_id")
     val sessionId: kotlin.String? = null,
     /* Success url for `Stripe` method when using Checkout */
-    @Json(name = "success_url")
+    @field:Json(name = "success_url")
     val successUrl: kotlin.String? = null
 ) : Serializable {
     companion object {
@@ -62,8 +62,8 @@ data class DisplayOrderPaymentMethodData (
     */
     
     enum class Method(val value: kotlin.String){
-        @Json(name = "CoinbaseCommerce") coinbaseCommerce("CoinbaseCommerce"),
-        @Json(name = "Stripe") stripe("Stripe");
+        @field:Json(name = "CoinbaseCommerce") coinbaseCommerce("CoinbaseCommerce"),
+        @field:Json(name = "Stripe") stripe("Stripe");
     }
 }
 

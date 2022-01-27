@@ -18,7 +18,6 @@ import yat.android.lib.YatLibApi
 import yat.android.ui.transactions.outcoming.YatLibOutcomingTransactionActivity
 import yat.android.ui.transactions.outcoming.YatLibOutcomingTransactionData
 import yat.yat_lib_example.databinding.ActivityMainBinding
-import java.util.*
 
 internal class MainActivity : AppCompatActivity(), YatIntegration.Delegate {
 
@@ -70,7 +69,8 @@ internal class MainActivity : AppCompatActivity(), YatIntegration.Delegate {
             this,
             config = config,
             colorMode = YatIntegration.ColorMode.LIGHT,
-            this
+            this,
+            YatIntegration.Environment.SandBox
         )
     }
 

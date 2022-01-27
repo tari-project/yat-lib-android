@@ -26,19 +26,19 @@ import java.io.Serializable
 
 data class UpdateUserParameters (
     /* Optional: Current password, must be provided if one exists */
-    @Json(name = "current_password")
+    @field:Json(name = "current_password")
     val currentPassword: kotlin.String? = null,
     /* Optional: Email */
-    @Json(name = "email")
+    @field:Json(name = "email")
     val email: kotlin.String? = null,
     /* Optional: First name */
-    @Json(name = "first_name")
+    @field:Json(name = "first_name")
     val firstName: kotlin.String? = null,
     /* Optional: Last name */
-    @Json(name = "last_name")
+    @field:Json(name = "last_name")
     val lastName: kotlin.String? = null,
     /* Optional: User password */
-    @Json(name = "password")
+    @field:Json(name = "password")
     val password: kotlin.String? = null
 ) : Serializable {
     companion object {

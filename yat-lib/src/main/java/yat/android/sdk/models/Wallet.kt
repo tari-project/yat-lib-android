@@ -22,9 +22,9 @@ import java.io.Serializable
  */
 
 data class Wallet (
-    @Json(name = "eth_address")
+    @field:Json(name = "eth_address")
     val ethAddress: kotlin.String,
-    @Json(name = "user_id")
+    @field:Json(name = "user_id")
     val userId: java.util.UUID
 ) : Serializable {
     companion object {

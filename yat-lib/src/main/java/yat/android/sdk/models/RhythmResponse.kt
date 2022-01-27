@@ -22,7 +22,7 @@ import java.io.Serializable
 
 data class RhythmResponse (
     /* The yat rhythm score, a number between 1 (least prestigious) and 100 (most prestigious) */
-    @Json(name = "rhythm")
+    @field:Json(name = "rhythm")
     val rhythm: kotlin.Long
 ) : Serializable {
     companion object {

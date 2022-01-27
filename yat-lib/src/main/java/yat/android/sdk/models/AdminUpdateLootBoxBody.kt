@@ -25,16 +25,16 @@ import java.io.Serializable
 
 data class AdminUpdateLootBoxBody (
     /* Assign lootbox an owner with matching email  Should not be set if owner_id is set */
-    @Json(name = "owner_email")
+    @field:Json(name = "owner_email")
     val ownerEmail: kotlin.String? = null,
     /* Assign lootbox an owner, if set requires status `Owned` */
-    @Json(name = "owner_id")
+    @field:Json(name = "owner_id")
     val ownerId: java.util.UUID? = null,
     /* Update status  If status is `Used` lootbox with be automatically opened */
-    @Json(name = "status")
+    @field:Json(name = "status")
     val status: AdminUpdateLootBoxBody.Status? = null,
     /* LootBox emoji IDs */
-    @Json(name = "yats")
+    @field:Json(name = "yats")
     val yats: kotlin.collections.List<kotlin.String>? = null
 ) : Serializable {
     companion object {
@@ -47,10 +47,10 @@ data class AdminUpdateLootBoxBody (
     */
     
     enum class Status(val value: kotlin.String){
-        @Json(name = "Draft") draft("Draft"),
-        @Json(name = "Available") available("Available"),
-        @Json(name = "Owned") owned("Owned"),
-        @Json(name = "Used") used("Used");
+        @field:Json(name = "Draft") draft("Draft"),
+        @field:Json(name = "Available") available("Available"),
+        @field:Json(name = "Owned") owned("Owned"),
+        @field:Json(name = "Used") used("Used");
     }
 }
 

@@ -23,10 +23,10 @@ import java.io.Serializable
 
 data class Disable2FABody (
     /* Make this method default */
-    @Json(name = "disable_all")
+    @field:Json(name = "disable_all")
     val disableAll: kotlin.Boolean,
     /* Two factor authentication backend */
-    @Json(name = "provider")
+    @field:Json(name = "provider")
     val provider: Disable2FABody.Provider? = null
 ) : Serializable {
     companion object {
@@ -39,8 +39,8 @@ data class Disable2FABody (
     */
     
     enum class Provider(val value: kotlin.String){
-        @Json(name = "GoogleAuthenticator") googleAuthenticator("GoogleAuthenticator"),
-        @Json(name = "SMS") sMS("SMS");
+        @field:Json(name = "GoogleAuthenticator") googleAuthenticator("GoogleAuthenticator"),
+        @field:Json(name = "SMS") sMS("SMS");
     }
 }
 

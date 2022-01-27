@@ -27,21 +27,21 @@ import java.io.Serializable
  */
 
 data class LoadUser (
-    @Json(name = "current_user")
+    @field:Json(name = "current_user")
     val currentUser: LoadUserCurrentUser,
-    @Json(name = "editions")
+    @field:Json(name = "editions")
     val editions: kotlin.collections.List<kotlin.Long>,
-    @Json(name = "extended_list")
+    @field:Json(name = "extended_list")
     val extendedList: kotlin.collections.List<LoadUserExtendedList>,
-    @Json(name = "incoming_transfers")
+    @field:Json(name = "incoming_transfers")
     val incomingTransfers: kotlin.collections.List<ListOfDisplayTransferRequestData>,
-    @Json(name = "outgoing_transfers")
+    @field:Json(name = "outgoing_transfers")
     val outgoingTransfers: LoadUserOutgoingTransfers,
-    @Json(name = "wallets")
+    @field:Json(name = "wallets")
     val wallets: kotlin.collections.List<LoadUserWallets>,
-    @Json(name = "everflow_transaction_id")
+    @field:Json(name = "everflow_transaction_id")
     val everflowTransactionId: kotlin.String? = null,
-    @Json(name = "sidebar")
+    @field:Json(name = "sidebar")
     val sidebar: kotlin.Any? = null
 ) : Serializable {
     companion object {

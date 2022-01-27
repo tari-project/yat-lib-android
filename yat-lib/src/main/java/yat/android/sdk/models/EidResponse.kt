@@ -23,12 +23,12 @@ import java.io.Serializable
 
 data class EidResponse (
     /* Response status.  If true, the requested data will be in the result field, null otherwise */
-    @Json(name = "status")
+    @field:Json(name = "status")
     val status: kotlin.Boolean,
-    @Json(name = "error")
+    @field:Json(name = "error")
     val error: EidResponseError? = null,
     /* Records associated with EmojiID */
-    @Json(name = "result")
+    @field:Json(name = "result")
     val result: kotlin.collections.List<EidResponseResult>? = null
 ) : Serializable {
     companion object {

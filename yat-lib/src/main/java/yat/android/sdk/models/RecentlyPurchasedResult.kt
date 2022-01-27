@@ -21,7 +21,7 @@ import java.io.Serializable
 
 data class RecentlyPurchasedResult (
     /* Recently purchased emoji */
-    @Json(name = "result")
+    @field:Json(name = "result")
     val result: kotlin.collections.List<RandomResultResult>
 ) : Serializable {
     companion object {

@@ -30,27 +30,27 @@ import java.io.Serializable
  */
 
 data class EmojiListItem (
-    @Json(name = "canonical_format")
+    @field:Json(name = "canonical_format")
     val canonicalFormat: kotlin.String,
-    @Json(name = "chain_format")
+    @field:Json(name = "chain_format")
     val chainFormat: kotlin.String,
-    @Json(name = "display_format")
+    @field:Json(name = "display_format")
     val displayFormat: kotlin.String,
-    @Json(name = "flippable_emoji")
+    @field:Json(name = "flippable_emoji")
     val flippableEmoji: kotlin.collections.List<kotlin.Boolean>,
-    @Json(name = "generation")
+    @field:Json(name = "generation")
     val generation: kotlin.Int,
-    @Json(name = "minted")
+    @field:Json(name = "minted")
     val minted: kotlin.Boolean,
-    @Json(name = "rhythm_score")
+    @field:Json(name = "rhythm_score")
     val rhythmScore: kotlin.Int,
-    @Json(name = "shape")
+    @field:Json(name = "shape")
     val shape: EmojiListItemShape,
-    @Json(name = "shortname")
+    @field:Json(name = "shortname")
     val shortname: kotlin.String,
-    @Json(name = "blocked_until")
+    @field:Json(name = "blocked_until")
     val blockedUntil: java.time.OffsetDateTime? = null,
-    @Json(name = "token_id")
+    @field:Json(name = "token_id")
     val tokenId: kotlin.Long? = null
 ) : Serializable {
     companion object {

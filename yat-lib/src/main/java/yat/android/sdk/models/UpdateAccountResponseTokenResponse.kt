@@ -25,16 +25,16 @@ import java.io.Serializable
 
 data class UpdateAccountResponseTokenResponse (
     /* Access token */
-    @Json(name = "access_token")
+    @field:Json(name = "access_token")
     val accessToken: kotlin.String,
     /* Has a password set */
-    @Json(name = "has_password")
+    @field:Json(name = "has_password")
     val hasPassword: kotlin.Boolean,
     /* Refresh token,  only required for 2FA (???) */
-    @Json(name = "refresh_token")
+    @field:Json(name = "refresh_token")
     val refreshToken: kotlin.String,
     /* Whether has 2FA enabled or not */
-    @Json(name = "requires_2fa")
+    @field:Json(name = "requires_2fa")
     val requires2fa: UpdateAccountResponseTokenResponse.Requires2fa? = null
 ) : Serializable {
     companion object {
@@ -47,8 +47,8 @@ data class UpdateAccountResponseTokenResponse (
     */
     
     enum class Requires2fa(val value: kotlin.String){
-        @Json(name = "GoogleAuthenticator") googleAuthenticator("GoogleAuthenticator"),
-        @Json(name = "SMS") sMS("SMS");
+        @field:Json(name = "GoogleAuthenticator") googleAuthenticator("GoogleAuthenticator"),
+        @field:Json(name = "SMS") sMS("SMS");
     }
 }
 

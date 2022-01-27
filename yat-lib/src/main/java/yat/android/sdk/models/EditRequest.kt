@@ -25,19 +25,19 @@ import java.io.Serializable
 
 data class EditRequest (
     /* Optional: Allow many addresses per Tag */
-    @Json(name = "bypass_single_restrictions")
+    @field:Json(name = "bypass_single_restrictions")
     val bypassSingleRestrictions: kotlin.Boolean? = null,
     /* Optional: hashes of records to delete */
-    @Json(name = "delete")
+    @field:Json(name = "delete")
     val delete: kotlin.collections.List<kotlin.String>? = null,
     /* Optional: list of records to add */
-    @Json(name = "insert")
+    @field:Json(name = "insert")
     val insert: kotlin.collections.List<EditRequestInsert>? = null,
     /* Optional: merkle root (use WASM to generate) */
-    @Json(name = "merkle_root")
+    @field:Json(name = "merkle_root")
     val merkleRoot: kotlin.String? = null,
     /* Optional: signature (use WASM to generate) */
-    @Json(name = "signature")
+    @field:Json(name = "signature")
     val signature: kotlin.String? = null
 ) : Serializable {
     companion object {

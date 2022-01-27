@@ -24,15 +24,15 @@ import java.io.Serializable
 
 data class LookupResponse (
     /* Number of times emoji viewed during past month */
-    @Json(name = "stats")
+    @field:Json(name = "stats")
     val stats: kotlin.collections.List<EmojiStatsResponseMetrics>,
-    @Json(name = "error")
+    @field:Json(name = "error")
     val error: EidResponseError? = null,
     /* Records associated with EmojiID */
-    @Json(name = "result")
+    @field:Json(name = "result")
     val result: kotlin.collections.List<EidResponseResult>? = null,
     /* Response status.  If true, the requested data will be in the result field, null otherwise */
-    @Json(name = "status")
+    @field:Json(name = "status")
     val status: kotlin.Boolean? = null
 ) : Serializable {
     companion object {

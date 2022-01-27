@@ -23,10 +23,10 @@ import java.io.Serializable
 
 data class LootBoxGenerationRequest (
     /* The id of the loot box type to generate */
-    @Json(name = "loot_box_type_id")
+    @field:Json(name = "loot_box_type_id")
     val lootBoxTypeId: java.util.UUID,
     /* The number of loot boxes to generate in this sample */
-    @Json(name = "num_boxes")
+    @field:Json(name = "num_boxes")
     val numBoxes: kotlin.Long
 ) : Serializable {
     companion object {

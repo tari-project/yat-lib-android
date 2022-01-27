@@ -26,20 +26,20 @@ import java.io.Serializable
  */
 
 data class EmojiStatsResponseMetrics (
-    @Json(name = "description")
+    @field:Json(name = "description")
     val description: kotlin.String,
-    @Json(name = "finish_date")
+    @field:Json(name = "finish_date")
     val finishDate: java.time.OffsetDateTime,
     /* Counter object */
-    @Json(name = "key")
+    @field:Json(name = "key")
     val key: kotlin.String,
     /* Counter type */
-    @Json(name = "metric")
+    @field:Json(name = "metric")
     val metric: kotlin.String,
-    @Json(name = "start_date")
+    @field:Json(name = "start_date")
     val startDate: java.time.OffsetDateTime,
     /* Counter value */
-    @Json(name = "value")
+    @field:Json(name = "value")
     val value: kotlin.Long
 ) : Serializable {
     companion object {
