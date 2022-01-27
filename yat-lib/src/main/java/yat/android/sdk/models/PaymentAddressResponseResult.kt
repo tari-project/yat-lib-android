@@ -29,28 +29,28 @@ import java.io.Serializable
 
 data class PaymentAddressResponseResult (
     /* The payment address */
-    @Json(name = "address")
+    @field:Json(name = "address")
     var address: kotlin.String,
     /* The category of this address */
-    @Json(name = "category")
+    @field:Json(name = "category")
     var category: kotlin.String,
     /* Optional: Is this address the default address for the category */
-    @Json(name = "default")
+    @field:Json(name = "default")
     var default: kotlin.Boolean,
     /* Optional: Description of the address */
-    @Json(name = "description")
+    @field:Json(name = "description")
     var description: kotlin.String? = null,
     /* Optional: CryptoToken long name is a defined name for the ERC20 token */
-    @Json(name = "long_name")
+    @field:Json(name = "long_name")
     var longName: kotlin.String? = null,
     /* Optional: CryptoToken settlement network for the ERC20 token */
-    @Json(name = "settlement_network")
+    @field:Json(name = "settlement_network")
     var settlementNetwork: kotlin.String? = null,
     /* Optional: CryptoToken short name to identify an ERC20 token */
-    @Json(name = "short_name")
+    @field:Json(name = "short_name")
     var shortName: kotlin.String? = null,
     /* Optional: Proof of ownership signature for the address */
-    @Json(name = "signature")
+    @field:Json(name = "signature")
     var signature: kotlin.String? = null
 ) : Serializable {
     companion object {

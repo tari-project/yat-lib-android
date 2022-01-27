@@ -22,7 +22,7 @@ import java.io.Serializable
 
 data class ApplyPromoCodeRequest (
     /* Code to apply */
-    @Json(name = "code")
+    @field:Json(name = "code")
     val code: kotlin.String
 ) : Serializable {
     companion object {

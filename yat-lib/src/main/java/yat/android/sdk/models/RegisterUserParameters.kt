@@ -31,34 +31,34 @@ import java.io.Serializable
 
 data class RegisterUserParameters (
     /* Optional: Whether to force activation during creation (requires UserActivate scope) */
-    @Json(name = "activate")
+    @field:Json(name = "activate")
     val activate: kotlin.Boolean? = null,
     /* Optional: Source of activation (requires UserActivate scope) */
-    @Json(name = "activation_source")
+    @field:Json(name = "activation_source")
     val activationSource: kotlin.String? = null,
     /* Alternate identifier */
-    @Json(name = "alternate_id")
+    @field:Json(name = "alternate_id")
     val alternateId: kotlin.String? = null,
     /* Email address */
-    @Json(name = "email")
+    @field:Json(name = "email")
     val email: kotlin.String? = null,
     /* Optional: first name */
-    @Json(name = "first_name")
+    @field:Json(name = "first_name")
     val firstName: kotlin.String? = null,
     /* Response from google Recaptcha */
-    @Json(name = "g_recaptcha_response")
+    @field:Json(name = "g_recaptcha_response")
     val gRecaptchaResponse: kotlin.String? = null,
     /* Optional: last name */
-    @Json(name = "last_name")
+    @field:Json(name = "last_name")
     val lastName: kotlin.String? = null,
     /* Parameter to pass everflow click id */
-    @Json(name = "partner_conversion_id")
+    @field:Json(name = "partner_conversion_id")
     val partnerConversionId: kotlin.String? = null,
     /* Optional: password */
-    @Json(name = "password")
+    @field:Json(name = "password")
     val password: kotlin.String? = null,
     /* Required when registering with `alternate_id`, source for non custodial user */
-    @Json(name = "source")
+    @field:Json(name = "source")
     val source: kotlin.String? = null
 ) : Serializable {
     companion object {

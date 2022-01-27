@@ -37,39 +37,39 @@ import java.io.Serializable
  */
 
 data class CurrentUserUser (
-    @Json(name = "created_at")
+    @field:Json(name = "created_at")
     val createdAt: java.time.OffsetDateTime,
-    @Json(name = "free_limit")
+    @field:Json(name = "free_limit")
     val freeLimit: kotlin.Int,
-    @Json(name = "id")
+    @field:Json(name = "id")
     val id: java.util.UUID,
-    @Json(name = "pubkeys")
+    @field:Json(name = "pubkeys")
     val pubkeys: kotlin.collections.List<kotlin.String>,
-    @Json(name = "remaining_free_emoji")
+    @field:Json(name = "remaining_free_emoji")
     val remainingFreeEmoji: kotlin.Int,
-    @Json(name = "role")
+    @field:Json(name = "role")
     val role: CurrentUserUser.Role,
-    @Json(name = "two_factor_should_prompt")
+    @field:Json(name = "two_factor_should_prompt")
     val twoFactorShouldPrompt: kotlin.Boolean,
-    @Json(name = "updated_at")
+    @field:Json(name = "updated_at")
     val updatedAt: java.time.OffsetDateTime,
-    @Json(name = "alternate_id")
+    @field:Json(name = "alternate_id")
     val alternateId: kotlin.String? = null,
-    @Json(name = "deactivated_at")
+    @field:Json(name = "deactivated_at")
     val deactivatedAt: java.time.OffsetDateTime? = null,
-    @Json(name = "email")
+    @field:Json(name = "email")
     val email: kotlin.String? = null,
-    @Json(name = "email_verified_at")
+    @field:Json(name = "email_verified_at")
     val emailVerifiedAt: java.time.OffsetDateTime? = null,
-    @Json(name = "first_name")
+    @field:Json(name = "first_name")
     val firstName: kotlin.String? = null,
-    @Json(name = "last_name")
+    @field:Json(name = "last_name")
     val lastName: kotlin.String? = null,
-    @Json(name = "source")
+    @field:Json(name = "source")
     val source: kotlin.String? = null,
-    @Json(name = "two_factor_auth")
+    @field:Json(name = "two_factor_auth")
     val twoFactorAuth: List<CurrentUserUser.TwoFactorAuth>? = null,
-    @Json(name = "two_factor_last_prompted_at")
+    @field:Json(name = "two_factor_last_prompted_at")
     val twoFactorLastPromptedAt: java.time.OffsetDateTime? = null
 ) : Serializable {
     companion object {
@@ -82,13 +82,13 @@ data class CurrentUserUser (
     */
     
     enum class Role(val value: kotlin.String){
-        @Json(name = "Admin") admin("Admin"),
-        @Json(name = "OrgController") orgController("OrgController"),
-        @Json(name = "OrgMember") orgMember("OrgMember"),
-        @Json(name = "OrgOwner") orgOwner("OrgOwner"),
-        @Json(name = "Bot") bot("Bot"),
-        @Json(name = "Super") `super`("Super"),
-        @Json(name = "User") user("User");
+        @field:Json(name = "Admin") admin("Admin"),
+        @field:Json(name = "OrgController") orgController("OrgController"),
+        @field:Json(name = "OrgMember") orgMember("OrgMember"),
+        @field:Json(name = "OrgOwner") orgOwner("OrgOwner"),
+        @field:Json(name = "Bot") bot("Bot"),
+        @field:Json(name = "Super") `super`("Super"),
+        @field:Json(name = "User") user("User");
     }
     /**
     * 
@@ -96,8 +96,8 @@ data class CurrentUserUser (
     */
     
     enum class TwoFactorAuth(val value: String){
-        @Json(name = "GoogleAuthenticator") googleAuthenticator("GoogleAuthenticator"),
-        @Json(name = "SMS") sMS("SMS");
+        @field:Json(name = "GoogleAuthenticator") googleAuthenticator("GoogleAuthenticator"),
+        @field:Json(name = "SMS") sMS("SMS");
     }
 }
 

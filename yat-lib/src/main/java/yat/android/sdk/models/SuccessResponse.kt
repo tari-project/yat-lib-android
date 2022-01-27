@@ -21,7 +21,7 @@ import java.io.Serializable
  */
 
 data class SuccessResponse (
-    @Json(name = "message")
+    @field:Json(name = "message")
     val message: kotlin.String
 ) : Serializable {
     companion object {

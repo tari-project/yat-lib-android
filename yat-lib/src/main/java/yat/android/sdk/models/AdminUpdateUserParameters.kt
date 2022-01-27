@@ -29,28 +29,28 @@ import java.io.Serializable
 
 data class AdminUpdateUserParameters (
     /* Optional: Source of activation */
-    @Json(name = "activation_source")
+    @field:Json(name = "activation_source")
     val activationSource: kotlin.String? = null,
     /* Optional: Current password, must be provided if one exists */
-    @Json(name = "current_password")
+    @field:Json(name = "current_password")
     val currentPassword: kotlin.String? = null,
     /* Optional: Email */
-    @Json(name = "email")
+    @field:Json(name = "email")
     val email: kotlin.String? = null,
     /* Optional: First name */
-    @Json(name = "first_name")
+    @field:Json(name = "first_name")
     val firstName: kotlin.String? = null,
     /* Optional: Free limit for how many yats the user may purchase */
-    @Json(name = "free_limit")
+    @field:Json(name = "free_limit")
     val freeLimit: kotlin.Int? = null,
     /* Optional: Last name */
-    @Json(name = "last_name")
+    @field:Json(name = "last_name")
     val lastName: kotlin.String? = null,
     /* Optional: User password */
-    @Json(name = "password")
+    @field:Json(name = "password")
     val password: kotlin.String? = null,
     /* Optional: Update the user role */
-    @Json(name = "role")
+    @field:Json(name = "role")
     val role: AdminUpdateUserParameters.Role? = null
 ) : Serializable {
     companion object {
@@ -63,13 +63,13 @@ data class AdminUpdateUserParameters (
     */
     
     enum class Role(val value: kotlin.String){
-        @Json(name = "Admin") admin("Admin"),
-        @Json(name = "OrgController") orgController("OrgController"),
-        @Json(name = "OrgMember") orgMember("OrgMember"),
-        @Json(name = "OrgOwner") orgOwner("OrgOwner"),
-        @Json(name = "Bot") bot("Bot"),
-        @Json(name = "Super") `super`("Super"),
-        @Json(name = "User") user("User");
+        @field:Json(name = "Admin") admin("Admin"),
+        @field:Json(name = "OrgController") orgController("OrgController"),
+        @field:Json(name = "OrgMember") orgMember("OrgMember"),
+        @field:Json(name = "OrgOwner") orgOwner("OrgOwner"),
+        @field:Json(name = "Bot") bot("Bot"),
+        @field:Json(name = "Super") `super`("Super"),
+        @field:Json(name = "User") user("User");
     }
 }
 

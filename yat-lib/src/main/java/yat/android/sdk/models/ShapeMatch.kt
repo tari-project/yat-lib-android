@@ -22,9 +22,9 @@ import java.io.Serializable
  */
 
 data class ShapeMatch (
-    @Json(name = "pattern")
+    @field:Json(name = "pattern")
     val pattern: kotlin.Any? = null,
-    @Json(name = "shape")
+    @field:Json(name = "shape")
     val shape: ShapeMatch.Shape? = null
 ) : Serializable {
     companion object {
@@ -37,10 +37,10 @@ data class ShapeMatch (
     */
     
     enum class Shape(val value: kotlin.String){
-        @Json(name = "Repeaters") repeaters("Repeaters"),
-        @Json(name = "Eye Heart") eyeHeart("Eye Heart"),
-        @Json(name = "Bookends") bookends("Bookends"),
-        @Json(name = "Adoptables") adoptables("Adoptables");
+        @field:Json(name = "Repeaters") repeaters("Repeaters"),
+        @field:Json(name = "Eye Heart") eyeHeart("Eye Heart"),
+        @field:Json(name = "Bookends") bookends("Bookends"),
+        @field:Json(name = "Adoptables") adoptables("Adoptables");
     }
 }
 

@@ -22,10 +22,10 @@ import java.io.Serializable
 
 data class AddItemsCartRequest (
     /* New items to add to cart */
-    @Json(name = "items")
+    @field:Json(name = "items")
     val items: kotlin.collections.List<AddItemsCartRequestItems>,
     /* Tracking data */
-    @Json(name = "tracking_data")
+    @field:Json(name = "tracking_data")
     val trackingData: kotlin.Any? = null
 ) : Serializable {
     companion object {

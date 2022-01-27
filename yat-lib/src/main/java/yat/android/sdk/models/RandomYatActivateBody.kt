@@ -25,16 +25,16 @@ import java.io.Serializable
 
 data class RandomYatActivateBody (
     /* Schnorr signature nonce as a hex string */
-    @Json(name = "nonce")
+    @field:Json(name = "nonce")
     val nonce: kotlin.String,
     /* Public key to authorize usage of a code */
-    @Json(name = "pubkey")
+    @field:Json(name = "pubkey")
     val pubkey: kotlin.String,
     /* Schnorr signature as a hex with alternate_id as a challenge */
-    @Json(name = "signature")
+    @field:Json(name = "signature")
     val signature: kotlin.String,
     /* Custom tracking data to be associated with a purchase */
-    @Json(name = "tracking_data")
+    @field:Json(name = "tracking_data")
     val trackingData: kotlin.Any? = null
 ) : Serializable {
     companion object {

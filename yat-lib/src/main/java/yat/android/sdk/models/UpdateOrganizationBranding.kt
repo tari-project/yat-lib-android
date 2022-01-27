@@ -26,17 +26,17 @@ import java.io.Serializable
  */
 
 data class UpdateOrganizationBranding (
-    @Json(name = "currencies")
+    @field:Json(name = "currencies")
     val currencies: kotlin.collections.List<kotlin.String>,
-    @Json(name = "return_link")
+    @field:Json(name = "return_link")
     val returnLink: kotlin.String,
-    @Json(name = "logo")
+    @field:Json(name = "logo")
     val logo: kotlin.String? = null,
-    @Json(name = "logo_small")
+    @field:Json(name = "logo_small")
     val logoSmall: kotlin.String? = null,
-    @Json(name = "logo_thumbnail")
+    @field:Json(name = "logo_thumbnail")
     val logoThumbnail: kotlin.String? = null,
-    @Json(name = "requires_email")
+    @field:Json(name = "requires_email")
     val requiresEmail: kotlin.Boolean? = null
 ) : Serializable {
     companion object {

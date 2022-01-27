@@ -21,9 +21,9 @@ import java.io.Serializable
  */
 
 data class EmojiStatsResponse (
-    @Json(name = "emoji_id")
+    @field:Json(name = "emoji_id")
     val emojiId: kotlin.String,
-    @Json(name = "metrics")
+    @field:Json(name = "metrics")
     val metrics: kotlin.collections.List<EmojiStatsResponseMetrics>
 ) : Serializable {
     companion object {

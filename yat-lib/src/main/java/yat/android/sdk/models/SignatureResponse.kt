@@ -24,13 +24,13 @@ import java.io.Serializable
  */
 
 data class SignatureResponse (
-    @Json(name = "account")
+    @field:Json(name = "account")
     val account: kotlin.String,
-    @Json(name = "expiry")
+    @field:Json(name = "expiry")
     val expiry: kotlin.Long,
-    @Json(name = "signature")
+    @field:Json(name = "signature")
     val signature: kotlin.String,
-    @Json(name = "token")
+    @field:Json(name = "token")
     val token: kotlin.String
 ) : Serializable {
     companion object {

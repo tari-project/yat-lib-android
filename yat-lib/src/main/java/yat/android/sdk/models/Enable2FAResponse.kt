@@ -25,16 +25,16 @@ import java.io.Serializable
 
 data class Enable2FAResponse (
     /* One time backup codes to login */
-    @Json(name = "backup_codes")
+    @field:Json(name = "backup_codes")
     val backupCodes: kotlin.collections.List<kotlin.String>? = null,
     /* GA secret as QR code in svg image */
-    @Json(name = "ga_qr_code_svg")
+    @field:Json(name = "ga_qr_code_svg")
     val gaQrCodeSvg: kotlin.String? = null,
     /* GA base32 encoded secret, will be null when code is disabled */
-    @Json(name = "ga_secret")
+    @field:Json(name = "ga_secret")
     val gaSecret: kotlin.String? = null,
     /* Phone last digits */
-    @Json(name = "phone_last_digits")
+    @field:Json(name = "phone_last_digits")
     val phoneLastDigits: kotlin.String? = null
 ) : Serializable {
     companion object {

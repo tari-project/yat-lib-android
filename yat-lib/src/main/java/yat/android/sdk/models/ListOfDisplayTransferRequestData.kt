@@ -30,25 +30,25 @@ import java.io.Serializable
  */
 
 data class ListOfDisplayTransferRequestData (
-    @Json(name = "clear_on_transfer")
+    @field:Json(name = "clear_on_transfer")
     val clearOnTransfer: kotlin.Boolean,
-    @Json(name = "created_at")
+    @field:Json(name = "created_at")
     val createdAt: java.time.OffsetDateTime,
-    @Json(name = "eid")
+    @field:Json(name = "eid")
     val eid: kotlin.String,
-    @Json(name = "email")
+    @field:Json(name = "email")
     val email: kotlin.String,
-    @Json(name = "id")
+    @field:Json(name = "id")
     val id: java.util.UUID,
-    @Json(name = "recipient_id")
+    @field:Json(name = "recipient_id")
     val recipientId: java.util.UUID,
-    @Json(name = "accepted_at")
+    @field:Json(name = "accepted_at")
     val acceptedAt: java.time.OffsetDateTime? = null,
-    @Json(name = "deleted_at")
+    @field:Json(name = "deleted_at")
     val deletedAt: java.time.OffsetDateTime? = null,
-    @Json(name = "message")
+    @field:Json(name = "message")
     val message: kotlin.String? = null,
-    @Json(name = "sender_code_accepted_at")
+    @field:Json(name = "sender_code_accepted_at")
     val senderCodeAcceptedAt: java.time.OffsetDateTime? = null
 ) : Serializable {
     companion object {

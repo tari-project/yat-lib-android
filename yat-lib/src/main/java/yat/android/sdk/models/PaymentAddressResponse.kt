@@ -22,11 +22,11 @@ import java.io.Serializable
  */
 
 data class PaymentAddressResponse (
-    @Json(name = "status")
+    @field:Json(name = "status")
     var status: kotlin.Boolean,
-    @Json(name = "error")
+    @field:Json(name = "error")
     var error: EidResponseError? = null,
-    @Json(name = "result")
+    @field:Json(name = "result")
     var result: kotlin.collections.Map<kotlin.String, PaymentAddressResponseResult>? = null
 ) : Serializable {
     companion object {

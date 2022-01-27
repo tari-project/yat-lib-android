@@ -22,7 +22,7 @@ import java.io.Serializable
 
 data class NewUserInterestParameters (
     /* Emoji ID to express interest in */
-    @Json(name = "emoji_id")
+    @field:Json(name = "emoji_id")
     val emojiId: kotlin.String
 ) : Serializable {
     companion object {

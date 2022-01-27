@@ -23,10 +23,10 @@ import java.io.Serializable
 
 data class ProxyCallParameters (
     /* `ProxyService` type */
-    @Json(name = "service")
+    @field:Json(name = "service")
     val service: ProxyCallParameters.Service,
     /* The data to pass through to the proxied service */
-    @Json(name = "data")
+    @field:Json(name = "data")
     val data: kotlin.String? = null
 ) : Serializable {
     companion object {
@@ -39,8 +39,8 @@ data class ProxyCallParameters (
     */
     
     enum class Service(val value: kotlin.String){
-        @Json(name = "Echo") echo("Echo"),
-        @Json(name = "Scraper") scraper("Scraper");
+        @field:Json(name = "Echo") echo("Echo"),
+        @field:Json(name = "Scraper") scraper("Scraper");
     }
 }
 

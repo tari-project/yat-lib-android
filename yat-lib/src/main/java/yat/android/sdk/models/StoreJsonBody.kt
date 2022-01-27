@@ -22,10 +22,10 @@ import java.io.Serializable
 
 data class StoreJsonBody (
     /* Data value allows to store any Json value, limited by 250Kb */
-    @Json(name = "data")
+    @field:Json(name = "data")
     val data: kotlin.Any,
     /* Link tag items as part of the transaction  All previously linked tags not present in new request will be deleted */
-    @Json(name = "linked_tags")
+    @field:Json(name = "linked_tags")
     val linkedTags: kotlin.collections.List<EditRequestInsert>? = null
 ) : Serializable {
     companion object {

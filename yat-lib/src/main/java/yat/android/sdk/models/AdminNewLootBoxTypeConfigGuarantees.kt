@@ -24,13 +24,13 @@ import java.io.Serializable
 
 data class AdminNewLootBoxTypeConfigGuarantees (
     /* The number of guaranteed drops of this type in the loot box */
-    @Json(name = "count")
+    @field:Json(name = "count")
     val count: kotlin.Long,
     /* The highest (inclusive) rhythm score range for guaranteed drop */
-    @Json(name = "max_score")
+    @field:Json(name = "max_score")
     val maxScore: kotlin.Long,
     /* The lowest (inclusive) rhythm score range for guaranteed drop */
-    @Json(name = "min_score")
+    @field:Json(name = "min_score")
     val minScore: kotlin.Long
 ) : Serializable {
     companion object {

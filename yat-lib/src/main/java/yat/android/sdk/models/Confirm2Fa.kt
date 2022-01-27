@@ -23,10 +23,10 @@ import java.io.Serializable
 
 data class Confirm2Fa (
     /* Two factor authentication code */
-    @Json(name = "code")
+    @field:Json(name = "code")
     val code: kotlin.String,
     /* Refresh token obtained from login request */
-    @Json(name = "refresh_token")
+    @field:Json(name = "refresh_token")
     val refreshToken: kotlin.String
 ) : Serializable {
     companion object {

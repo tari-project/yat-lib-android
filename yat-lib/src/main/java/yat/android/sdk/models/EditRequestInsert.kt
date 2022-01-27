@@ -23,10 +23,10 @@ import java.io.Serializable
 
 data class EditRequestInsert (
     /* Category data in text format */
-    @Json(name = "data")
+    @field:Json(name = "data")
     val data: kotlin.String,
     /* Category ID as a hex number */
-    @Json(name = "tag")
+    @field:Json(name = "tag")
     val tag: kotlin.String
 ) : Serializable {
     companion object {
