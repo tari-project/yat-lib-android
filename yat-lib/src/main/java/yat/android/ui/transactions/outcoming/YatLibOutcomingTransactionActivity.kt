@@ -89,7 +89,7 @@ open class YatLibOutcomingTransactionActivity : AppCompatActivity() {
                 .apply {
                     duration = startUpAnimationDuration
                     addListener(object : DefaultListener() {
-                        override fun onAnimationEnd(p0: Animator?) = onCircularRevealAnimationEnd(isStraight)
+                        override fun onAnimationEnd(p0: Animator) = onCircularRevealAnimationEnd(isStraight)
                     })
                     start()
                 }
@@ -179,7 +179,7 @@ open class YatLibOutcomingTransactionActivity : AppCompatActivity() {
         yatLibSuccessfulText.animate().alpha(1F).setDuration(successAppearingAnimationDuration).start()
         yatLibVideo.animate().alpha(0F).setDuration(successAppearingAnimationDuration).start()
         yatLibMainInfoContainer.animate().alpha(0f).setDuration(successAppearingAnimationDuration).setListener(object : DefaultListener() {
-            override fun onAnimationEnd(p0: Animator?) {
+            override fun onAnimationEnd(p0: Animator) {
                 yatLibRootContainer.postDelayed({
                     showCircularRevealFromCenter(ui.yatLibRootReveal, false)
                 }, artificialDelayDuringSuccess)
