@@ -6,6 +6,8 @@ This repository contains an example app module named `yat-lib-example` that illu
 
 ## Note to Developer
 
+https://jitpack.io/#yat-labs/yat-lib-android
+
 Constant URL values below in the class `YatLib` need to be adjusted according to the service locations.
 
 ```kotlin
