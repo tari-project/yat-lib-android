@@ -33,6 +33,7 @@
 package yat.android.ui.onboarding.mainActivity
 
 import android.os.Bundle
+import androidx.activity.OnBackPressedCallback
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import yat.android.R
@@ -54,6 +55,15 @@ internal class YatLibActivity : AppCompatActivity(){
             },
             true
         )
+        onBackPressedDispatcher.addCallback(object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                if (ui.viewPager.currentItem == 0) {
+                    finish()
+                } else {
+                    ui.viewPager.currentItem = ui.viewPager.currentItem - 1
+                }
+            }
+        })
         ui = YatLibActivityYatLibBinding.inflate(layoutInflater)
         setContentView(ui.root)
         setupUI()
@@ -70,13 +80,5 @@ internal class YatLibActivity : AppCompatActivity(){
         onClose.observe(this@YatLibActivity) { finish() }
 
         onNext.observe(this@YatLibActivity) { ui.viewPager.currentItem += 1 }
-    }
-
-    override fun onBackPressed() {
-        if (ui.viewPager.currentItem == 0) {
-            super.onBackPressed()
-        } else {
-            ui.viewPager.currentItem = ui.viewPager.currentItem - 1
-        }
     }
 }

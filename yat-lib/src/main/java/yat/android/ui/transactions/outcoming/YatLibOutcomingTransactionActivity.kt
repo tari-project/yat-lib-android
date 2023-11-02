@@ -11,6 +11,7 @@ import android.os.Bundle
 import android.view.Surface
 import android.view.View
 import android.view.WindowManager
+import androidx.activity.OnBackPressedCallback
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.constraintlayout.widget.ConstraintLayout
@@ -34,6 +35,11 @@ open class YatLibOutcomingTransactionActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         ui = YatLibOutcomingTransactionActivityBinding.inflate(layoutInflater)
+        onBackPressedDispatcher.addCallback(this, object: OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                showCircularRevealFromCenter(ui.yatLibRootReveal, false)
+            }
+        })
         setContentView(ui.root)
         setupData(intent.getSerializableExtra(dataKey) as YatLibOutcomingTransactionData)
         window?.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
@@ -68,8 +74,6 @@ open class YatLibOutcomingTransactionActivity : AppCompatActivity() {
             TransactionState.Failed -> showFailed()
         }
     }
-
-    override fun onBackPressed() = showCircularRevealFromCenter(ui.yatLibRootReveal, false)
 
     private fun <T> showCircularRevealFromCenter(circularRevealWidget: T, isStraight: Boolean) where T : View?, T : CircularRevealWidget {
         circularRevealWidget.post {
