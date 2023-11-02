@@ -41,7 +41,7 @@ internal class MainActivity : AppCompatActivity(), YatIntegration.Delegate {
             "108dEFa0272dC118EF03a7993e4fC7A8AcF3a3d1"
         ),
         YatRecord(
-            YatRecordType.TARI_PUBKEY,
+            YatRecordType.XTR_PUBLICKEY,
             "d2e4db6dac593a9af36987a35676838ede4f69684ba433baeed68bce048e111b"
         ),
         YatRecord(
@@ -70,7 +70,8 @@ internal class MainActivity : AppCompatActivity(), YatIntegration.Delegate {
             this,
             config = config,
             colorMode = YatIntegration.ColorMode.LIGHT,
-            this
+            this,
+            environment = YatIntegration.Environment.SandBox
         )
     }
 
@@ -80,7 +81,7 @@ internal class MainActivity : AppCompatActivity(), YatIntegration.Delegate {
                 if (p0.isNullOrEmpty()) return false
 
                 lifecycleScope.launch(Dispatchers.IO) {
-                    runCatching { YatLibApi.emojiIDApi.lookupEmojiIDPayment(p0.orEmpty(), "0x0101") }.getOrNull()?.let { response->
+                    runCatching { YatLibApi.emojiIDApi.lookupEmojiIDPayment(p0, "0x0103") }.getOrNull()?.let { response->
                         launch(Dispatchers.Main) {
                             if (response.status) {
                                 ui.searchResult.text = response.result?.map { it.key + " " + it.value.address }?.joinToString("")

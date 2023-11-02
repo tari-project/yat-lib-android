@@ -16,42 +16,42 @@ import com.squareup.moshi.Json
 import java.io.Serializable
 
 /**
- * Payment address response for crypto and token payment data
- * @param address The payment address
- * @param category The category of this address
- * @param default Optional: Is this address the default address for the category
- * @param description Optional: Description of the address
- * @param longName Optional: CryptoToken long name is a defined name for the ERC20 token
- * @param settlementNetwork Optional: CryptoToken settlement network for the ERC20 token
- * @param shortName Optional: CryptoToken short name to identify an ERC20 token
- * @param signature Optional: Proof of ownership signature for the address
+// * Payment address response for crypto and token payment data
+// * @param address The payment address
+// * @param category The category of this address
+// * @param default Optional: Is this address the default address for the category
+// * @param description Optional: Description of the address
+// * @param longName Optional: CryptoToken long name is a defined name for the ERC20 token
+// * @param settlementNetwork Optional: CryptoToken settlement network for the ERC20 token
+// * @param shortName Optional: CryptoToken short name to identify an ERC20 token
+// * @param signature Optional: Proof of ownership signature for the address
  */
 
 data class PaymentAddressResponseResult (
     /* The payment address */
     @Json(name = "address")
     val address: kotlin.String,
-    /* The category of this address */
-    @Json(name = "category")
-    val category: kotlin.String,
-    /* Optional: Is this address the default address for the category */
-    @Json(name = "default")
-    val default: kotlin.Boolean,
-    /* Optional: Description of the address */
-    @Json(name = "description")
-    val description: kotlin.String? = null,
-    /* Optional: CryptoToken long name is a defined name for the ERC20 token */
-    @Json(name = "long_name")
-    val longName: kotlin.String? = null,
-    /* Optional: CryptoToken settlement network for the ERC20 token */
-    @Json(name = "settlement_network")
-    val settlementNetwork: kotlin.String? = null,
-    /* Optional: CryptoToken short name to identify an ERC20 token */
-    @Json(name = "short_name")
-    val shortName: kotlin.String? = null,
-    /* Optional: Proof of ownership signature for the address */
-    @Json(name = "signature")
-    val signature: kotlin.String? = null
+//    /* The category of this address */
+//    @Json(name = "category")
+//    val category: kotlin.String,
+//    /* Optional: Is this address the default address for the category */
+//    @Json(name = "default")
+//    val default: kotlin.Boolean,
+//    /* Optional: Description of the address */
+//    @Json(name = "description")
+//    val description: kotlin.String? = null,
+//    /* Optional: CryptoToken long name is a defined name for the ERC20 token */
+//    @Json(name = "long_name")
+//    val longName: kotlin.String? = null,
+//    /* Optional: CryptoToken settlement network for the ERC20 token */
+//    @Json(name = "settlement_network")
+//    val settlementNetwork: kotlin.String? = null,
+//    /* Optional: CryptoToken short name to identify an ERC20 token */
+//    @Json(name = "short_name")
+//    val shortName: kotlin.String? = null,
+//    /* Optional: Proof of ownership signature for the address */
+//    @Json(name = "signature")
+//    val signature: kotlin.String? = null
 ) : Serializable {
     companion object {
         private const val serialVersionUID: Long = 123
