@@ -8,7 +8,7 @@ android {
 
     defaultConfig {
         applicationId "yat.yat_lib_example"
-        minSdkVersion 24
+        minSdkVersion 26
         targetSdkVersion 34
         compileSdk 34
         versionCode 6
