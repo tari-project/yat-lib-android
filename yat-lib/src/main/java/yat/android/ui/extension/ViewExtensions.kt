@@ -83,7 +83,7 @@ internal fun View.temporarilyDisableClick() {
     )
 }
 
-private class ClickEnablingRunnable(@NonNull view: View) : Runnable {
+private class ClickEnablingRunnable(view: View) : Runnable {
 
     private val viewWR: WeakReference<View> = WeakReference(view)
 
