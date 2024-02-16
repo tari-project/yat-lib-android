@@ -56,7 +56,7 @@ internal enum class CustomFont(private val fileName: String) {
         private const val sAttribute = "customFont"
 
         fun fromString(fontName: String): CustomFont? {
-            return values().firstOrNull { it.name == fontName.toUpperCase(Locale.getDefault()) }
+            return values().firstOrNull { it.name == fontName.uppercase(Locale.getDefault()) }
         }
 
         fun getFromAttributeSet(context: Context, attr: AttributeSet): Typeface {

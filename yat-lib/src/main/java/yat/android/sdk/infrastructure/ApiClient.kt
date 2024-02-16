@@ -26,6 +26,7 @@ import java.time.LocalDateTime
 import java.time.LocalTime
 import java.time.OffsetDateTime
 import java.time.OffsetTime
+import java.util.Locale
 
 interface TokenStorage {
     var accessToken: String?
@@ -183,16 +184,16 @@ open class ApiClient {
         }
         val headers = requestConfig.headers
 
-        if(headers[ContentType] ?: "" == "") {
+        if((headers[ContentType] ?: "") == "") {
             throw kotlin.IllegalStateException("Missing Content-Type header. This is required.")
         }
 
-        if(headers[Accept] ?: "" == "") {
+        if((headers[Accept] ?: "") == "") {
             throw kotlin.IllegalStateException("Missing Accept header. This is required.")
         }
 
         // TODO: support multiple contentType options here.
-        val contentType = (headers[ContentType] as String).substringBefore(";").toLowerCase()
+        val contentType = (headers[ContentType] as String).substringBefore(";").lowercase(Locale.getDefault())
 
         val request = when (requestConfig.method) {
             RequestMethod.DELETE -> Request.Builder().url(url).delete(requestBody(body, contentType))
@@ -207,7 +208,7 @@ open class ApiClient {
         }.build()
 
         val response = client.newCall(request).execute()
-        val accept = response.header(ContentType)?.substringBefore(";")?.toLowerCase()
+        val accept = response.header(ContentType)?.substringBefore(";")?.lowercase(Locale.getDefault())
 
         // TODO: handle specific mapping types. e.g. Map<int, Class<?>>
         when {
