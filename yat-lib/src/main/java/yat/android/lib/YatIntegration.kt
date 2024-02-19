@@ -36,6 +36,7 @@ import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.net.Uri
+import android.util.Log
 import android.view.ContextThemeWrapper
 import yat.android.R
 import yat.android.data.YatRecord
@@ -73,25 +74,43 @@ class YatIntegration {
     }
 
     sealed class Environment(val yatAPIBaseURL: String, val yatWebAppBaseURL: String) {
-        object SandBox : Environment("https://a.yat.fyi/", "https://yat.fyi/")
-
-        object Production : Environment("https://a.y.at/", "https://y.at/")
+        data object SandBox : Environment("https://a.yat.fyi/", "https://yat.fyi/")
+        data object Production : Environment("https://a.y.at/", "https://y.at/")
     }
 
     companion object {
+        internal var isInitialized: Boolean = false
 
         private var deeplinkProcessor: DeeplinkProcessor = DeeplinkProcessorImpl()
 
-        internal lateinit var config: YatConfiguration
-        internal lateinit var userId: String
-        internal lateinit var userPassword: String
-        internal lateinit var colorMode: ColorMode
-        internal lateinit var environment: Environment
-        internal lateinit var delegateWeakReference: WeakReference<Delegate>
-        internal lateinit var yatRecords: List<YatRecord>
+        internal var config: YatConfiguration? = null
+        internal var userId: String? = null
+        internal var userPassword: String? = null
+        internal var environment: Environment? = null
+        internal var delegateWeakReference: WeakReference<Delegate>? = null
+        internal var yatRecords: List<YatRecord> = emptyList()
+        private var colorMode: ColorMode? = null
+
+        internal val appStyle: Int
+            get() = when (colorMode) {
+                ColorMode.DARK -> R.style.YatLibAppTheme_Dark
+                ColorMode.LIGHT -> R.style.YatLibAppTheme_Light
+                else -> {
+                    Log.e(this::class.java.simpleName, "YatIntegration hasn't been initialized")
+                    R.style.YatLibAppTheme_Light
+                }
+            }
 
         @JvmStatic
-        fun setup(context: Context, config: YatConfiguration, colorMode: ColorMode, delegate: Delegate, environment: Environment = Environment.Production) {
+        fun setup(
+            context: Context,
+            config: YatConfiguration,
+            colorMode: ColorMode,
+            delegate: Delegate,
+            environment: Environment = Environment.Production,
+        ) {
+            isInitialized = true
+
             Companion.config = config
             Companion.colorMode = colorMode
             Companion.environment = environment
@@ -103,10 +122,11 @@ class YatIntegration {
         @JvmStatic
         fun showOnboarding(context: Context, yatRecords: List<YatRecord>) {
             Companion.yatRecords = yatRecords
-            if (!this::config.isInitialized) {
-                delegateWeakReference.get()?.onYatIntegrationFailed(
+            if (!isInitialized) {
+                delegateWeakReference?.get()?.onYatIntegrationFailed(
                     FailureType.YAT_LIB_NOT_INITIALIZED
                 )
+                Log.e(this::class.java.simpleName, "YatIntegration hasn't been initialized")
                 return
             }
             val intent = Intent(context, YatLibActivity::class.java)
@@ -126,12 +146,8 @@ class YatIntegration {
             }
         }
 
-        fun showSuccessDialog(context: Activity, deepLink: Uri) {
-            val theme = when (colorMode) {
-                ColorMode.DARK -> R.style.YatLibAppTheme_Dark
-                ColorMode.LIGHT -> R.style.YatLibAppTheme_Light
-            }
-            val themeWrapper = ContextThemeWrapper(context, theme)
+        private fun showSuccessDialog(context: Activity, deepLink: Uri) {
+            val themeWrapper = ContextThemeWrapper(context, appStyle)
             val action = DeeplinkAction.parse(deepLink)
             action.execute(context)
             YatLibSuccessDialog(themeWrapper, action.emojiId).show()

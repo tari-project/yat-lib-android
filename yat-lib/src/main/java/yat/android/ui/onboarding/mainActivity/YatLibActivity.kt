@@ -33,28 +33,31 @@
 package yat.android.ui.onboarding.mainActivity
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.OnBackPressedCallback
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import yat.android.R
 import yat.android.databinding.YatLibActivityYatLibBinding
 import yat.android.lib.YatIntegration
 
-internal class YatLibActivity : AppCompatActivity(){
+internal class YatLibActivity : AppCompatActivity() {
 
     private lateinit var ui: YatLibActivityYatLibBinding
-    private val viewModel : YatLibViewModel by viewModels()
+    private val viewModel: YatLibViewModel by viewModels()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        theme.applyStyle(
-            when (YatIntegration.colorMode) {
-                YatIntegration.ColorMode.DARK -> R.style.YatLibAppTheme_Dark
-                YatIntegration.ColorMode.LIGHT -> R.style.YatLibAppTheme_Light
-            },
-            true
-        )
+
+        // handle the case when the activity is started without the library being initialized (e.g. from ABD command
+        // or from third-party app)
+        if (YatIntegration.isInitialized.not()) {
+            Log.e(this::class.java.simpleName, "YatIntegration is not initialized. Finishing activity.")
+            finish()
+            return
+        }
+
+        theme.applyStyle(YatIntegration.appStyle, true)
         onBackPressedDispatcher.addCallback(object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
                 if (ui.viewPager.currentItem == 0) {
