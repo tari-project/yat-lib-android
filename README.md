@@ -84,8 +84,14 @@ https://jitpack.io/#yat-labs/yat-lib-android
         // ...
 
         private fun initializeYatLib() {
+            
+            // You can define your own environment(e.g. SandBox), or use the default Production one ("https://y.at/")
+            val yourEnvironment = YatIntegration.Environment(
+                yatAPIBaseURL = "https://a.yourdomain.y.at",
+                yatWebAppBaseURL = "https://yourdomain.y.at",
+            )
    
-            val config = YatConfiguration(
+            val yourConfig = YatConfiguration(
                 appReturnLink = "app://y.at?action", // deep link to return to the app
                 organizationName = "Yat Labs",
                 organizationKey = "yat",
@@ -93,10 +99,10 @@ https://jitpack.io/#yat-labs/yat-lib-android
    
             YatIntegration.setup(
                 context = this,
-                config = config,
+                config = yourConfig,
                 colorMode = YatIntegration.ColorMode.LIGHT, // Choose between LIGHT and DARK
                 delegate = this,
-                environment = YatIntegration.Environment.SandBox, // Choose between SandBox and Production
+                environment = yourEnvironment,
             )
         }
 

@@ -70,7 +70,6 @@ internal class MainActivity : AppCompatActivity(), YatIntegration.Delegate {
             config = config,
             colorMode = YatIntegration.ColorMode.LIGHT,
             delegate = this,
-            environment = YatIntegration.Environment.SandBox,
         )
     }
 

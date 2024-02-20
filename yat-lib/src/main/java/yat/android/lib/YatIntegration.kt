@@ -73,12 +73,14 @@ class YatIntegration {
         DARK,
     }
 
-    sealed class Environment(val yatAPIBaseURL: String, val yatWebAppBaseURL: String) {
-        data object SandBox : Environment("https://a.yat.fyi/", "https://yat.fyi/")
-        data object Production : Environment("https://a.y.at/", "https://y.at/")
-    }
+    data class Environment(val yatAPIBaseURL: String, val yatWebAppBaseURL: String)
 
     companion object {
+        private val PRODUCTION_ENVIRONMENT = Environment(
+            yatAPIBaseURL = "https://a.y.at/",
+            yatWebAppBaseURL = "https://y.at/",
+        )
+
         internal var isInitialized: Boolean = false
 
         private var deeplinkProcessor: DeeplinkProcessor = DeeplinkProcessorImpl()
@@ -107,7 +109,7 @@ class YatIntegration {
             config: YatConfiguration,
             colorMode: ColorMode,
             delegate: Delegate,
-            environment: Environment = Environment.Production,
+            environment: Environment = PRODUCTION_ENVIRONMENT,
         ) {
             isInitialized = true
 
