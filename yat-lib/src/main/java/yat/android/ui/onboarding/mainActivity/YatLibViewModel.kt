@@ -7,7 +7,7 @@ import com.google.gson.annotations.SerializedName
 import yat.android.data.YatRecordType
 import yat.android.lib.YatIntegration
 
-internal class YatLibViewModel() : ViewModel() {
+internal class YatLibViewModel : ViewModel() {
 
     val onNext: MutableLiveData<Unit> = MutableLiveData()
     val onClose: MutableLiveData<Unit> = MutableLiveData()
@@ -16,12 +16,12 @@ internal class YatLibViewModel() : ViewModel() {
 
     fun onClose() = onClose.postValue(Unit)
 
-    fun manageYatUri() = generateUri("partner/${YatIntegration.config.organizationKey}")
+    fun manageYatUri() = generateUri("partner/${YatIntegration.config?.organizationKey.orEmpty()}")
 
-    fun connectYatUri() = generateUri("partner/${YatIntegration.config.organizationKey}/link-email")
+    fun connectYatUri() = generateUri("partner/${YatIntegration.config?.organizationKey.orEmpty()}/link-email")
 
-    private fun generateUri(path: String) : Uri {
-        val baseUri = Uri.parse(YatIntegration.environment.yatWebAppBaseURL)
+    private fun generateUri(path: String): Uri {
+        val baseUri = Uri.parse(YatIntegration.environment?.yatWebAppBaseURL.orEmpty())
         val records = YatIntegration.yatRecords.joinToString("|") { "${getSerializedName(it.type)}=${it.data}" }
         val encodedUri = Uri.Builder().scheme(baseUri.scheme)
             .authority(baseUri.authority)
@@ -31,7 +31,7 @@ internal class YatLibViewModel() : ViewModel() {
         return Uri.parse(Uri.decode(encodedUri.toString()))
     }
 
-    private fun getSerializedName(type: YatRecordType) : String {
+    private fun getSerializedName(type: YatRecordType): String {
         return type.javaClass.getField(type.name).getAnnotationsByType(SerializedName::class.java).firstOrNull()?.value.orEmpty()
     }
 }

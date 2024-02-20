@@ -12,12 +12,13 @@ internal sealed class DeeplinkAction(val emojiId: String) {
     // after the user has created and bought a new Yat through the partner flow
     class Create(emojiId: String) : DeeplinkAction(emojiId) {
         override fun execute(context: Context) {
-            val delegate = YatIntegration.delegateWeakReference.get()
-            // when a person aborts creating flow, it back "undefined"
-            if (emojiId.isEmpty() || emojiId == "undefined") {
-                delegate?.onYatIntegrationFailed(YatIntegration.FailureType.INVALID_DEEP_LINK)
-            } else {
-                delegate?.onYatIntegrationComplete(emojiId)
+            YatIntegration.delegateWeakReference?.get()?.let { delegate ->
+                // when a person aborts creating flow, it back "undefined"
+                if (emojiId.isEmpty() || emojiId == "undefined") {
+                    delegate.onYatIntegrationFailed(YatIntegration.FailureType.INVALID_DEEP_LINK)
+                } else {
+                    delegate.onYatIntegrationComplete(emojiId)
+                }
             }
         }
     }
@@ -29,21 +30,21 @@ internal sealed class DeeplinkAction(val emojiId: String) {
     class Connect(emojiId: String) : DeeplinkAction(emojiId)
 
     open fun execute(context: Context) {
-        YatIntegration.delegateWeakReference.get()?.onYatIntegrationComplete(emojiId)
+        YatIntegration.delegateWeakReference?.get()?.onYatIntegrationComplete(emojiId)
     }
 
 
     companion object {
-        const val ACTION_PROPERTY = "action"
-        const val EMOJI_ID_PROPERTY = "eid"
-        const val REFRESH_TOKEN_PROPERTY = "refresh_token"
+        private const val ACTION_PROPERTY = "action"
+        private const val EMOJI_ID_PROPERTY = "eid"
+        private const val REFRESH_TOKEN_PROPERTY = "refresh_token"
 
         fun parse(deepLink: Uri): DeeplinkAction {
             var action = deepLink.getQueryParameter(ACTION_PROPERTY)
             var emojiId = deepLink.getQueryParameter(EMOJI_ID_PROPERTY).orEmpty()
             var refreshToken = deepLink.getQueryParameter(REFRESH_TOKEN_PROPERTY).orEmpty()
 
-            if(emojiId.isEmpty() && action.isNullOrEmpty()) {
+            if (emojiId.isEmpty() && action.isNullOrEmpty()) {
                 val fixedUrl = deepLink.toString().replace("action?", "action=&").toUri()
                 action = fixedUrl.getQueryParameter(ACTION_PROPERTY)
                 emojiId = fixedUrl.getQueryParameter(EMOJI_ID_PROPERTY).orEmpty()

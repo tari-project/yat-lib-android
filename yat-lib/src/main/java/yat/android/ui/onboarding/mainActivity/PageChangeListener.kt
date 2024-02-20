@@ -9,8 +9,8 @@ import yat.android.databinding.YatLibActivityYatLibBinding
 
 internal class PageChangeListener(context: Context, val ui: YatLibActivityYatLibBinding) : ViewPager2.OnPageChangeCallback() {
 
-    private lateinit var pageIndicatorActiveBg: Drawable
-    private lateinit var pageIndicatorPassiveBg: Drawable
+    private var pageIndicatorActiveBg: Drawable
+    private var pageIndicatorPassiveBg: Drawable
 
     init {
         pageIndicatorActiveBg = ResourcesCompat.getDrawable(context.resources, R.drawable.yat_lib_page_indicator_active_bg, context.theme)!!

@@ -42,7 +42,7 @@ import yat.android.databinding.YatLibFragmentIntroPage2Binding
 import yat.android.ui.extension.setOnThrottledClickListener
 import yat.android.ui.onboarding.mainActivity.YatLibViewModel
 
-internal class IntroPage2Fragment() : Fragment() {
+internal class IntroPage2Fragment : Fragment() {
 
     private lateinit var ui: YatLibFragmentIntroPage2Binding
     private val yatLibViewModel: YatLibViewModel by activityViewModels()

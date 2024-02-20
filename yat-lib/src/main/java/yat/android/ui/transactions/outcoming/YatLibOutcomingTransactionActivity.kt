@@ -8,6 +8,7 @@ import android.content.Intent
 import android.media.AudioManager
 import android.media.MediaPlayer
 import android.os.Bundle
+import android.util.Log
 import android.view.Surface
 import android.view.View
 import android.view.WindowManager
@@ -22,8 +23,10 @@ import com.google.android.material.circularreveal.CircularRevealCompat
 import com.google.android.material.circularreveal.CircularRevealWidget
 import yat.android.R
 import yat.android.databinding.YatLibOutcomingTransactionActivityBinding
+import yat.android.lib.YatIntegration
 import yat.android.ui.extension.HtmlHelper
 import yat.android.ui.extension.ResourceHelper
+import yat.android.ui.extension.serializable
 import kotlin.math.sqrt
 
 
@@ -34,14 +37,25 @@ open class YatLibOutcomingTransactionActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        val payload = intent.serializable<YatLibOutcomingTransactionData>(dataKey)
+
+
+        // handle the case when the activity is started without the library being initialized (e.g. from ABD command
+        // or from third-party app)
+        if (YatIntegration.isInitialized.not() || payload == null) {
+            Log.e(this::class.java.simpleName, "YatIntegration is not initialized or payload is null. Finishing activity.")
+            finish()
+            return
+        }
+
         ui = YatLibOutcomingTransactionActivityBinding.inflate(layoutInflater)
-        onBackPressedDispatcher.addCallback(this, object: OnBackPressedCallback(true) {
+        onBackPressedDispatcher.addCallback(this, object : OnBackPressedCallback(true) {
             override fun handleOnBackPressed() {
                 showCircularRevealFromCenter(ui.yatLibRootReveal, false)
             }
         })
         setContentView(ui.root)
-        setupData(intent.getSerializableExtra(dataKey) as YatLibOutcomingTransactionData)
+        setupData(payload)
         window?.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
         overridePendingTransition(0, 0)
         viewModel.state.observe(this) { processTransactionState(it) }
@@ -60,7 +74,9 @@ open class YatLibOutcomingTransactionActivity : AppCompatActivity() {
             val width = ui.yatLibMainInfo.paint.measureText(spannedText, 0, spannedText.length)
             val viewWidth = ui.yatLibMainInfo.width
             if (width > viewWidth + 350) {
-                spannedText = HtmlHelper.getSpannedText(getString(R.string.yat_lib_transaction_outcoming_text_long_pattern, formattedWithCurrency, data.yat))
+                spannedText = HtmlHelper.getSpannedText(
+                    getString(R.string.yat_lib_transaction_outcoming_text_long_pattern, formattedWithCurrency, data.yat)
+                )
             }
             ui.yatLibMainInfo.text = spannedText
         }
