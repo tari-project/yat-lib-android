@@ -12,22 +12,23 @@ This repository contains an example app module named `yat-lib-example` that illu
 
 https://jitpack.io/#yat-labs/yat-lib-android
 
-1. Add the JitPack repository in your root `build.gradle` at the end of repositories:
+1. Add the JitPack repository in your `settings.gradle` as the last item of repositories:
 
     ```gradle
-    allprojects {
-        repositories {
-            // ...
-            maven { url 'https://jitpack.io' }
-        }
-    }
+   dependencyResolutionManagement {
+      repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+      repositories {
+         // your other repositories ...
+         maven { url "https://jitpack.io" }
+      }
+   }
     ```
 
-2. Add the dependency (check the latest version on [the JitPack page](https://jitpack.io/#yat-labs/yat-lib-android)) in your app `build.gradle` file
+2. Add the dependency (check the latest version on [the JitPack page](https://jitpack.io/#tari-project/yat-lib-android)) in your app `build.gradle` file
 
     ```gradle
     dependencies {
-        implementation 'com.github.yat-labs:yat-lib-android:0.2.8'
+        implementation 'com.github.tari-project:yat-lib-android:0.4.1'
     }
    ```
 
