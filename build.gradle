@@ -3,7 +3,7 @@ buildscript {
     ext.agp_version = "8.2.2"
     ext.kotlin_version = "1.9.22"
 
-    ext.versionNumber = "0.4.0"
+    ext.versionNumber = "0.4.1"
 
     repositories {
         google()
