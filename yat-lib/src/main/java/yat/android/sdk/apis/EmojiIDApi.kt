@@ -61,7 +61,7 @@ class EmojiIDApi : ApiClient() {
      * @throws ServerException If the API returns a server error response
      */
     @Throws(UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun editEmojiID(emojiId: String, body: EditRequest): Any {
+    suspend fun editEmojiID(emojiId: String, body: EditRequest): Any {
         val localVariableBody: Any = body
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
@@ -110,7 +110,7 @@ class EmojiIDApi : ApiClient() {
      * @throws ServerException If the API returns a server error response
      */
     @Throws(UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun emojiIDMetadata(emojiId: String): ShapeMatch {
+    suspend fun emojiIDMetadata(emojiId: String): ShapeMatch {
         val localVariableBody: Any? = null
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
@@ -160,7 +160,7 @@ class EmojiIDApi : ApiClient() {
      * @throws ServerException If the API returns a server error response
      */
     @Throws(UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun generateSignature(emojiId: String, body: SignatureRequest): SignatureResponse {
+    suspend fun generateSignature(emojiId: String, body: SignatureRequest): SignatureResponse {
         val localVariableBody: Any = body
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
@@ -209,7 +209,7 @@ class EmojiIDApi : ApiClient() {
      * @throws ServerException If the API returns a server error response
      */
     @Throws(UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun getStats(eid: String): EmojiStatsResponse {
+    suspend fun getStats(eid: String): EmojiStatsResponse {
         val localVariableBody: Any? = null
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
@@ -259,7 +259,7 @@ class EmojiIDApi : ApiClient() {
      * @throws ServerException If the API returns a server error response
      */
     @Throws(UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun linkRedirect(emojiId: String, link: String) {
+    suspend fun linkRedirect(emojiId: String, link: String) {
         val localVariableBody: Any? = null
         val localVariableQuery: MultiValueMap = mutableMapOf<String, List<String>>()
             .apply {
@@ -316,7 +316,7 @@ class EmojiIDApi : ApiClient() {
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun listEmojiIDs(organizationId: java.util.UUID?, userId: java.util.UUID?): List<String> {
+    suspend fun listEmojiIDs(organizationId: java.util.UUID?, userId: java.util.UUID?): List<String> {
         val localVariableBody: Any? = null
         val localVariableQuery: MultiValueMap = mutableMapOf<String, List<String>>()
             .apply {
@@ -365,7 +365,7 @@ class EmojiIDApi : ApiClient() {
 
     /**
      * List extended view user's Emoji Ids
-     * Will return list of user's Emoji Ids with canonical and display representation. Display representation is Emoji Id with applied modifiers. If 
+     * Will return list of user's Emoji Ids with canonical and display representation. Display representation is Emoji Id with applied modifiers. If
      * no parameters provided will return all Emoji Ids of the current user. When `user_id` or `organization_id` is specified the endpoint will return
      * the Emoji Ids owned by the specified user or organization, requires Admin or organization power user access.
      * @param organizationId Lookup emojis owned by `organization_id`,  requires organization power user role (optional)
@@ -377,7 +377,7 @@ class EmojiIDApi : ApiClient() {
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun listExtended(organizationId: java.util.UUID?, userId: java.util.UUID?): List<EmojiListItem> {
+    suspend fun listExtended(organizationId: java.util.UUID?, userId: java.util.UUID?): List<EmojiListItem> {
         val localVariableBody: Any? = null
         val localVariableQuery: MultiValueMap = mutableMapOf<String, List<String>>()
             .apply {
@@ -426,7 +426,7 @@ class EmojiIDApi : ApiClient() {
 
     /**
      * Load value from EmojiId key value store
-     * Any data stored previously can be retrieved as a json object in EmojiID key value store. In the case when there was no data associated with 
+     * Any data stored previously can be retrieved as a json object in EmojiID key value store. In the case when there was no data associated with
      * EmojiID key before it will return empty object. User should have `AdminEmojiWrite` scope or own emoji
      * @param eid EmojiID
      * @param key Key to store data
@@ -436,7 +436,7 @@ class EmojiIDApi : ApiClient() {
      * @throws ServerException If the API returns a server error response
      */
     @Throws(UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun loadJson(eid: String, key: String): LoadJsonResponse {
+    suspend fun loadJson(eid: String, key: String): LoadJsonResponse {
         val localVariableBody: Any? = null
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
@@ -477,7 +477,7 @@ class EmojiIDApi : ApiClient() {
 
     /**
      * Load value from EmojiId key value store with data keyed by YatJsonStoreKeys
-     * Any data stored previously can be retrieved as a json object in EmojiID key value store. In the case when there was no data associated with 
+     * Any data stored previously can be retrieved as a json object in EmojiID key value store. In the case when there was no data associated with
      * EmojiID key before it will return empty object. User should have `AdminEmojiWrite` scope or own emoji
      * @param eid
      * @param keys Key to store data
@@ -488,7 +488,7 @@ class EmojiIDApi : ApiClient() {
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun loadJsonIndex(eid: String, keys: List<String>): Map<String, LoadJsonResponse> {
+    suspend fun loadJsonIndex(eid: String, keys: List<String>): Map<String, LoadJsonResponse> {
         val localVariableBody: Any? = null
         val localVariableQuery: MultiValueMap = mutableMapOf<String, List<String>>()
             .apply {
@@ -543,7 +543,7 @@ class EmojiIDApi : ApiClient() {
      * @throws ServerException If the API returns a server error response
      */
     @Throws(UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun lookupEmojiID(emojiId: String, tags: String?): LookupResponse {
+    suspend fun lookupEmojiID(emojiId: String, tags: String?): LookupResponse {
         val localVariableBody: Any? = null
         val localVariableQuery: MultiValueMap = mutableMapOf<String, List<String>>()
             .apply {
@@ -598,7 +598,7 @@ class EmojiIDApi : ApiClient() {
      * @throws ServerException If the API returns a server error response
      */
     @Throws(UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun lookupEmojiIDPayment(emojiId: String, tags: String?): PaymentAddressResponse {
+    suspend fun lookupEmojiIDPayment(emojiId: String, tags: String?): PaymentAddressResponse {
         val localVariableBody: Any? = null
         val localVariableQuery: MultiValueMap = mutableMapOf<String, List<String>>()
             .apply {
@@ -653,7 +653,7 @@ class EmojiIDApi : ApiClient() {
      * @throws ServerException If the API returns a server error response
      */
     @Throws(UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun lookupEmojiIdTicker(emojiId: String, tag: String): EidResponse {
+    suspend fun lookupEmojiIdTicker(emojiId: String, tag: String): EidResponse {
         val localVariableBody: Any? = null
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
@@ -702,7 +702,7 @@ class EmojiIDApi : ApiClient() {
      * @throws ServerException If the API returns a server error response
      */
     @Throws(UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun metadata(tokenId: Long): Metadata {
+    suspend fun metadata(tokenId: Long): Metadata {
         val localVariableBody: Any? = null
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
@@ -750,7 +750,7 @@ class EmojiIDApi : ApiClient() {
      * @throws ServerException If the API returns a server error response
      */
     @Throws(UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun random(): RandomResult {
+    suspend fun random(): RandomResult {
         val localVariableBody: Any? = null
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
@@ -798,7 +798,7 @@ class EmojiIDApi : ApiClient() {
      * @throws ServerException If the API returns a server error response
      */
     @Throws(UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun recent(): RecentlyPurchasedResult {
+    suspend fun recent(): RecentlyPurchasedResult {
         val localVariableBody: Any? = null
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
@@ -848,7 +848,7 @@ class EmojiIDApi : ApiClient() {
      * @throws ServerException If the API returns a server error response
      */
     @Throws(UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun rhythm(emojiId: String): RhythmResponse {
+    suspend fun rhythm(emojiId: String): RhythmResponse {
         val localVariableBody: Any? = null
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
@@ -897,7 +897,7 @@ class EmojiIDApi : ApiClient() {
      * @throws ServerException If the API returns a server error response
      */
     @Throws(UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun searchEmojiID(emojiId: String): SearchResult {
+    suspend fun searchEmojiID(emojiId: String): SearchResult {
         val localVariableBody: Any? = null
         val localVariableQuery: MultiValueMap = mutableMapOf<String, List<String>>()
             .apply { put("emoji_id", listOf(emojiId)) }
@@ -952,7 +952,7 @@ class EmojiIDApi : ApiClient() {
      * @throws ServerException If the API returns a server error response
      */
     @Throws(UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun storeJson(eid: String, key: String, body: StoreJsonBody) {
+    suspend fun storeJson(eid: String, key: String, body: StoreJsonBody) {
         val localVariableBody: Any = body
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()

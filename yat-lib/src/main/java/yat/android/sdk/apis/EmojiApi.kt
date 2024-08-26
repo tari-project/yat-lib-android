@@ -40,7 +40,7 @@ class EmojiApi : ApiClient() {
      */
     @Suppress("UNCHECKED_CAST")
     @Throws(UnsupportedOperationException::class, ClientException::class, ServerException::class)
-    fun emojiList(): List<String> {
+    suspend fun emojiList(): List<String> {
         val localVariableBody: Any? = null
         val localVariableQuery: MultiValueMap = mutableMapOf()
         val localVariableHeaders: MutableMap<String, String> = mutableMapOf()
@@ -78,5 +78,4 @@ class EmojiApi : ApiClient() {
             }
         }
     }
-
 }
