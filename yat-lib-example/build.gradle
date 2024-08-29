@@ -1,3 +1,6 @@
+import java.nio.file.Files
+import java.nio.file.Paths
+
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
@@ -12,6 +15,11 @@ android {
         targetSdkVersion 34
         compileSdk 34
         versionName versionNumber
+
+        def yatProperties = loadYatProps()
+        buildConfigField("String", "YAT_ORGANIZATION_NAME", "\"${yatProperties.getProperty("yat.name")}\"")
+        buildConfigField("String", "YAT_ORGANIZATION_KEY", "\"${yatProperties.getProperty("yat.key")}\"")
+        buildConfigField("String", "YAT_ORGANIZATION_RETURN_URL", "\"${yatProperties.getProperty("yat.returnUrl")}\"")
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -29,7 +37,25 @@ android {
 
     buildFeatures {
         viewBinding true
+        buildConfig true
     }
+}
+
+Properties loadProps(fileName) {
+    final File props = project.rootProject.file(fileName + ".properties")
+    if (!props.exists()) {
+        Files.copy(
+                Paths.get(project.rootProject.file(fileName + "-example.properties").absolutePath),
+                Paths.get(props.absolutePath),
+        )
+    }
+    final Properties properties = new Properties()
+    properties.load(props.newDataInputStream())
+    return properties
+}
+
+Properties loadYatProps() {
+    return loadProps("yat")
 }
 
 dependencies {
