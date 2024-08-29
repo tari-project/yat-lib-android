@@ -87,7 +87,7 @@ internal class MainActivity : AppCompatActivity(), YatIntegration.Delegate {
     private fun testIncomingTx() {
         YatIntegration.processDeepLink(
             context = this,
-            deepLink = Uri.parse("tari://y.at?action?eid=%F0%9F%98%82%F0%9F%98%87%F0%9F%99%83%F0%9F%98%8D%F0%9F%A4%96&refresh_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkMzlmYThhZS0xNTlkLTRkOGYtOTRhYi0zY2Q5OTRjODkyOGQiLCJpc3MiOiJ5YXQiLCJleHAiOjE2NDQxNDYxMjEsInNjb3BlcyI6WyJ0b2tlbjpyZWZyZXNoIl0sImlzc3VlZCI6MTY0MTQ2NzcyMSwiYWN0aXZlMmZhIjowfQ.6v-7IzmpIvMmyPjNZhwR9UDm_Dq-8OsioFA2xkQF4sI")
+            deepLink = Uri.parse("tari://y.at?action=connect&eid=%F0%9F%A5%9A%F0%9F%91%8D%E2%9D%97%F0%9F%A7%A0%F0%9F%8D%95%F0%9F%A7%B2&refresh_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJlbW9qaS1pZC10b2tlbi1pc3N1ZXIiLCJzdWIiOiJhZWIzMzYxOS0wYmYyLTQwZTUtYWJjYS02MzI3M2Q2ZDgzMTEiLCJleHAiOjE3MjU1MzE2NDksImlhdCI6MTcyNDkyNjg0OSwic2NvcGVzIjpbInRva2VuOnJlZnJlc2giXSwiYWN0aXZlMmZhIjowLCJodHRwczovL2hhc3VyYS5pby9qd3QvY2xhaW1zIjp7IngtaGFzdXJhLWRlZmF1bHQtcm9sZSI6InVzZXIiLCJ4LWhhc3VyYS1hbGxvd2VkLXJvbGVzIjpbInVzZXIiLCJhZG1pbiJdLCJ4LWhhc3VyYS11c2VyLWlkIjoiYWViMzM2MTktMGJmMi00MGU1LWFiY2EtNjMyNzNkNmQ4MzExIn19.uek-qF_GVQ_0305k8Wj6bVHXl6dZ1mgWEE0AMGijDLM")
         )
     }
 
@@ -107,30 +107,32 @@ internal class MainActivity : AppCompatActivity(), YatIntegration.Delegate {
 
     private fun testGetYat() {
         val yatRecords = listOf(
-//        YatRecord(
-//            type = YatRecordType.ADA_ADDRESS,
-//            data = "DdzFFzCqrhsgwQmeWNBTsG8VjYunBLK9GNR93GSLTGj1FeMm8kFoby2cTHxEHBEraHQXmgTtFGz7fThjDRNNvwzcaw6fQdkYySBneRas",
-//        ),
-//        YatRecord(
-//            type = YatRecordType.DOT_ADDRESS,
-//            data = "GC8fuEZG4E5epGf5KGXtcDfvrc6HXE7GJ5YnbiqSpqdQYLg",
-//        ),
-//        YatRecord(
-//            type = YatRecordType.BTC_ADDRESS,
-//            data = "1NDyJtNTjmwk5xPNhjgAMu4HDHigtobu1s",
-//        ),
-//        YatRecord(
-//            type = YatRecordType.ETH_ADDRESS,
-//            data = "108dEFa0272dC118EF03a7993e4fC7A8AcF3a3d1",
-//        ),
-//        YatRecord(
-//            type = YatRecordType.XTR_PUBLICKEY,
-//            data = "d2e4db6dac593a9af36987a35676838ede4f69684ba433baeed68bce048e111b",
-//        ),
-//        YatRecord(
-//            type = YatRecordType.XMR_STANDARD_ADDRESS,
-//            data = "4AdUndXHHZ6cfufTMvppY6JwXNouMBzSkbLYfpAV5Usx3skxNgYeYTRj5UzqtReoS44qo9mtmXCqY45DJ852K5Jv2684Rge",
-//        ),
+//            You can use any record types for associating them with Yat
+//
+//            YatRecord(
+//                type = YatRecordType.ADA_ADDRESS,
+//                data = "DdzFFzCqrhsgwQmeWNBTsG8VjYunBLK9GNR93GSLTGj1FeMm8kFoby2cTHxEHBEraHQXmgTtFGz7fThjDRNNvwzcaw6fQdkYySBneRas",
+//            ),
+//            YatRecord(
+//                type = YatRecordType.DOT_ADDRESS,
+//                data = "GC8fuEZG4E5epGf5KGXtcDfvrc6HXE7GJ5YnbiqSpqdQYLg",
+//            ),
+//            YatRecord(
+//                type = YatRecordType.BTC_ADDRESS,
+//                data = "1NDyJtNTjmwk5xPNhjgAMu4HDHigtobu1s",
+//            ),
+//            YatRecord(
+//                type = YatRecordType.ETH_ADDRESS,
+//                data = "108dEFa0272dC118EF03a7993e4fC7A8AcF3a3d1",
+//            ),
+//            YatRecord(
+//                type = YatRecordType.XTR_PUBLICKEY,
+//                data = "d2e4db6dac593a9af36987a35676838ede4f69684ba433baeed68bce048e111b",
+//            ),
+//            YatRecord(
+//                type = YatRecordType.XMR_STANDARD_ADDRESS,
+//                data = "4AdUndXHHZ6cfufTMvppY6JwXNouMBzSkbLYfpAV5Usx3skxNgYeYTRj5UzqtReoS44qo9mtmXCqY45DJ852K5Jv2684Rge",
+//            ),
             YatRecord(
                 type = YatRecordType.XTM_ADDRESS,
                 data = "f473irukvRHqfaLoQjCDtCRX4MmhGeLBkS1QMBuCkRDjHJuWY3WNgSg8vD1oZwbq4JhCQsQagxK5ufMYRNPgTqeDb38",
