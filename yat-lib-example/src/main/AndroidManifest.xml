@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <uses-permission android:name="android.permission.POST_NOTIFICATIONS"/>
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
 
     <application
         android:allowBackup="false"
@@ -28,14 +28,18 @@
 
                 <data
                     android:host="y.at"
-                    android:scheme="brd" />
+                    android:scheme="tari" />
+
+                <data
+                    android:host="yat.fyi"
+                    android:scheme="tari" />
             </intent-filter>
         </activity>
 
         <activity
-            android:exported="true"
             android:name=".OutcomingTransactionExampleActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
             android:screenOrientation="portrait"
             android:theme="@style/YatLibTheme.TransparentCompat"
             android:windowSoftInputMode="stateAlwaysHidden" />

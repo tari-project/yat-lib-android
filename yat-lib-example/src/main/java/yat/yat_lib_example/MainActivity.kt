@@ -87,7 +87,7 @@ internal class MainActivity : AppCompatActivity(), YatIntegration.Delegate {
     private fun testIncomingTx() {
         YatIntegration.processDeepLink(
             context = this,
-            deepLink = Uri.parse("tari://y.at?action?eid=%F0%9F%98%82%F0%9F%98%87%F0%9F%99%83%F0%9F%98%8D%F0%9F%A4%96&refresh_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJkMzlmYThhZS0xNTlkLTRkOGYtOTRhYi0zY2Q5OTRjODkyOGQiLCJpc3MiOiJ5YXQiLCJleHAiOjE2NDQxNDYxMjEsInNjb3BlcyI6WyJ0b2tlbjpyZWZyZXNoIl0sImlzc3VlZCI6MTY0MTQ2NzcyMSwiYWN0aXZlMmZhIjowfQ.6v-7IzmpIvMmyPjNZhwR9UDm_Dq-8OsioFA2xkQF4sI")
+            deepLink = Uri.parse("tari://yat.fyi?action=connect&eid=%F0%9F%A5%9A%F0%9F%91%8D%E2%9D%97%F0%9F%A7%A0%F0%9F%8D%95%F0%9F%A7%B2&refresh_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJlbW9qaS1pZC10b2tlbi1pc3N1ZXIiLCJzdWIiOiJhZWIzMzYxOS0wYmYyLTQwZTUtYWJjYS02MzI3M2Q2ZDgzMTEiLCJleHAiOjE3MjU1MzE2NDksImlhdCI6MTcyNDkyNjg0OSwic2NvcGVzIjpbInRva2VuOnJlZnJlc2giXSwiYWN0aXZlMmZhIjowLCJodHRwczovL2hhc3VyYS5pby9qd3QvY2xhaW1zIjp7IngtaGFzdXJhLWRlZmF1bHQtcm9sZSI6InVzZXIiLCJ4LWhhc3VyYS1hbGxvd2VkLXJvbGVzIjpbInVzZXIiLCJhZG1pbiJdLCJ4LWhhc3VyYS11c2VyLWlkIjoiYWViMzM2MTktMGJmMi00MGU1LWFiY2EtNjMyNzNkNmQ4MzExIn19.uek-qF_GVQ_0305k8Wj6bVHXl6dZ1mgWEE0AMGijDLM")
         )
     }
 
