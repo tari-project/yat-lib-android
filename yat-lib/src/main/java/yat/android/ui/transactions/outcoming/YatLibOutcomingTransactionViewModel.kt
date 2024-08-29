@@ -9,7 +9,7 @@ import java.io.File
 import java.util.logging.Level
 import java.util.logging.Logger
 
-class YatLibOutcomingTransactionViewModel() : ViewModel() {
+class YatLibOutcomingTransactionViewModel : ViewModel() {
 
     private val visualizerService: YatVisualizerService = YatVisualizerService()
 

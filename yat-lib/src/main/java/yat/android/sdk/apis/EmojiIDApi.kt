@@ -589,7 +589,12 @@ class EmojiIDApi : ApiClient() {
 
     /**
      * Lookup EmojiId Payment addresses
-     * Will filter and return data from supplied tags, If tags filter is not supplied will return all payment tags attached. This method is called when a user wants to look up an Emoji ID's payment records and return a KV pair This endpoint returns a single result for each category type (except 0x6300) which it returns a unique 0x6300:short_name:settlement_network key instead. If there are multiple results for a crypto type it takes the most recent value unless there is a value that has the default flag set, in which case it uses the most recent default value.
+     * Will filter and return data from supplied tags, If tags filter is not supplied will return all payment tags attached. This method is called
+     * when a user wants to look up an Emoji ID's payment records and return a KV pair. This endpoint returns a single result for each
+     * category type (except 0x6300) which it returns a unique `0x6300:short_name:settlement_network` key instead. If there are multiple results for
+     * a crypto type it takes the most recent value unless there is a value that has the default flag set, in which case it uses the most recent
+     * default value.
+     *
      * @param emojiId
      * @param tags Comma-separated list of tags to display, skip it to display all, e.g. `?tags=0x0001,0x1001` (optional)
      * @return PaymentAddressResponse
@@ -624,19 +629,21 @@ class EmojiIDApi : ApiClient() {
             ResponseType.Redirection -> throw UnsupportedOperationException("Client does not support Redirection responses.")
             ResponseType.ClientError -> {
                 val localVarError = localVarResponse as ClientError<*>
+                val body = (localVarError.body as? String)?.let { "\n$it" } ?: ""
                 throw ClientException(
-                    "Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}",
-                    localVarError.statusCode,
-                    localVarResponse
+                    message = "Client error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} $body",
+                    statusCode = localVarError.statusCode,
+                    response = localVarResponse,
                 )
             }
 
             ResponseType.ServerError -> {
                 val localVarError = localVarResponse as ServerError<*>
+                val body = (localVarError.body as? String)?.let { "\n$it" } ?: ""
                 throw ServerException(
-                    "Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()}",
-                    localVarError.statusCode,
-                    localVarResponse
+                    message = "Server error : ${localVarError.statusCode} ${localVarError.message.orEmpty()} $body",
+                    statusCode = localVarError.statusCode,
+                    response = localVarResponse,
                 )
             }
         }

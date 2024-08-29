@@ -1,5 +1,11 @@
 package yat.android.ui.transactions.outcoming
 
-import java.io.Serializable
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
 
-data class YatLibOutcomingTransactionData(val amount: Double, val currency: String, val yat: String) : Serializable
+@Parcelize
+data class YatLibOutcomingTransactionData(
+    val amount: Double,
+    val currency: String,
+    val yat: String,
+) : Parcelable
