@@ -423,7 +423,7 @@ enum class YatRecordType {
 
     @Expose
     @SerializedName("0x0104")
-    XTR_ADDRESS_BASE58,
+    XTM_ADDRESS,
 
     @Expose
     @SerializedName("0x1030")

@@ -132,8 +132,8 @@ internal class MainActivity : AppCompatActivity(), YatIntegration.Delegate {
 //            data = "4AdUndXHHZ6cfufTMvppY6JwXNouMBzSkbLYfpAV5Usx3skxNgYeYTRj5UzqtReoS44qo9mtmXCqY45DJ852K5Jv2684Rge",
 //        ),
             YatRecord(
-                type = YatRecordType.XTR_ADDRESS_BASE58,
-                data = "f4HpQyCSTDdpfe9f45knED3kzfoNN1qrR3Ng2j7KdhcCfuxR65SGqiLLUU99bSFYtQj8JmfmJgYXgEp2uwhvUXDyAWh",
+                type = YatRecordType.XTM_ADDRESS,
+                data = "f473irukvRHqfaLoQjCDtCRX4MmhGeLBkS1QMBuCkRDjHJuWY3WNgSg8vD1oZwbq4JhCQsQagxK5ufMYRNPgTqeDb38",
             ),
         )
 
@@ -141,7 +141,7 @@ internal class MainActivity : AppCompatActivity(), YatIntegration.Delegate {
     }
 
     private fun testSearchYat(query: String) {
-        val tariTag = YatRecordType.XTR_ADDRESS_BASE58.serializedName
+        val tariTag = YatRecordType.XTM_ADDRESS.serializedName
 
         lifecycleScope.launch(Dispatchers.IO) {
             val statusText: String = try {
