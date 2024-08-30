@@ -28,7 +28,7 @@ https://jitpack.io/#yat-labs/yat-lib-android
 
     ```gradle
     dependencies {
-        implementation 'com.github.tari-project:yat-lib-android:0.4.1'
+        implementation 'com.github.tari-project:yat-lib-android:0.5.0'
     }
    ```
 
@@ -111,6 +111,15 @@ https://jitpack.io/#yat-labs/yat-lib-android
 
     }
     ```
+   
+   If you want to use the Sample Project and init Yat lib with your values, for your convenience, you can create the `yat.properties` file in the 
+   root of the project and add the following properties from the example:
+   
+   ```properties
+   yat.name=Yat Labs
+   yat.key=yat
+   yat.returnUrl=app://y.at?action
+   ```
 
 4. Add the code that handles deep links.
 
@@ -175,31 +184,25 @@ https://jitpack.io/#yat-labs/yat-lib-android
     }
     ```
 
-## Looking up a Yat (OUTDATED TBA)
+## Looking up a Yat
 
-Below is an example call to the `YatLib.lookupYat` function to query for the records linked to a Yat and print them.
+Below is an example call to the `YatLibApi.emojiIDApi.lookupEmojiIDPayment(query, tariTag)` function to query for the records linked to a Yat and print them.
 
-```kotlin
-private fun lookupYat(yat: String) {
-    YatLib.lookupYat(
-        yat,
-        onSuccess = { processLookupResponse(it) },
-        onError = { _, _ ->
-            val errorMessage = resources.getString(R.string.error_yat_lookup)
-            displayErrorDialog(errorMessage)
-        }
-    )
-}
-
-private fun processLookupResponse(lookupResponse: YatLookupResponse) {
-    for (record in lookupResponse.yatRecords) {
-        val shortAddress =
-            record.data.substring(0, 4) +
-                    "..." +
-                    record.data.substring(record.data.length - 4, record.data.length)
-        println("${record.type} : $shortAddress")
-    }
-    ui.yatRecordsTitleTextView.visibility = View.VISIBLE
-    ui.yatRecordsTextView.text = records
-}
-```
+   ```kotlin
+   import javax.swing.text.View
+   
+   private fun lookupYat(yat: String) {
+      val tariTag = YatRecordType.XTM_ADDRESS.serializedName // for looking up XTM addresses only
+      
+      val response = YatLibApi.emojiIDApi.lookupEmojiIDPayment(yat, tariTag)
+      
+      if (response.status) {
+         val result = response.result
+            ?.map { it.key + ": " + it.value.address }
+            ?.joinToString("\n\n")
+         println(result)
+      } else { 
+         println("Error:" + response.error?.reason)
+      }
+   }
+   ```
