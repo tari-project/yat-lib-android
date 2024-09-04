@@ -25,8 +25,8 @@ import yat.android.R
 import yat.android.databinding.YatLibOutcomingTransactionActivityBinding
 import yat.android.lib.YatIntegration
 import yat.android.ui.extension.HtmlHelper
-import yat.android.ui.extension.ResourceHelper
-import yat.android.ui.extension.serializable
+import yat.android.ui.extension.dpToPx
+import yat.android.ui.extension.parcelable
 import kotlin.math.sqrt
 
 
@@ -37,7 +37,7 @@ open class YatLibOutcomingTransactionActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val payload = intent.serializable<YatLibOutcomingTransactionData>(dataKey)
+        val payload = intent.parcelable<YatLibOutcomingTransactionData>(DATA_KEY)
 
 
         // handle the case when the activity is started without the library being initialized (e.g. from ABD command
@@ -107,7 +107,7 @@ open class YatLibOutcomingTransactionActivity : AppCompatActivity() {
                 endRadius
             )
                 .apply {
-                    duration = startUpAnimationDuration
+                    duration = START_UP_ANIMATION_DURATION
                     addListener(object : DefaultListener() {
                         override fun onAnimationEnd(p0: Animator) = onCircularRevealAnimationEnd(isStraight)
                     })
@@ -128,14 +128,14 @@ open class YatLibOutcomingTransactionActivity : AppCompatActivity() {
                     showVideoByUrl(it.localFile)
                     showVideoAnimated(it)
                 } else {
-                    yatLibProgressBar.postDelayed({ showSent() }, artificialDelayBeforeSuccess)
+                    yatLibProgressBar.postDelayed({ showSent() }, ARTIFICIAL_DELAY_BEFORE_SUCCESS)
                 }
             }
         }
     }
 
     private fun showVideoByUrl(url: String) = with(ui) {
-        yatLibVideo.animate().alpha(1F).setDuration(successAppearingAnimationDuration).start()
+        yatLibVideo.animate().alpha(1F).setDuration(SUCCESS_APPEARING_ANIMATION_DURATION).start()
         try {
             MediaPlayer().apply {
                 setDataSource(url)
@@ -153,17 +153,15 @@ open class YatLibOutcomingTransactionActivity : AppCompatActivity() {
 
 
     private fun showVideoAnimated(video: YatVideo) {
+        val context = this
         ConstraintSet().apply {
-            val bottomMargin = ResourceHelper.dpToPx(
-                this@YatLibOutcomingTransactionActivity,
-                resources.getDimension(R.dimen.yat_lib_outgoing_transaction_bottom_margin)
-            )
+            val bottomMargin = resources.getDimension(R.dimen.yat_lib_outgoing_transaction_bottom_margin).dpToPx(context)
             clone(ui.yatLibRootContainer)
             clear(R.id.yat_lib_main_info_container, ConstraintSet.TOP)
             clear(R.id.yat_lib_main_info_container, ConstraintSet.BOTTOM)
             connect(R.id.yat_lib_main_info_container, ConstraintSet.BOTTOM, ConstraintSet.PARENT_ID, ConstraintSet.BOTTOM, bottomMargin.toInt())
             val transition = AutoTransition().apply {
-                duration = showVideoAnimationDuration
+                duration = SHOW_VIDEO_ANIMATION_DURATION
             }
 
             val isSquare = video !is YatVideo.Vertical
@@ -177,7 +175,7 @@ open class YatLibOutcomingTransactionActivity : AppCompatActivity() {
                 setDimensionRatio(R.id.yat_lib_video, "1:1")
             } else {
                 videoLayoutParams.height = ActionBar.LayoutParams.WRAP_CONTENT
-                videoLayoutParams.bottomMargin = ResourceHelper.dpToPx(this@YatLibOutcomingTransactionActivity, 50F).toInt()
+                videoLayoutParams.bottomMargin = 50F.dpToPx(context).toInt()
                 clear(R.id.yat_lib_video, ConstraintSet.BOTTOM)
                 connect(R.id.yat_lib_video, ConstraintSet.BOTTOM, R.id.yat_lib_main_info_container, ConstraintSet.BOTTOM)
                 setDimensionRatio(R.id.yat_lib_video, "")
@@ -189,32 +187,31 @@ open class YatLibOutcomingTransactionActivity : AppCompatActivity() {
         }
     }
 
-
     private fun showFailed() {
         ui.yatLibSuccessfulTextView.setText(R.string.yat_lib_transaction_outcoming_failed)
         showSent()
     }
 
     private fun showSent() = with(ui) {
-        yatLibSuccessfulText.animate().alpha(1F).setDuration(successAppearingAnimationDuration).start()
-        yatLibVideo.animate().alpha(0F).setDuration(successAppearingAnimationDuration).start()
-        yatLibMainInfoContainer.animate().alpha(0f).setDuration(successAppearingAnimationDuration).setListener(object : DefaultListener() {
+        yatLibSuccessfulText.animate().alpha(1F).setDuration(SUCCESS_APPEARING_ANIMATION_DURATION).start()
+        yatLibVideo.animate().alpha(0F).setDuration(SUCCESS_APPEARING_ANIMATION_DURATION).start()
+        yatLibMainInfoContainer.animate().alpha(0f).setDuration(SUCCESS_APPEARING_ANIMATION_DURATION).setListener(object : DefaultListener() {
             override fun onAnimationEnd(p0: Animator) {
                 yatLibRootContainer.postDelayed({
                     showCircularRevealFromCenter(ui.yatLibRootReveal, false)
-                }, artificialDelayDuringSuccess)
+                }, ARTIFICIAL_DELAY_DURING_SUCCESS)
             }
         }).start()
     }
 
     companion object {
-        private const val dataKey = "YatLibDataKey"
+        const val DATA_KEY = "YatLibDataKey"
 
-        private const val startUpAnimationDuration = 800L
-        private const val showVideoAnimationDuration = 1000L
-        private const val artificialDelayBeforeSuccess = 6000L
-        private const val successAppearingAnimationDuration = 1000L
-        private const val artificialDelayDuringSuccess = 1000L
+        private const val START_UP_ANIMATION_DURATION = 800L
+        private const val SHOW_VIDEO_ANIMATION_DURATION = 1000L
+        private const val ARTIFICIAL_DELAY_BEFORE_SUCCESS = 6000L
+        private const val SUCCESS_APPEARING_ANIMATION_DURATION = 1000L
+        private const val ARTIFICIAL_DELAY_DURING_SUCCESS = 1000L
 
         fun <T : YatLibOutcomingTransactionActivity> start(
             context: Activity,
@@ -222,7 +219,7 @@ open class YatLibOutcomingTransactionActivity : AppCompatActivity() {
             type: Class<T>
         ) {
             val intent = Intent(context, type)
-            intent.putExtra(dataKey, outcomingTransactionData)
+            intent.putExtra(DATA_KEY, outcomingTransactionData)
             intent.flags = Intent.FLAG_ACTIVITY_NO_ANIMATION
             context.startActivity(intent, ActivityOptions.makeSceneTransitionAnimation(context).toBundle())
         }

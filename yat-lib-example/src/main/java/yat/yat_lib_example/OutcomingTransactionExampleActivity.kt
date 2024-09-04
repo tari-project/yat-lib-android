@@ -8,7 +8,7 @@ import kotlinx.coroutines.launch
 import yat.android.ui.transactions.outcoming.TransactionState
 import yat.android.ui.transactions.outcoming.YatLibOutcomingTransactionActivity
 
-class OutcomingTransactionExampleActivity() : YatLibOutcomingTransactionActivity() {
+class OutcomingTransactionExampleActivity : YatLibOutcomingTransactionActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         lifecycleScope.launch(Dispatchers.IO) {
