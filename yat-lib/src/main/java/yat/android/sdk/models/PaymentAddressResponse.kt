@@ -23,11 +23,11 @@ import java.io.Serializable
 
 data class PaymentAddressResponse (
     @Json(name = "status")
-    val status: Boolean,
+    val status: kotlin.Boolean,
     @Json(name = "error")
     val error: EidResponseError? = null,
     @Json(name = "result")
-    val result: Map<String, PaymentAddressResponseResult>? = null
+    val result: kotlin.collections.Map<kotlin.String, PaymentAddressResponseResult>? = null
 ) : Serializable {
     companion object {
         private const val serialVersionUID: Long = 123

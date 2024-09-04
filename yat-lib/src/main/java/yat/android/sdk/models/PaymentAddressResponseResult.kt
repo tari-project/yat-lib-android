@@ -30,7 +30,7 @@ import java.io.Serializable
 data class PaymentAddressResponseResult(
     /* The payment address */
     @Json(name = "address")
-    val address: String,
+    val address: kotlin.String,
     /* The category of this address */
     @Json(name = "category")
     val category: String,

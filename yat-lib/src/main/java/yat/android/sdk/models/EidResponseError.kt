@@ -24,9 +24,9 @@ import java.io.Serializable
 data class EidResponseError (
     /* Error code */
     @Json(name = "code")
-    val code: String,
+    val code: kotlin.String,
     @Json(name = "reason")
-    val reason: String
+    val reason: kotlin.String
 ) : Serializable {
     companion object {
         private const val serialVersionUID: Long = 123
