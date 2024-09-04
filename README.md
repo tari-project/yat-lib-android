@@ -111,15 +111,6 @@ https://jitpack.io/#yat-labs/yat-lib-android
 
     }
     ```
-   
-   If you want to use the Sample Project and init Yat lib with your values, for your convenience, you can create the `yat.properties` file in the 
-   root of the project and add the following properties from the example:
-   
-   ```properties
-   yat.name=Yat Labs
-   yat.key=yat
-   yat.returnUrl=app://y.at?action
-   ```
 
 4. Add the code that handles deep links.
 

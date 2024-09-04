@@ -36,9 +36,9 @@ internal class MainActivity : AppCompatActivity(), YatIntegration.Delegate {
 
     private fun initializeYatLib() {
         val config = YatConfiguration(
-            appReturnLink = BuildConfig.YAT_ORGANIZATION_RETURN_URL,
-            organizationName = BuildConfig.YAT_ORGANIZATION_NAME,
-            organizationKey = BuildConfig.YAT_ORGANIZATION_KEY,
+            organizationName = "",
+            organizationKey = "",
+            appReturnLink = "tari://y.at?action"
         )
 
         YatIntegration.setup(
